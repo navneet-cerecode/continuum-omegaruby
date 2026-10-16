@@ -12,7 +12,7 @@ The frontend redesign includes responsive context, dependency investigation and 
 
 ## Run locally
 
-Public source: [navneet-cerecode/continuum-omegaruby](https://github.com/navneet-cerecode/continuum-omegaruby). Team **OmegaRuby**, Track 3 — Company Brain. Release assets include the recorded local demo and reviewable source archive.
+Public source: [navneet-cerecode/continuum-omegaruby](https://github.com/navneet-cerecode/continuum-omegaruby). Team **OmegaRuby**, Track 3 — Company Brain. [Release v0.2.0](https://github.com/navneet-cerecode/continuum-omegaruby/releases/tag/v0.2.0) includes the recorded demo, reviewable source archive and verification report. Uploaded assets were downloaded again and their SHA-256 hashes verified.
 
 Windows setup helper: start FalkorDB, then run `scripts\setup-native.ps1`. It installs the locks, builds the UI and seeds the graph. See [release verification](docs/RELEASE.md) for fresh-archive setup evidence.
 

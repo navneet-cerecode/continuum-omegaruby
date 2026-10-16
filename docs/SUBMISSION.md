@@ -15,6 +15,6 @@ FalkorDB is essential: dependency traversal, source retrieval, ownership, histor
 **Status gates before submission:** consult VERIFICATION.md; participant contribution/understanding must be recorded; working video must be created; repository must be published with authorization. No repository URL, video URL or deployment URL has been fabricated.
 
 **Repository:** [navneet-cerecode/continuum-omegaruby](https://github.com/navneet-cerecode/continuum-omegaruby), explicitly authorized for public release.  
-**Video:** actual silent recording at `artifacts/CONTINUUM-OmegaRuby-demo.mp4`; available in the public repository and release assets. It is an automated walkthrough, not participant narration or proof of understanding.  
+**Video:** [working demo recording](https://github.com/navneet-cerecode/continuum-omegaruby/releases/download/v0.2.0/CONTINUUM-OmegaRuby-demo.mp4), 2 minutes 34 seconds, silent. It is an automated walkthrough, not participant narration or proof of understanding.  
 **Deployment:** local instructions supplied; no public deployment claim.  
 **AI assistance:** OpenAI Codex used for research, implementation, fixtures, testing and documentation. See CONTRIBUTIONS.md for actual participant log, which remains participant-owned.

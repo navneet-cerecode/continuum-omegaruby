@@ -1,0 +1,35 @@
+{
+  "verified_at": "2026-10-16T20:22:35.569927+00:00",
+  "repository": "https://github.com/navneet-cerecode/continuum-omegaruby",
+  "visibility": "PUBLIC",
+  "release": "https://github.com/navneet-cerecode/continuum-omegaruby/releases/tag/v0.2.0",
+  "tag": "v0.2.0",
+  "is_draft": false,
+  "assets": [
+    {
+      "name": "CONTINUUM-OmegaRuby-demo.mp4",
+      "bytes": 6274001,
+      "sha256": "f81476cb1f8bbf1c997704fa0c394a309fa99db7e67e340122b64560bbdcbf97",
+      "url": "https://github.com/navneet-cerecode/continuum-omegaruby/releases/download/v0.2.0/CONTINUUM-OmegaRuby-demo.mp4",
+      "download_verified": true
+    },
+    {
+      "name": "CONTINUUM-OmegaRuby-source.zip",
+      "bytes": 22645551,
+      "sha256": "eef6e3b2031761609477c0391376fc724ec89d28e44202beca24be2b2929153b",
+      "url": "https://github.com/navneet-cerecode/continuum-omegaruby/releases/download/v0.2.0/CONTINUUM-OmegaRuby-source.zip",
+      "download_verified": true
+    },
+    {
+      "name": "release-verification.json",
+      "bytes": 14201,
+      "sha256": "e410c0cdf1335a0da446a2344f3e423229f6ba31dd607f6b9856ac6774276e2a",
+      "url": "https://github.com/navneet-cerecode/continuum-omegaruby/releases/download/v0.2.0/release-verification.json",
+      "download_verified": true
+    }
+  ],
+  "ci": "https://github.com/navneet-cerecode/continuum-omegaruby/actions/runs/38960810628",
+  "tested_application_commit": "0ef36d2640be61a7c7f0e0b7e36cb247d948e85b",
+  "entry_submitted": false,
+  "participant_attestations_completed": false
+}
