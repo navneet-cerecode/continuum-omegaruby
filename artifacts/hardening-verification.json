@@ -1,0 +1,131 @@
+{
+  "generated_at": "2026-10-16T10:59:30.329640+00:00",
+  "product": "CONTINUUM",
+  "team": "OmegaRuby",
+  "scope": "First local-demo hardening pass",
+  "tests": {
+    "passed": 66,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 35.244,
+    "raw_result": "artifacts/pytest-hardening.xml"
+  },
+  "dependency_audits": {
+    "python_known_findings": 0,
+    "frontend_known_findings": 0,
+    "caveat": "Dated advisory inventories; not proof of security"
+  },
+  "browser": {
+    "verified_at": "2026-10-16T10:55:53.273Z",
+    "browser": "Installed Chrome",
+    "real_database": true,
+    "scenarios": [
+      {
+        "scenario": "preserved-demo",
+        "status": "review_required",
+        "page_errors": [],
+        "csp_violations": [],
+        "mobile_no_overflow": true,
+        "state_unchanged": true,
+        "api_responses": [
+          {
+            "path": "/api/health",
+            "status": 200
+          },
+          {
+            "path": "/api/overview",
+            "status": 200
+          },
+          {
+            "path": "/api/readiness",
+            "status": 200
+          },
+          {
+            "path": "/api/impact/approval-export",
+            "status": 200
+          },
+          {
+            "path": "/api/entities/decision-atlas",
+            "status": 200
+          }
+        ]
+      },
+      {
+        "scenario": "expired-security-evidence",
+        "status": "unknown",
+        "page_errors": [],
+        "csp_violations": [],
+        "mobile_no_overflow": true,
+        "state_unchanged": true,
+        "api_responses": [
+          {
+            "path": "/api/health",
+            "status": 200
+          },
+          {
+            "path": "/api/overview",
+            "status": 200
+          },
+          {
+            "path": "/api/readiness",
+            "status": 200
+          },
+          {
+            "path": "/api/entities/decision-atlas",
+            "status": 200
+          }
+        ]
+      }
+    ]
+  },
+  "state_preservation": {
+    "before": {
+      "actions": [
+        "action-change-export-withdrawn-decision-atlas",
+        "action-change-export-withdrawn-decision-export"
+      ],
+      "changes": [
+        "change-export-withdrawn"
+      ]
+    },
+    "migration": "Only missing required prerequisite/source authority fields added; revision advanced.",
+    "after": {
+      "actions": [
+        "action-change-export-withdrawn-decision-atlas",
+        "action-change-export-withdrawn-decision-export"
+      ],
+      "changes": [
+        "change-export-withdrawn"
+      ]
+    },
+    "existing_history_and_actions_preserved": true
+  },
+  "live_agent_runs": [
+    {
+      "scenario": "before",
+      "status": "passed",
+      "elapsed_ms": 9842.505,
+      "tools": [
+        "assess_launch_readiness"
+      ]
+    },
+    {
+      "scenario": "after",
+      "status": "passed",
+      "elapsed_ms": 6261.467,
+      "tools": [
+        "get_open_followups"
+      ]
+    }
+  ],
+  "remaining_limits": [
+    "Local only; no public authentication/authorization or tenant isolation",
+    "Curated metadata; natural-language entailment unverified",
+    "Per-document guarded imports; whole-fixture seeding is multiwrite",
+    "Unmanaged database races unsupported",
+    "Process-local single model slot",
+    "Bounded traversal and retrieval; no enterprise load benchmark",
+    "Security restoration workflow not implemented",
+    "Full Docker execution and clean install on another machine unverified"
+  ]
+}

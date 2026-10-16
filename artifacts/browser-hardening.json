@@ -1,0 +1,63 @@
+{
+  "verified_at": "2026-10-16T10:55:53.273Z",
+  "browser": "Installed Chrome",
+  "real_database": true,
+  "scenarios": [
+    {
+      "scenario": "preserved-demo",
+      "status": "review_required",
+      "page_errors": [],
+      "csp_violations": [],
+      "mobile_no_overflow": true,
+      "state_unchanged": true,
+      "api_responses": [
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/entities/decision-atlas",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "scenario": "expired-security-evidence",
+      "status": "unknown",
+      "page_errors": [],
+      "csp_violations": [],
+      "mobile_no_overflow": true,
+      "state_unchanged": true,
+      "api_responses": [
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/entities/decision-atlas",
+          "status": 200
+        }
+      ]
+    }
+  ]
+}

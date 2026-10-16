@@ -1,0 +1,10 @@
+{
+  "verified_at": "2026-10-16T10:16:47.973Z",
+  "simulation": true,
+  "checks": [
+    "Simulated slow overview shows structural loading state",
+    "Simulated nested evidence failure is announced inside its modal",
+    "Closing evidence during a delayed request does not reopen the drawer",
+    "Simulated model failure is actionable and releases the question form"
+  ]
+}

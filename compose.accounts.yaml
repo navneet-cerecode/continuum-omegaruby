@@ -1,0 +1,15 @@
+# Provision .runtime/accounts.json before using this optional override.
+# docker compose -f compose.yaml -f compose.accounts.yaml up --build -d
+services:
+  app:
+    environment:
+      CONTINUUM_ACCESS: accounts
+      CONTINUUM_ACCOUNTS_FILE: /run/continuum/accounts.json
+      CONTINUUM_COOKIE_SECURE: ${CONTINUUM_COOKIE_SECURE:-false}
+    volumes:
+      - type: bind
+        source: ./.runtime/accounts.json
+        target: /run/continuum/accounts.json
+        read_only: true
+        bind:
+          create_host_path: false

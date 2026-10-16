@@ -1,0 +1,37 @@
+{
+  "dataset": {
+    "nodes": 79,
+    "relationships": 84
+  },
+  "documents": 24,
+  "expected_impact": 7,
+  "actual_impact": 7,
+  "correctness": "Exact expected ID set, independently specified fixture",
+  "machine": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_processors": 20,
+    "python": "3.12.14"
+  },
+  "database": "Official FalkorDB 4.14.11 on Redis 8.0.5 in Ubuntu WSL, AOF on checkout filesystem",
+  "concurrency": 1,
+  "method": "perf_counter round-trip wall time; warm caches; seed time excluded",
+  "dependency_query": {
+    "samples": 50,
+    "warmups": 5,
+    "median_ms": 0.418,
+    "p95_ms": 0.526,
+    "min_ms": 0.372,
+    "max_ms": 0.612
+  },
+  "full_evidence_hydration": {
+    "samples": 30,
+    "warmups": 5,
+    "median_ms": 22.821,
+    "p95_ms": 23.675,
+    "min_ms": 21.793,
+    "max_ms": 24.457
+  },
+  "model_latency": "Measured separately by live agent verification; excluded here",
+  "scale_claim": "Small fixture only. No enterprise/concurrent-load claim."
+}

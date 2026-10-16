@@ -1,0 +1,71 @@
+// A real browser → API → FalkorDB run. Requires the app at BASE_URL.
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const fs=require('node:fs');
+const assert=require('node:assert/strict');
+(async()=>{
+ const browser=await chromium.launch({channel:'chrome',headless:true});
+ const baseURL=process.env.BASE_URL || 'http://127.0.0.1:8000';
+ const context=await browser.newContext({baseURL,viewport:{width:1440,height:1050}});
+ const page=await context.newPage();const failures=[];const responses=[];
+ page.on('pageerror',e=>failures.push(e.message));
+ page.on('response',r=>{if(r.url().includes('/api/'))responses.push({path:new URL(r.url()).pathname,status:r.status()})});
+ await page.goto(process.env.BASE_URL || 'http://127.0.0.1:8000');
+ await page.getByRole('heading',{name:'Good decisions start with context.'}).waitFor();
+ await page.getByText('FalkorDB connected').waitFor();
+ await page.screenshot({path:'artifacts/01-company-context.png',fullPage:true});
+ const health=await (await page.request.get('/api/health')).json();
+ if(health.agent_configured){
+   await page.getByRole('button',{name:'Ask agent',exact:true}).click();
+   await page.getByText('MODEL + GRAPH',{exact:true}).waitFor({timeout:60000});
+   await page.screenshot({path:'artifacts/07-live-agent-readiness.png',fullPage:true});
+   await page.getByRole('button',{name:'Close answer'}).click();
+ }
+ await page.getByRole('button',{name:'Inspect decision evidence'}).click();
+ await page.getByRole('dialog',{name:'Entity evidence'}).waitFor();
+ await page.getByRole('button',{name:'Close evidence'}).click();
+ const initial=await (await page.request.get('/api/overview')).json();
+ if(!initial.history.length)await page.getByRole('button',{name:'Introduce security update'}).click();
+ else await page.getByRole('button',{name:'Change investigation',exact:true}).click();
+ await page.getByRole('heading',{name:'7 connected items need review.'}).waitFor();
+ await page.getByText('Source conflict',{exact:true}).waitFor();
+ await page.getByRole('button',{name:'Inspect dependency evidence: commitment-acme depends on milestone-atlas',exact:true}).click();
+ await page.getByRole('dialog',{name:'Entity evidence'}).waitFor();
+ await page.keyboard.press('Escape');
+ await page.getByRole('dialog',{name:'Entity evidence'}).waitFor({state:'hidden'});
+ const impact=await (await page.request.get('/api/impact/approval-export')).json();
+ assert.equal(impact.count,7);
+ assert(!impact.items.some(i=>['project-beacon','project-orbit'].includes(i.id)));
+ await page.getByText('Why is this affected?',{exact:true}).last().click();
+ await page.screenshot({path:'artifacts/02-change-investigation.png',fullPage:true});
+ await page.getByRole('button',{name:'Generate response plan',exact:true}).click();
+ await page.getByRole('heading',{name:'Review before creating work.'}).waitFor();
+ const boxes=page.getByRole('checkbox');
+ assert.equal(await boxes.count(),4);
+ await boxes.nth(2).uncheck();await boxes.nth(3).uncheck();
+ await page.screenshot({path:'artifacts/03-proposal-review.png',fullPage:true});
+ await page.getByRole('button',{name:'Approve selected tasks'}).click();
+ await page.getByText('Selected internal tasks persisted in FalkorDB. No messages were sent.').waitFor();
+ const approved=await (await page.request.get('/api/overview')).json();
+ assert.equal(approved.actions.length-initial.actions.length,2);
+ await page.screenshot({path:'artifacts/04-persisted-followups.png',fullPage:true});
+ const newContext=await browser.newContext({baseURL,viewport:{width:1440,height:1050}});const fresh=await newContext.newPage();
+ await fresh.goto(process.env.BASE_URL || 'http://127.0.0.1:8000');
+ await fresh.getByRole('button',{name:'What changed?',exact:true}).click();
+ await fresh.getByRole('heading',{name:'Security approval changed; Atlas needs review. Completing a task does not restore approval.'}).waitFor();
+ const recap=await (await fresh.request.get('/api/recap')).json();assert.equal(recap.actions.length,approved.actions.length);assert.equal(recap.changes.length,1);
+ await fresh.screenshot({path:'artifacts/05-fresh-session.png',fullPage:true});
+ if(health.agent_configured){
+   await fresh.getByRole('button',{name:'Close answer'}).click();
+   await fresh.getByRole('button',{name:'Ask agent',exact:true}).click();
+   await fresh.getByText('MODEL + GRAPH',{exact:true}).waitFor({timeout:60000});
+   await fresh.screenshot({path:'artifacts/08-live-agent-recap.png',fullPage:true});
+ }
+ await fresh.setViewportSize({width:390,height:844});
+ await fresh.getByRole('button',{name:'Close answer'}).click();
+ await fresh.screenshot({path:'artifacts/06-mobile-context.png',fullPage:true});
+ assert.equal(await fresh.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Mobile must not overflow horizontally');
+ assert.deepEqual(failures,[]);
+ assert(responses.every(r=>r.status===200),JSON.stringify(responses));
+ const report={verified_at:new Date().toISOString(),browser:'Installed Google Chrome, headless',viewport:[1440,1050],mobile:[390,844],flow:'browser → API → real FalkorDB → response',impact_count:impact.count,new_tasks:2,fresh_session:true,mobile_no_overflow:true,page_errors:failures,api_responses:responses,live_model_run:health.agent_configured,focused_edge_evidence_verified:true};
+ fs.writeFileSync('artifacts/browser-verification.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

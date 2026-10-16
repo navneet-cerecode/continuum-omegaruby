@@ -1,0 +1,2615 @@
+{
+  "verified_at": "2026-10-16T19:40:58.962386+00:00",
+  "graph": "continuum_eval_a2ec270ae7aa43cba1a8aa2fc02363e1",
+  "real_database": true,
+  "live_model": true,
+  "runs": [
+    {
+      "scenario": "atlas-supported",
+      "project": "project-atlas",
+      "expected_conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+      "result": {
+        "mode": "agent",
+        "answer": {
+          "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+          "supporting_paths": [
+            [
+              "project-atlas",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "approval-export"
+            ],
+            [
+              "project-atlas",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "assumption-capacity"
+            ]
+          ],
+          "source_ids": [
+            "doc-security-approval-v1",
+            "doc-sec-ticket-v1",
+            "doc-capacity-v1",
+            "doc-owner-current-v1",
+            "doc-owner-old-v1"
+          ],
+          "conflicts": [
+            "ambiguous ownership"
+          ],
+          "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners."
+        },
+        "trace": [
+          {
+            "tool": "assess_launch_readiness",
+            "input": {
+              "value": "project-atlas"
+            },
+            "duration_ms": 10.797,
+            "result": {
+              "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+              "status": "supported",
+              "project": {
+                "id": "project-atlas",
+                "name": "Project Atlas",
+                "classification": "confirmed",
+                "description": "Launch of governed customer data exports",
+                "state": "planned",
+                "launch_date": "2026-10-20",
+                "required_assumptions": [
+                  "approval-export",
+                  "assumption-capacity"
+                ],
+                "primary_assumption_id": "approval-export",
+                "decision_id": "decision-atlas",
+                "kind": "Project"
+              },
+              "paths": [
+                {
+                  "assumption_id": "approval-export",
+                  "assumption": {
+                    "id": "approval-export",
+                    "name": "Export service security approval",
+                    "classification": "confirmed",
+                    "state": "approved",
+                    "current": true,
+                    "valid_from": "2026-10-15T09:00:00Z",
+                    "required_evidence_authority": "security"
+                  },
+                  "path": [
+                    "project-atlas",
+                    "milestone-atlas",
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "approval-export"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-atlas-depends_on-milestone-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-launch-checklist-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-atlas-depends_on-decision-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-ga-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-approval-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-decision-v1",
+                      "current": true
+                    }
+                  ]
+                },
+                {
+                  "assumption_id": "assumption-capacity",
+                  "assumption": {
+                    "id": "assumption-capacity",
+                    "name": "Export capacity supports the launch cohort",
+                    "classification": "confirmed",
+                    "state": "confirmed",
+                    "current": true,
+                    "valid_from": "2026-10-15T10:00:00Z",
+                    "required_evidence_authority": "platform"
+                  },
+                  "path": [
+                    "project-atlas",
+                    "milestone-atlas",
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "assumption-capacity"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-atlas-depends_on-milestone-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-launch-checklist-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-atlas-depends_on-decision-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-ga-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-assumption-capacity",
+                      "classification": "confirmed",
+                      "source": "doc-export-decision-v1",
+                      "current": true
+                    }
+                  ]
+                }
+              ],
+              "sources": [
+                {
+                  "id": "approval-export",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-security-approval-v1",
+                        "name": "Export security review",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T09:00:00Z",
+                        "current": true,
+                        "authority": "security",
+                        "synthetic": true,
+                        "excerpt": "The export service is approved for launch, conditional on the reviewed token rotation controls. Security review SEC-41 passed.",
+                        "sha256": "cffd1275fac1655277d8278835e1a4c8df9049140c0278532e3145ba90e0988a",
+                        "imported_by": "local-demo"
+                      },
+                      "document": {
+                        "id": "doc-security-approval",
+                        "name": "Export security review",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T09:00:00Z"
+                    },
+                    {
+                      "version": {
+                        "id": "doc-sec-ticket-v1",
+                        "name": "SEC-41 token rotation ticket",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T08:30:00Z",
+                        "current": true,
+                        "authority": "ticket",
+                        "synthetic": true,
+                        "excerpt": "Leah Ortiz reviewed the token rotation implementation. Approval is recorded separately in the security review.",
+                        "sha256": "bb1c1899dda82f337ea895262c791b86feb74d2225ab5f9f15edc629067d103a",
+                        "imported_by": "local-demo"
+                      },
+                      "document": {
+                        "id": "doc-sec-ticket",
+                        "name": "SEC-41 token rotation ticket",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T08:30:00Z"
+                    }
+                  ]
+                },
+                {
+                  "id": "assumption-capacity",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-capacity-v1",
+                        "name": "Capacity test report",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T10:00:00Z",
+                        "current": true,
+                        "authority": "platform",
+                        "synthetic": true,
+                        "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+                        "sha256": "158fb4ab6955725a4db9fecae7d571b46228e8c3eef1c18dde4281a1eccf1591",
+                        "imported_by": "local-demo"
+                      },
+                      "document": {
+                        "id": "doc-capacity",
+                        "name": "Capacity test report",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T10:00:00Z"
+                    }
+                  ]
+                }
+              ],
+              "checks": [
+                {
+                  "id": "approval-export",
+                  "name": "Export service security approval",
+                  "state": "approved",
+                  "assessment": "supported"
+                },
+                {
+                  "id": "assumption-capacity",
+                  "name": "Export capacity supports the launch cohort",
+                  "state": "confirmed",
+                  "assessment": "supported"
+                }
+              ],
+              "issues": [],
+              "complete": true,
+              "truncated": false,
+              "max_hops": 8,
+              "path_limit": 50,
+              "revision": 33,
+              "assessed_at": "2026-10-16T19:41:06.044097+00:00",
+              "owner_resolution": {
+                "owner": {
+                  "id": "person-1",
+                  "name": "Maya Chen",
+                  "classification": "confirmed"
+                },
+                "records": [
+                  {
+                    "person": {
+                      "id": "person-1",
+                      "name": "Maya Chen",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-atlas-owned_by-person-1",
+                      "classification": "confirmed",
+                      "source": "doc-owner-current-v1",
+                      "current": true,
+                      "authority": 100,
+                      "valid_from": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  {
+                    "person": {
+                      "id": "person-6",
+                      "name": "Ethan Park",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-atlas-owned_by-person-6",
+                      "classification": "confirmed",
+                      "source": "doc-owner-old-v1",
+                      "current": false,
+                      "authority": 20,
+                      "valid_from": "2026-10-15T08:00:00Z",
+                      "valid_to": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 20,
+                    "valid_from": "2026-10-15T08:00:00Z"
+                  }
+                ],
+                "conflict": true,
+                "ambiguous": false,
+                "sources": [
+                  {
+                    "id": "doc-owner-current-v1",
+                    "name": "Authoritative ownership register",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-16T07:00:00Z",
+                    "current": true,
+                    "authority": "ownership-register",
+                    "synthetic": true,
+                    "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                    "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                    "imported_by": "local-demo",
+                    "kind": "DocumentVersion"
+                  },
+                  {
+                    "id": "doc-owner-old-v1",
+                    "name": "Original Atlas project brief",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-15T08:00:00Z",
+                    "current": true,
+                    "authority": "project-brief",
+                    "synthetic": true,
+                    "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                    "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc",
+                    "imported_by": "local-demo",
+                    "kind": "DocumentVersion"
+                  }
+                ],
+                "complete": true,
+                "issues": [],
+                "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+              },
+              "history": [],
+              "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+              "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+            "status": "supported",
+            "project": {
+              "id": "project-atlas",
+              "name": "Project Atlas",
+              "classification": "confirmed",
+              "description": "Launch of governed customer data exports",
+              "state": "planned",
+              "launch_date": "2026-10-20",
+              "required_assumptions": [
+                "approval-export",
+                "assumption-capacity"
+              ],
+              "primary_assumption_id": "approval-export",
+              "decision_id": "decision-atlas",
+              "kind": "Project"
+            },
+            "paths": [
+              {
+                "assumption_id": "approval-export",
+                "assumption": {
+                  "id": "approval-export",
+                  "name": "Export service security approval",
+                  "classification": "confirmed",
+                  "state": "approved",
+                  "current": true,
+                  "valid_from": "2026-10-15T09:00:00Z",
+                  "required_evidence_authority": "security"
+                },
+                "path": [
+                  "project-atlas",
+                  "milestone-atlas",
+                  "decision-atlas",
+                  "milestone-export",
+                  "decision-export",
+                  "approval-export"
+                ],
+                "edges": [
+                  {
+                    "id": "project-atlas-depends_on-milestone-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-launch-checklist-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-atlas-depends_on-decision-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-ga-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-atlas-depends_on-milestone-export",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-decision-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-export-depends_on-decision-export",
+                    "classification": "confirmed",
+                    "source": "doc-export-gate-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-export-depends_on-approval-export",
+                    "classification": "confirmed",
+                    "source": "doc-export-decision-v1",
+                    "current": true
+                  }
+                ]
+              },
+              {
+                "assumption_id": "assumption-capacity",
+                "assumption": {
+                  "id": "assumption-capacity",
+                  "name": "Export capacity supports the launch cohort",
+                  "classification": "confirmed",
+                  "state": "confirmed",
+                  "current": true,
+                  "valid_from": "2026-10-15T10:00:00Z",
+                  "required_evidence_authority": "platform"
+                },
+                "path": [
+                  "project-atlas",
+                  "milestone-atlas",
+                  "decision-atlas",
+                  "milestone-export",
+                  "decision-export",
+                  "assumption-capacity"
+                ],
+                "edges": [
+                  {
+                    "id": "project-atlas-depends_on-milestone-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-launch-checklist-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-atlas-depends_on-decision-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-ga-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-atlas-depends_on-milestone-export",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-decision-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-export-depends_on-decision-export",
+                    "classification": "confirmed",
+                    "source": "doc-export-gate-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-export-depends_on-assumption-capacity",
+                    "classification": "confirmed",
+                    "source": "doc-export-decision-v1",
+                    "current": true
+                  }
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "id": "approval-export",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-security-approval-v1",
+                      "name": "Export security review",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T09:00:00Z",
+                      "current": true,
+                      "authority": "security",
+                      "synthetic": true,
+                      "excerpt": "The export service is approved for launch, conditional on the reviewed token rotation controls. Security review SEC-41 passed.",
+                      "sha256": "cffd1275fac1655277d8278835e1a4c8df9049140c0278532e3145ba90e0988a",
+                      "imported_by": "local-demo"
+                    },
+                    "document": {
+                      "id": "doc-security-approval",
+                      "name": "Export security review",
+                      "classification": "confirmed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-15T09:00:00Z"
+                  },
+                  {
+                    "version": {
+                      "id": "doc-sec-ticket-v1",
+                      "name": "SEC-41 token rotation ticket",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T08:30:00Z",
+                      "current": true,
+                      "authority": "ticket",
+                      "synthetic": true,
+                      "excerpt": "Leah Ortiz reviewed the token rotation implementation. Approval is recorded separately in the security review.",
+                      "sha256": "bb1c1899dda82f337ea895262c791b86feb74d2225ab5f9f15edc629067d103a",
+                      "imported_by": "local-demo"
+                    },
+                    "document": {
+                      "id": "doc-sec-ticket",
+                      "name": "SEC-41 token rotation ticket",
+                      "classification": "confirmed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-15T08:30:00Z"
+                  }
+                ]
+              },
+              {
+                "id": "assumption-capacity",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-capacity-v1",
+                      "name": "Capacity test report",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T10:00:00Z",
+                      "current": true,
+                      "authority": "platform",
+                      "synthetic": true,
+                      "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+                      "sha256": "158fb4ab6955725a4db9fecae7d571b46228e8c3eef1c18dde4281a1eccf1591",
+                      "imported_by": "local-demo"
+                    },
+                    "document": {
+                      "id": "doc-capacity",
+                      "name": "Capacity test report",
+                      "classification": "confirmed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-15T10:00:00Z"
+                  }
+                ]
+              }
+            ],
+            "checks": [
+              {
+                "id": "approval-export",
+                "name": "Export service security approval",
+                "state": "approved",
+                "assessment": "supported"
+              },
+              {
+                "id": "assumption-capacity",
+                "name": "Export capacity supports the launch cohort",
+                "state": "confirmed",
+                "assessment": "supported"
+              }
+            ],
+            "issues": [],
+            "complete": true,
+            "truncated": false,
+            "max_hops": 8,
+            "path_limit": 50,
+            "revision": 33,
+            "assessed_at": "2026-10-16T19:41:06.044097+00:00",
+            "owner_resolution": {
+              "owner": {
+                "id": "person-1",
+                "name": "Maya Chen",
+                "classification": "confirmed"
+              },
+              "records": [
+                {
+                  "person": {
+                    "id": "person-1",
+                    "name": "Maya Chen",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-atlas-owned_by-person-1",
+                    "classification": "confirmed",
+                    "source": "doc-owner-current-v1",
+                    "current": true,
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 100,
+                  "valid_from": "2026-10-16T07:00:00Z"
+                },
+                {
+                  "person": {
+                    "id": "person-6",
+                    "name": "Ethan Park",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-atlas-owned_by-person-6",
+                    "classification": "confirmed",
+                    "source": "doc-owner-old-v1",
+                    "current": false,
+                    "authority": 20,
+                    "valid_from": "2026-10-15T08:00:00Z",
+                    "valid_to": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 20,
+                  "valid_from": "2026-10-15T08:00:00Z"
+                }
+              ],
+              "conflict": true,
+              "ambiguous": false,
+              "sources": [
+                {
+                  "id": "doc-owner-current-v1",
+                  "name": "Authoritative ownership register",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-16T07:00:00Z",
+                  "current": true,
+                  "authority": "ownership-register",
+                  "synthetic": true,
+                  "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                  "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                  "imported_by": "local-demo",
+                  "kind": "DocumentVersion"
+                },
+                {
+                  "id": "doc-owner-old-v1",
+                  "name": "Original Atlas project brief",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-15T08:00:00Z",
+                  "current": true,
+                  "authority": "project-brief",
+                  "synthetic": true,
+                  "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                  "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc",
+                  "imported_by": "local-demo",
+                  "kind": "DocumentVersion"
+                }
+              ],
+              "complete": true,
+              "issues": [],
+              "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+            },
+            "history": [],
+            "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+            "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+          }
+        ],
+        "model_ms": 10245.32,
+        "model": "llama3:latest",
+        "open_followups": [],
+        "citation_check": {
+          "model_citation_coverage_complete": true,
+          "supplemental_source_ids": [],
+          "unavailable_path_source_ids": [
+            "doc-atlas-decision-v1",
+            "doc-atlas-ga-v1",
+            "doc-export-decision-v1",
+            "doc-export-gate-v1",
+            "doc-launch-checklist-v1"
+          ],
+          "source_excerpts": [
+            {
+              "id": "doc-capacity-v1",
+              "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+              "reason": "Recorded assessment or selected dependency path"
+            },
+            {
+              "id": "doc-sec-ticket-v1",
+              "excerpt": "Leah Ortiz reviewed the token rotation implementation. Approval is recorded separately in the security review.",
+              "reason": "Recorded assessment or selected dependency path"
+            },
+            {
+              "id": "doc-security-approval-v1",
+              "excerpt": "The export service is approved for launch, conditional on the reviewed token rotation controls. Security review SEC-41 passed.",
+              "reason": "Recorded assessment or selected dependency path"
+            }
+          ],
+          "semantic_entailment": "unverified",
+          "note": "Supplemental sources are attached by application checks, not chosen by the model. Free-text conflicts and recommendations require human review."
+        },
+        "conclusion_origin": "application assessment",
+        "grounding_note": "Cited IDs and paths validated against tool outputs. Natural-language entailment still requires human review."
+      },
+      "elapsed_ms": 10381.124,
+      "status": "failed",
+      "model_citation_coverage_complete": true,
+      "state_unchanged": true
+    },
+    {
+      "scenario": "beacon-supported",
+      "project": "project-beacon",
+      "expected_conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+      "result": {
+        "mode": "agent",
+        "answer": {
+          "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+          "supporting_paths": [
+            [
+              "project-beacon",
+              "milestone-beacon",
+              "decision-beacon",
+              "approval-beacon"
+            ]
+          ],
+          "source_ids": [
+            "doc-beacon-approval-v1"
+          ],
+          "conflicts": [],
+          "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners."
+        },
+        "trace": [
+          {
+            "tool": "assess_launch_readiness",
+            "input": {
+              "value": "project-beacon"
+            },
+            "duration_ms": 8.414,
+            "result": {
+              "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+              "status": "supported",
+              "project": {
+                "id": "project-beacon",
+                "name": "Project Beacon",
+                "classification": "confirmed",
+                "description": "Public status-page refresh",
+                "state": "planned",
+                "required_assumptions": [
+                  "approval-beacon"
+                ],
+                "primary_assumption_id": "approval-beacon",
+                "decision_id": "decision-beacon",
+                "kind": "Project"
+              },
+              "paths": [
+                {
+                  "assumption_id": "approval-beacon",
+                  "assumption": {
+                    "id": "approval-beacon",
+                    "name": "Beacon accessibility checks passed",
+                    "classification": "confirmed",
+                    "state": "approved",
+                    "current": true,
+                    "required_evidence_authority": "product"
+                  },
+                  "path": [
+                    "project-beacon",
+                    "milestone-beacon",
+                    "decision-beacon",
+                    "approval-beacon"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-beacon-depends_on-milestone-beacon",
+                      "classification": "confirmed",
+                      "source": "doc-beacon-milestone-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-beacon-depends_on-decision-beacon",
+                      "classification": "confirmed",
+                      "source": "doc-beacon-milestone-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-beacon-depends_on-approval-beacon",
+                      "classification": "confirmed",
+                      "source": "doc-beacon-decision-v1",
+                      "current": true
+                    }
+                  ]
+                }
+              ],
+              "sources": [
+                {
+                  "id": "approval-beacon",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-beacon-approval-v1",
+                        "name": "Beacon accessibility review",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T09:30:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Beacon accessibility checks passed. Beacon has no recorded dependency on the export service.",
+                        "sha256": "ce867a086963df829a3d93939e29d6e59a1aed6bea3fb88c75a3678268e39997",
+                        "imported_by": "local-demo"
+                      },
+                      "document": {
+                        "id": "doc-beacon-approval",
+                        "name": "Beacon accessibility review",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T09:30:00Z"
+                    }
+                  ]
+                }
+              ],
+              "checks": [
+                {
+                  "id": "approval-beacon",
+                  "name": "Beacon accessibility checks passed",
+                  "state": "approved",
+                  "assessment": "supported"
+                }
+              ],
+              "issues": [],
+              "complete": true,
+              "truncated": false,
+              "max_hops": 8,
+              "path_limit": 50,
+              "revision": 33,
+              "assessed_at": "2026-10-16T19:41:10.733202+00:00",
+              "owner_resolution": {
+                "owner": {
+                  "id": "person-7",
+                  "name": "Sofia Reyes",
+                  "classification": "confirmed"
+                },
+                "records": [
+                  {
+                    "person": {
+                      "id": "person-7",
+                      "name": "Sofia Reyes",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-beacon-owned_by-person-7",
+                      "classification": "confirmed",
+                      "source": "doc-owner-current-v1",
+                      "current": true,
+                      "authority": 100,
+                      "valid_from": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  }
+                ],
+                "conflict": false,
+                "ambiguous": false,
+                "sources": [
+                  {
+                    "id": "doc-owner-current-v1",
+                    "name": "Authoritative ownership register",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-16T07:00:00Z",
+                    "current": true,
+                    "authority": "ownership-register",
+                    "synthetic": true,
+                    "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                    "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                    "imported_by": "local-demo",
+                    "kind": "DocumentVersion"
+                  }
+                ],
+                "complete": true,
+                "issues": [],
+                "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+              },
+              "history": [],
+              "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+              "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+            "status": "supported",
+            "project": {
+              "id": "project-beacon",
+              "name": "Project Beacon",
+              "classification": "confirmed",
+              "description": "Public status-page refresh",
+              "state": "planned",
+              "required_assumptions": [
+                "approval-beacon"
+              ],
+              "primary_assumption_id": "approval-beacon",
+              "decision_id": "decision-beacon",
+              "kind": "Project"
+            },
+            "paths": [
+              {
+                "assumption_id": "approval-beacon",
+                "assumption": {
+                  "id": "approval-beacon",
+                  "name": "Beacon accessibility checks passed",
+                  "classification": "confirmed",
+                  "state": "approved",
+                  "current": true,
+                  "required_evidence_authority": "product"
+                },
+                "path": [
+                  "project-beacon",
+                  "milestone-beacon",
+                  "decision-beacon",
+                  "approval-beacon"
+                ],
+                "edges": [
+                  {
+                    "id": "project-beacon-depends_on-milestone-beacon",
+                    "classification": "confirmed",
+                    "source": "doc-beacon-milestone-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-beacon-depends_on-decision-beacon",
+                    "classification": "confirmed",
+                    "source": "doc-beacon-milestone-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-beacon-depends_on-approval-beacon",
+                    "classification": "confirmed",
+                    "source": "doc-beacon-decision-v1",
+                    "current": true
+                  }
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "id": "approval-beacon",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-beacon-approval-v1",
+                      "name": "Beacon accessibility review",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T09:30:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Beacon accessibility checks passed. Beacon has no recorded dependency on the export service.",
+                      "sha256": "ce867a086963df829a3d93939e29d6e59a1aed6bea3fb88c75a3678268e39997",
+                      "imported_by": "local-demo"
+                    },
+                    "document": {
+                      "id": "doc-beacon-approval",
+                      "name": "Beacon accessibility review",
+                      "classification": "confirmed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-15T09:30:00Z"
+                  }
+                ]
+              }
+            ],
+            "checks": [
+              {
+                "id": "approval-beacon",
+                "name": "Beacon accessibility checks passed",
+                "state": "approved",
+                "assessment": "supported"
+              }
+            ],
+            "issues": [],
+            "complete": true,
+            "truncated": false,
+            "max_hops": 8,
+            "path_limit": 50,
+            "revision": 33,
+            "assessed_at": "2026-10-16T19:41:10.733202+00:00",
+            "owner_resolution": {
+              "owner": {
+                "id": "person-7",
+                "name": "Sofia Reyes",
+                "classification": "confirmed"
+              },
+              "records": [
+                {
+                  "person": {
+                    "id": "person-7",
+                    "name": "Sofia Reyes",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-beacon-owned_by-person-7",
+                    "classification": "confirmed",
+                    "source": "doc-owner-current-v1",
+                    "current": true,
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 100,
+                  "valid_from": "2026-10-16T07:00:00Z"
+                }
+              ],
+              "conflict": false,
+              "ambiguous": false,
+              "sources": [
+                {
+                  "id": "doc-owner-current-v1",
+                  "name": "Authoritative ownership register",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-16T07:00:00Z",
+                  "current": true,
+                  "authority": "ownership-register",
+                  "synthetic": true,
+                  "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                  "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                  "imported_by": "local-demo",
+                  "kind": "DocumentVersion"
+                }
+              ],
+              "complete": true,
+              "issues": [],
+              "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+            },
+            "history": [],
+            "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+            "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+          }
+        ],
+        "model_ms": 3184.619,
+        "model": "llama3:latest",
+        "open_followups": [],
+        "citation_check": {
+          "model_citation_coverage_complete": true,
+          "supplemental_source_ids": [],
+          "unavailable_path_source_ids": [
+            "doc-beacon-decision-v1",
+            "doc-beacon-milestone-v1"
+          ],
+          "source_excerpts": [
+            {
+              "id": "doc-beacon-approval-v1",
+              "excerpt": "Beacon accessibility checks passed. Beacon has no recorded dependency on the export service.",
+              "reason": "Recorded assessment or selected dependency path"
+            }
+          ],
+          "semantic_entailment": "unverified",
+          "note": "Supplemental sources are attached by application checks, not chosen by the model. Free-text conflicts and recommendations require human review."
+        },
+        "conclusion_origin": "application assessment",
+        "grounding_note": "Cited IDs and paths validated against tool outputs. Natural-language entailment still requires human review."
+      },
+      "elapsed_ms": 3205.948,
+      "status": "failed",
+      "model_citation_coverage_complete": true,
+      "state_unchanged": true
+    },
+    {
+      "scenario": "orbit-supported",
+      "project": "project-orbit",
+      "expected_conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+      "result": {
+        "mode": "agent",
+        "answer": {
+          "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+          "supporting_paths": [
+            [
+              "project-orbit",
+              "milestone-orbit",
+              "decision-orbit",
+              "approval-orbit"
+            ]
+          ],
+          "source_ids": [
+            "doc-orbit-rollout-v1"
+          ],
+          "conflicts": [],
+          "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners."
+        },
+        "trace": [
+          {
+            "tool": "assess_launch_readiness",
+            "input": {
+              "value": "project-orbit"
+            },
+            "duration_ms": 6.665,
+            "result": {
+              "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+              "status": "supported",
+              "project": {
+                "id": "project-orbit",
+                "name": "Project Orbit",
+                "classification": "confirmed",
+                "description": "Shared identity rollout",
+                "state": "planned",
+                "required_assumptions": [
+                  "approval-orbit"
+                ],
+                "primary_assumption_id": "approval-orbit",
+                "decision_id": "decision-orbit",
+                "kind": "Project"
+              },
+              "paths": [
+                {
+                  "assumption_id": "approval-orbit",
+                  "assumption": {
+                    "id": "approval-orbit",
+                    "name": "Orbit identity rollout controls confirmed",
+                    "state": "confirmed",
+                    "current": true,
+                    "classification": "confirmed",
+                    "valid_from": "2026-10-16T07:00:00Z",
+                    "required_evidence_authority": "platform"
+                  },
+                  "path": [
+                    "project-orbit",
+                    "milestone-orbit",
+                    "decision-orbit",
+                    "approval-orbit"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-orbit-depends_on-milestone-orbit",
+                      "source": "doc-orbit-rollout-v1",
+                      "current": true,
+                      "classification": "confirmed"
+                    },
+                    {
+                      "id": "milestone-orbit-depends_on-decision-orbit",
+                      "source": "doc-orbit-rollout-v1",
+                      "current": true,
+                      "classification": "confirmed"
+                    },
+                    {
+                      "id": "decision-orbit-depends_on-approval-orbit",
+                      "source": "doc-orbit-rollout-v1",
+                      "current": true,
+                      "classification": "confirmed"
+                    }
+                  ]
+                }
+              ],
+              "sources": [
+                {
+                  "id": "approval-orbit",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-orbit-rollout-v1",
+                        "name": "Orbit pilot controls and decision",
+                        "excerpt": "Fictional fixture extension: Orbit identity pilot controls are confirmed by Platform. The decision to proceed depends on those controls. The internal identity pilot milestone depends on that decision, and Project Orbit depends on the pilot milestone. Leah Ortiz is the current accountable owner for the decision and milestone. Orbit has no asserted dependency on Atlas exports or Beacon accessibility.",
+                        "sha256": "e7c6e8f352cca10063cb5f8fb11b2d12f07bdb80fb234d3115df8bf93c9a8b75",
+                        "version": 1,
+                        "valid_from": "2026-10-16T07:00:00Z",
+                        "authority": "platform",
+                        "current": true,
+                        "synthetic": true,
+                        "classification": "confirmed",
+                        "imported_by": "local-demo"
+                      },
+                      "document": {
+                        "id": "doc-orbit-rollout",
+                        "name": "Orbit pilot controls and decision",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-16T07:00:00Z"
+                    }
+                  ]
+                }
+              ],
+              "checks": [
+                {
+                  "id": "approval-orbit",
+                  "name": "Orbit identity rollout controls confirmed",
+                  "state": "confirmed",
+                  "assessment": "supported"
+                }
+              ],
+              "issues": [],
+              "complete": true,
+              "truncated": false,
+              "max_hops": 8,
+              "path_limit": 50,
+              "revision": 33,
+              "assessed_at": "2026-10-16T19:41:13.917459+00:00",
+              "owner_resolution": {
+                "owner": {
+                  "id": "person-3",
+                  "name": "Leah Ortiz",
+                  "classification": "confirmed"
+                },
+                "records": [
+                  {
+                    "person": {
+                      "id": "person-3",
+                      "name": "Leah Ortiz",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-orbit-owned_by-person-3",
+                      "classification": "confirmed",
+                      "source": "doc-owner-current-v1",
+                      "current": true,
+                      "authority": 100,
+                      "valid_from": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  }
+                ],
+                "conflict": false,
+                "ambiguous": false,
+                "sources": [
+                  {
+                    "id": "doc-owner-current-v1",
+                    "name": "Authoritative ownership register",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-16T07:00:00Z",
+                    "current": true,
+                    "authority": "ownership-register",
+                    "synthetic": true,
+                    "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                    "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                    "imported_by": "local-demo",
+                    "kind": "DocumentVersion"
+                  }
+                ],
+                "complete": true,
+                "issues": [],
+                "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+              },
+              "history": [],
+              "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+              "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+            "status": "supported",
+            "project": {
+              "id": "project-orbit",
+              "name": "Project Orbit",
+              "classification": "confirmed",
+              "description": "Shared identity rollout",
+              "state": "planned",
+              "required_assumptions": [
+                "approval-orbit"
+              ],
+              "primary_assumption_id": "approval-orbit",
+              "decision_id": "decision-orbit",
+              "kind": "Project"
+            },
+            "paths": [
+              {
+                "assumption_id": "approval-orbit",
+                "assumption": {
+                  "id": "approval-orbit",
+                  "name": "Orbit identity rollout controls confirmed",
+                  "state": "confirmed",
+                  "current": true,
+                  "classification": "confirmed",
+                  "valid_from": "2026-10-16T07:00:00Z",
+                  "required_evidence_authority": "platform"
+                },
+                "path": [
+                  "project-orbit",
+                  "milestone-orbit",
+                  "decision-orbit",
+                  "approval-orbit"
+                ],
+                "edges": [
+                  {
+                    "id": "project-orbit-depends_on-milestone-orbit",
+                    "source": "doc-orbit-rollout-v1",
+                    "current": true,
+                    "classification": "confirmed"
+                  },
+                  {
+                    "id": "milestone-orbit-depends_on-decision-orbit",
+                    "source": "doc-orbit-rollout-v1",
+                    "current": true,
+                    "classification": "confirmed"
+                  },
+                  {
+                    "id": "decision-orbit-depends_on-approval-orbit",
+                    "source": "doc-orbit-rollout-v1",
+                    "current": true,
+                    "classification": "confirmed"
+                  }
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "id": "approval-orbit",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-orbit-rollout-v1",
+                      "name": "Orbit pilot controls and decision",
+                      "excerpt": "Fictional fixture extension: Orbit identity pilot controls are confirmed by Platform. The decision to proceed depends on those controls. The internal identity pilot milestone depends on that decision, and Project Orbit depends on the pilot milestone. Leah Ortiz is the current accountable owner for the decision and milestone. Orbit has no asserted dependency on Atlas exports or Beacon accessibility.",
+                      "sha256": "e7c6e8f352cca10063cb5f8fb11b2d12f07bdb80fb234d3115df8bf93c9a8b75",
+                      "version": 1,
+                      "valid_from": "2026-10-16T07:00:00Z",
+                      "authority": "platform",
+                      "current": true,
+                      "synthetic": true,
+                      "classification": "confirmed",
+                      "imported_by": "local-demo"
+                    },
+                    "document": {
+                      "id": "doc-orbit-rollout",
+                      "name": "Orbit pilot controls and decision",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  }
+                ]
+              }
+            ],
+            "checks": [
+              {
+                "id": "approval-orbit",
+                "name": "Orbit identity rollout controls confirmed",
+                "state": "confirmed",
+                "assessment": "supported"
+              }
+            ],
+            "issues": [],
+            "complete": true,
+            "truncated": false,
+            "max_hops": 8,
+            "path_limit": 50,
+            "revision": 33,
+            "assessed_at": "2026-10-16T19:41:13.917459+00:00",
+            "owner_resolution": {
+              "owner": {
+                "id": "person-3",
+                "name": "Leah Ortiz",
+                "classification": "confirmed"
+              },
+              "records": [
+                {
+                  "person": {
+                    "id": "person-3",
+                    "name": "Leah Ortiz",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-orbit-owned_by-person-3",
+                    "classification": "confirmed",
+                    "source": "doc-owner-current-v1",
+                    "current": true,
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 100,
+                  "valid_from": "2026-10-16T07:00:00Z"
+                }
+              ],
+              "conflict": false,
+              "ambiguous": false,
+              "sources": [
+                {
+                  "id": "doc-owner-current-v1",
+                  "name": "Authoritative ownership register",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-16T07:00:00Z",
+                  "current": true,
+                  "authority": "ownership-register",
+                  "synthetic": true,
+                  "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                  "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                  "imported_by": "local-demo",
+                  "kind": "DocumentVersion"
+                }
+              ],
+              "complete": true,
+              "issues": [],
+              "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+            },
+            "history": [],
+            "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+            "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+          }
+        ],
+        "model_ms": 3371.5339999999997,
+        "model": "llama3:latest",
+        "open_followups": [],
+        "citation_check": {
+          "model_citation_coverage_complete": true,
+          "supplemental_source_ids": [],
+          "unavailable_path_source_ids": [],
+          "source_excerpts": [
+            {
+              "id": "doc-orbit-rollout-v1",
+              "excerpt": "Fictional fixture extension: Orbit identity pilot controls are confirmed by Platform. The decision to proceed depends on those controls. The internal identity pilot milestone depends on that decision, and Project Orbit depends on the pilot milestone. Leah Ortiz is the current accountable owner for the decision and milestone. Orbit has no asserted dependency on Atlas exports or Beacon accessibility.",
+              "reason": "Recorded assessment or selected dependency path"
+            }
+          ],
+          "semantic_entailment": "unverified",
+          "note": "Supplemental sources are attached by application checks, not chosen by the model. Free-text conflicts and recommendations require human review."
+        },
+        "conclusion_origin": "application assessment",
+        "grounding_note": "Cited IDs and paths validated against tool outputs. Natural-language entailment still requires human review."
+      },
+      "elapsed_ms": 3392.934,
+      "status": "passed",
+      "model_citation_coverage_complete": true,
+      "state_unchanged": true
+    },
+    {
+      "scenario": "atlas-withdrawn",
+      "project": "project-atlas",
+      "expected_conclusion": "Review required; launch is not automatically cancelled.",
+      "result": {
+        "mode": "agent",
+        "answer": {
+          "conclusion": "Review required; launch is not automatically cancelled.",
+          "supporting_paths": [
+            [
+              "project-atlas",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "approval-export"
+            ],
+            [
+              "project-atlas",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "assumption-capacity"
+            ]
+          ],
+          "source_ids": [
+            "doc-security-approval-v1",
+            "doc-sec-ticket-v1",
+            "doc-capacity-v1",
+            "doc-owner-current-v1",
+            "doc-owner-old-v1"
+          ],
+          "conflicts": [
+            "assumption_superseded",
+            "assumption_expired",
+            "assumption_not_current",
+            "assumption_unsupported_state"
+          ],
+          "next_step": "Resolve the listed evidence, ownership, or completeness gaps before making a launch decision."
+        },
+        "trace": [
+          {
+            "tool": "assess_launch_readiness",
+            "input": {
+              "value": "project-atlas"
+            },
+            "duration_ms": 11.648,
+            "result": {
+              "conclusion": "Review required; launch is not automatically cancelled.",
+              "status": "review_required",
+              "project": {
+                "id": "project-atlas",
+                "name": "Project Atlas",
+                "classification": "confirmed",
+                "description": "Launch of governed customer data exports",
+                "state": "planned",
+                "launch_date": "2026-10-20",
+                "required_assumptions": [
+                  "approval-export",
+                  "assumption-capacity"
+                ],
+                "primary_assumption_id": "approval-export",
+                "decision_id": "decision-atlas",
+                "kind": "Project"
+              },
+              "paths": [
+                {
+                  "assumption_id": "approval-export",
+                  "assumption": {
+                    "id": "approval-export",
+                    "name": "Export service security approval",
+                    "classification": "confirmed",
+                    "state": "superseded",
+                    "current": false,
+                    "valid_from": "2026-10-15T09:00:00Z",
+                    "required_evidence_authority": "security",
+                    "valid_to": "2026-10-16T19:41:16.700742+00:00"
+                  },
+                  "path": [
+                    "project-atlas",
+                    "milestone-atlas",
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "approval-export"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-atlas-depends_on-milestone-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-launch-checklist-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-atlas-depends_on-decision-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-ga-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-approval-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-decision-v1",
+                      "current": true
+                    }
+                  ]
+                },
+                {
+                  "assumption_id": "assumption-capacity",
+                  "assumption": {
+                    "id": "assumption-capacity",
+                    "name": "Export capacity supports the launch cohort",
+                    "classification": "confirmed",
+                    "state": "confirmed",
+                    "current": true,
+                    "valid_from": "2026-10-15T10:00:00Z",
+                    "required_evidence_authority": "platform"
+                  },
+                  "path": [
+                    "project-atlas",
+                    "milestone-atlas",
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "assumption-capacity"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-atlas-depends_on-milestone-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-launch-checklist-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-atlas-depends_on-decision-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-ga-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-assumption-capacity",
+                      "classification": "confirmed",
+                      "source": "doc-export-decision-v1",
+                      "current": true
+                    }
+                  ]
+                }
+              ],
+              "sources": [
+                {
+                  "id": "approval-export",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-security-approval-v1",
+                        "name": "Export security review",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T09:00:00Z",
+                        "current": true,
+                        "authority": "security",
+                        "synthetic": true,
+                        "excerpt": "The export service is approved for launch, conditional on the reviewed token rotation controls. Security review SEC-41 passed.",
+                        "sha256": "cffd1275fac1655277d8278835e1a4c8df9049140c0278532e3145ba90e0988a",
+                        "imported_by": "local-demo"
+                      },
+                      "document": {
+                        "id": "doc-security-approval",
+                        "name": "Export security review",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T09:00:00Z"
+                    },
+                    {
+                      "version": {
+                        "id": "doc-sec-ticket-v1",
+                        "name": "SEC-41 token rotation ticket",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T08:30:00Z",
+                        "current": true,
+                        "authority": "ticket",
+                        "synthetic": true,
+                        "excerpt": "Leah Ortiz reviewed the token rotation implementation. Approval is recorded separately in the security review.",
+                        "sha256": "bb1c1899dda82f337ea895262c791b86feb74d2225ab5f9f15edc629067d103a",
+                        "imported_by": "local-demo"
+                      },
+                      "document": {
+                        "id": "doc-sec-ticket",
+                        "name": "SEC-41 token rotation ticket",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T08:30:00Z"
+                    }
+                  ]
+                },
+                {
+                  "id": "assumption-capacity",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-capacity-v1",
+                        "name": "Capacity test report",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T10:00:00Z",
+                        "current": true,
+                        "authority": "platform",
+                        "synthetic": true,
+                        "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+                        "sha256": "158fb4ab6955725a4db9fecae7d571b46228e8c3eef1c18dde4281a1eccf1591",
+                        "imported_by": "local-demo"
+                      },
+                      "document": {
+                        "id": "doc-capacity",
+                        "name": "Capacity test report",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T10:00:00Z"
+                    }
+                  ]
+                }
+              ],
+              "checks": [
+                {
+                  "id": "approval-export",
+                  "name": "Export service security approval",
+                  "state": "superseded",
+                  "assessment": "review_required"
+                },
+                {
+                  "id": "assumption-capacity",
+                  "name": "Export capacity supports the launch cohort",
+                  "state": "confirmed",
+                  "assessment": "supported"
+                }
+              ],
+              "issues": [
+                {
+                  "code": "assumption_superseded",
+                  "message": "Export service security approval: superseded.",
+                  "severity": "review_required",
+                  "entity_id": "approval-export"
+                },
+                {
+                  "code": "assumption_expired",
+                  "message": "Export service security approval: expired.",
+                  "severity": "review_required",
+                  "entity_id": "approval-export"
+                },
+                {
+                  "code": "assumption_not_current",
+                  "message": "Export service security approval: not current.",
+                  "severity": "review_required",
+                  "entity_id": "approval-export"
+                },
+                {
+                  "code": "assumption_unsupported_state",
+                  "message": "Export service security approval: unsupported state.",
+                  "severity": "review_required",
+                  "entity_id": "approval-export"
+                }
+              ],
+              "complete": true,
+              "truncated": false,
+              "max_hops": 8,
+              "path_limit": 50,
+              "revision": 34,
+              "assessed_at": "2026-10-16T19:41:17.423315+00:00",
+              "owner_resolution": {
+                "owner": {
+                  "id": "person-1",
+                  "name": "Maya Chen",
+                  "classification": "confirmed"
+                },
+                "records": [
+                  {
+                    "person": {
+                      "id": "person-1",
+                      "name": "Maya Chen",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-atlas-owned_by-person-1",
+                      "classification": "confirmed",
+                      "source": "doc-owner-current-v1",
+                      "current": true,
+                      "authority": 100,
+                      "valid_from": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  {
+                    "person": {
+                      "id": "person-6",
+                      "name": "Ethan Park",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-atlas-owned_by-person-6",
+                      "classification": "confirmed",
+                      "source": "doc-owner-old-v1",
+                      "current": false,
+                      "authority": 20,
+                      "valid_from": "2026-10-15T08:00:00Z",
+                      "valid_to": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 20,
+                    "valid_from": "2026-10-15T08:00:00Z"
+                  }
+                ],
+                "conflict": true,
+                "ambiguous": false,
+                "sources": [
+                  {
+                    "id": "doc-owner-current-v1",
+                    "name": "Authoritative ownership register",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-16T07:00:00Z",
+                    "current": true,
+                    "authority": "ownership-register",
+                    "synthetic": true,
+                    "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                    "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                    "imported_by": "local-demo",
+                    "kind": "DocumentVersion"
+                  },
+                  {
+                    "id": "doc-owner-old-v1",
+                    "name": "Original Atlas project brief",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-15T08:00:00Z",
+                    "current": true,
+                    "authority": "project-brief",
+                    "synthetic": true,
+                    "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                    "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc",
+                    "imported_by": "local-demo",
+                    "kind": "DocumentVersion"
+                  }
+                ],
+                "complete": true,
+                "issues": [],
+                "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+              },
+              "history": [
+                {
+                  "event": {
+                    "id": "change-export-withdrawn",
+                    "name": "Export service security approval withdrawn",
+                    "created_at": "2026-10-16T19:41:16.700742+00:00",
+                    "current": true,
+                    "state": "unresolved",
+                    "classification": "confirmed",
+                    "synthetic": true,
+                    "project_id": "project-atlas",
+                    "prerequisite_id": "approval-export",
+                    "withdrawn_assumption_id": "approval-export-withdrawn",
+                    "withdrawal_source_id": "doc-security-withdrawal-v1",
+                    "authority": "security",
+                    "lineage_id": "approval-export",
+                    "cycle_index": 1,
+                    "snapshot_sha256": "3b49414c8d2b84a309289c6e404c709332683255a7a30443c0bd43adf9f2a0ca",
+                    "recorded_by": "local-demo"
+                  },
+                  "previous": {
+                    "id": "approval-export",
+                    "name": "Export service security approval",
+                    "classification": "confirmed",
+                    "state": "superseded",
+                    "current": false,
+                    "valid_from": "2026-10-15T09:00:00Z",
+                    "required_evidence_authority": "security",
+                    "valid_to": "2026-10-16T19:41:16.700742+00:00"
+                  },
+                  "created_at": "2026-10-16T19:41:16.700742+00:00"
+                }
+              ],
+              "next_step": "Resolve the listed evidence, ownership, or completeness gaps before making a launch decision.",
+              "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "conclusion": "Review required; launch is not automatically cancelled.",
+            "status": "review_required",
+            "project": {
+              "id": "project-atlas",
+              "name": "Project Atlas",
+              "classification": "confirmed",
+              "description": "Launch of governed customer data exports",
+              "state": "planned",
+              "launch_date": "2026-10-20",
+              "required_assumptions": [
+                "approval-export",
+                "assumption-capacity"
+              ],
+              "primary_assumption_id": "approval-export",
+              "decision_id": "decision-atlas",
+              "kind": "Project"
+            },
+            "paths": [
+              {
+                "assumption_id": "approval-export",
+                "assumption": {
+                  "id": "approval-export",
+                  "name": "Export service security approval",
+                  "classification": "confirmed",
+                  "state": "superseded",
+                  "current": false,
+                  "valid_from": "2026-10-15T09:00:00Z",
+                  "required_evidence_authority": "security",
+                  "valid_to": "2026-10-16T19:41:16.700742+00:00"
+                },
+                "path": [
+                  "project-atlas",
+                  "milestone-atlas",
+                  "decision-atlas",
+                  "milestone-export",
+                  "decision-export",
+                  "approval-export"
+                ],
+                "edges": [
+                  {
+                    "id": "project-atlas-depends_on-milestone-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-launch-checklist-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-atlas-depends_on-decision-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-ga-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-atlas-depends_on-milestone-export",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-decision-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-export-depends_on-decision-export",
+                    "classification": "confirmed",
+                    "source": "doc-export-gate-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-export-depends_on-approval-export",
+                    "classification": "confirmed",
+                    "source": "doc-export-decision-v1",
+                    "current": true
+                  }
+                ]
+              },
+              {
+                "assumption_id": "assumption-capacity",
+                "assumption": {
+                  "id": "assumption-capacity",
+                  "name": "Export capacity supports the launch cohort",
+                  "classification": "confirmed",
+                  "state": "confirmed",
+                  "current": true,
+                  "valid_from": "2026-10-15T10:00:00Z",
+                  "required_evidence_authority": "platform"
+                },
+                "path": [
+                  "project-atlas",
+                  "milestone-atlas",
+                  "decision-atlas",
+                  "milestone-export",
+                  "decision-export",
+                  "assumption-capacity"
+                ],
+                "edges": [
+                  {
+                    "id": "project-atlas-depends_on-milestone-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-launch-checklist-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-atlas-depends_on-decision-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-ga-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-atlas-depends_on-milestone-export",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-decision-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-export-depends_on-decision-export",
+                    "classification": "confirmed",
+                    "source": "doc-export-gate-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-export-depends_on-assumption-capacity",
+                    "classification": "confirmed",
+                    "source": "doc-export-decision-v1",
+                    "current": true
+                  }
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "id": "approval-export",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-security-approval-v1",
+                      "name": "Export security review",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T09:00:00Z",
+                      "current": true,
+                      "authority": "security",
+                      "synthetic": true,
+                      "excerpt": "The export service is approved for launch, conditional on the reviewed token rotation controls. Security review SEC-41 passed.",
+                      "sha256": "cffd1275fac1655277d8278835e1a4c8df9049140c0278532e3145ba90e0988a",
+                      "imported_by": "local-demo"
+                    },
+                    "document": {
+                      "id": "doc-security-approval",
+                      "name": "Export security review",
+                      "classification": "confirmed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-15T09:00:00Z"
+                  },
+                  {
+                    "version": {
+                      "id": "doc-sec-ticket-v1",
+                      "name": "SEC-41 token rotation ticket",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T08:30:00Z",
+                      "current": true,
+                      "authority": "ticket",
+                      "synthetic": true,
+                      "excerpt": "Leah Ortiz reviewed the token rotation implementation. Approval is recorded separately in the security review.",
+                      "sha256": "bb1c1899dda82f337ea895262c791b86feb74d2225ab5f9f15edc629067d103a",
+                      "imported_by": "local-demo"
+                    },
+                    "document": {
+                      "id": "doc-sec-ticket",
+                      "name": "SEC-41 token rotation ticket",
+                      "classification": "confirmed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-15T08:30:00Z"
+                  }
+                ]
+              },
+              {
+                "id": "assumption-capacity",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-capacity-v1",
+                      "name": "Capacity test report",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T10:00:00Z",
+                      "current": true,
+                      "authority": "platform",
+                      "synthetic": true,
+                      "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+                      "sha256": "158fb4ab6955725a4db9fecae7d571b46228e8c3eef1c18dde4281a1eccf1591",
+                      "imported_by": "local-demo"
+                    },
+                    "document": {
+                      "id": "doc-capacity",
+                      "name": "Capacity test report",
+                      "classification": "confirmed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-15T10:00:00Z"
+                  }
+                ]
+              }
+            ],
+            "checks": [
+              {
+                "id": "approval-export",
+                "name": "Export service security approval",
+                "state": "superseded",
+                "assessment": "review_required"
+              },
+              {
+                "id": "assumption-capacity",
+                "name": "Export capacity supports the launch cohort",
+                "state": "confirmed",
+                "assessment": "supported"
+              }
+            ],
+            "issues": [
+              {
+                "code": "assumption_superseded",
+                "message": "Export service security approval: superseded.",
+                "severity": "review_required",
+                "entity_id": "approval-export"
+              },
+              {
+                "code": "assumption_expired",
+                "message": "Export service security approval: expired.",
+                "severity": "review_required",
+                "entity_id": "approval-export"
+              },
+              {
+                "code": "assumption_not_current",
+                "message": "Export service security approval: not current.",
+                "severity": "review_required",
+                "entity_id": "approval-export"
+              },
+              {
+                "code": "assumption_unsupported_state",
+                "message": "Export service security approval: unsupported state.",
+                "severity": "review_required",
+                "entity_id": "approval-export"
+              }
+            ],
+            "complete": true,
+            "truncated": false,
+            "max_hops": 8,
+            "path_limit": 50,
+            "revision": 34,
+            "assessed_at": "2026-10-16T19:41:17.423315+00:00",
+            "owner_resolution": {
+              "owner": {
+                "id": "person-1",
+                "name": "Maya Chen",
+                "classification": "confirmed"
+              },
+              "records": [
+                {
+                  "person": {
+                    "id": "person-1",
+                    "name": "Maya Chen",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-atlas-owned_by-person-1",
+                    "classification": "confirmed",
+                    "source": "doc-owner-current-v1",
+                    "current": true,
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 100,
+                  "valid_from": "2026-10-16T07:00:00Z"
+                },
+                {
+                  "person": {
+                    "id": "person-6",
+                    "name": "Ethan Park",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-atlas-owned_by-person-6",
+                    "classification": "confirmed",
+                    "source": "doc-owner-old-v1",
+                    "current": false,
+                    "authority": 20,
+                    "valid_from": "2026-10-15T08:00:00Z",
+                    "valid_to": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 20,
+                  "valid_from": "2026-10-15T08:00:00Z"
+                }
+              ],
+              "conflict": true,
+              "ambiguous": false,
+              "sources": [
+                {
+                  "id": "doc-owner-current-v1",
+                  "name": "Authoritative ownership register",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-16T07:00:00Z",
+                  "current": true,
+                  "authority": "ownership-register",
+                  "synthetic": true,
+                  "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                  "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                  "imported_by": "local-demo",
+                  "kind": "DocumentVersion"
+                },
+                {
+                  "id": "doc-owner-old-v1",
+                  "name": "Original Atlas project brief",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-15T08:00:00Z",
+                  "current": true,
+                  "authority": "project-brief",
+                  "synthetic": true,
+                  "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                  "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc",
+                  "imported_by": "local-demo",
+                  "kind": "DocumentVersion"
+                }
+              ],
+              "complete": true,
+              "issues": [],
+              "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+            },
+            "history": [
+              {
+                "event": {
+                  "id": "change-export-withdrawn",
+                  "name": "Export service security approval withdrawn",
+                  "created_at": "2026-10-16T19:41:16.700742+00:00",
+                  "current": true,
+                  "state": "unresolved",
+                  "classification": "confirmed",
+                  "synthetic": true,
+                  "project_id": "project-atlas",
+                  "prerequisite_id": "approval-export",
+                  "withdrawn_assumption_id": "approval-export-withdrawn",
+                  "withdrawal_source_id": "doc-security-withdrawal-v1",
+                  "authority": "security",
+                  "lineage_id": "approval-export",
+                  "cycle_index": 1,
+                  "snapshot_sha256": "3b49414c8d2b84a309289c6e404c709332683255a7a30443c0bd43adf9f2a0ca",
+                  "recorded_by": "local-demo"
+                },
+                "previous": {
+                  "id": "approval-export",
+                  "name": "Export service security approval",
+                  "classification": "confirmed",
+                  "state": "superseded",
+                  "current": false,
+                  "valid_from": "2026-10-15T09:00:00Z",
+                  "required_evidence_authority": "security",
+                  "valid_to": "2026-10-16T19:41:16.700742+00:00"
+                },
+                "created_at": "2026-10-16T19:41:16.700742+00:00"
+              }
+            ],
+            "next_step": "Resolve the listed evidence, ownership, or completeness gaps before making a launch decision.",
+            "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+          }
+        ],
+        "model_ms": 4881.61,
+        "model": "llama3:latest",
+        "open_followups": [],
+        "citation_check": {
+          "model_citation_coverage_complete": true,
+          "supplemental_source_ids": [],
+          "unavailable_path_source_ids": [
+            "doc-atlas-decision-v1",
+            "doc-atlas-ga-v1",
+            "doc-export-decision-v1",
+            "doc-export-gate-v1",
+            "doc-launch-checklist-v1"
+          ],
+          "source_excerpts": [
+            {
+              "id": "doc-capacity-v1",
+              "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+              "reason": "Recorded assessment or selected dependency path"
+            },
+            {
+              "id": "doc-sec-ticket-v1",
+              "excerpt": "Leah Ortiz reviewed the token rotation implementation. Approval is recorded separately in the security review.",
+              "reason": "Recorded assessment or selected dependency path"
+            },
+            {
+              "id": "doc-security-approval-v1",
+              "excerpt": "The export service is approved for launch, conditional on the reviewed token rotation controls. Security review SEC-41 passed.",
+              "reason": "Recorded assessment or selected dependency path"
+            }
+          ],
+          "semantic_entailment": "unverified",
+          "note": "Supplemental sources are attached by application checks, not chosen by the model. Free-text conflicts and recommendations require human review."
+        },
+        "conclusion_origin": "application assessment",
+        "grounding_note": "Cited IDs and paths validated against tool outputs. Natural-language entailment still requires human review."
+      },
+      "elapsed_ms": 4908.865,
+      "status": "failed",
+      "model_citation_coverage_complete": true,
+      "state_unchanged": true
+    },
+    {
+      "scenario": "beacon-after-atlas-change",
+      "project": "project-beacon",
+      "expected_conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+      "result": {
+        "mode": "agent",
+        "answer": {
+          "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+          "supporting_paths": [
+            [
+              "project-beacon",
+              "milestone-beacon",
+              "decision-beacon",
+              "approval-beacon"
+            ]
+          ],
+          "source_ids": [
+            "doc-beacon-approval-v1"
+          ],
+          "conflicts": [],
+          "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners."
+        },
+        "trace": [
+          {
+            "tool": "assess_launch_readiness",
+            "input": {
+              "value": "project-beacon"
+            },
+            "duration_ms": 7.902,
+            "result": {
+              "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+              "status": "supported",
+              "project": {
+                "id": "project-beacon",
+                "name": "Project Beacon",
+                "classification": "confirmed",
+                "description": "Public status-page refresh",
+                "state": "planned",
+                "required_assumptions": [
+                  "approval-beacon"
+                ],
+                "primary_assumption_id": "approval-beacon",
+                "decision_id": "decision-beacon",
+                "kind": "Project"
+              },
+              "paths": [
+                {
+                  "assumption_id": "approval-beacon",
+                  "assumption": {
+                    "id": "approval-beacon",
+                    "name": "Beacon accessibility checks passed",
+                    "classification": "confirmed",
+                    "state": "approved",
+                    "current": true,
+                    "required_evidence_authority": "product"
+                  },
+                  "path": [
+                    "project-beacon",
+                    "milestone-beacon",
+                    "decision-beacon",
+                    "approval-beacon"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-beacon-depends_on-milestone-beacon",
+                      "classification": "confirmed",
+                      "source": "doc-beacon-milestone-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-beacon-depends_on-decision-beacon",
+                      "classification": "confirmed",
+                      "source": "doc-beacon-milestone-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-beacon-depends_on-approval-beacon",
+                      "classification": "confirmed",
+                      "source": "doc-beacon-decision-v1",
+                      "current": true
+                    }
+                  ]
+                }
+              ],
+              "sources": [
+                {
+                  "id": "approval-beacon",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-beacon-approval-v1",
+                        "name": "Beacon accessibility review",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T09:30:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Beacon accessibility checks passed. Beacon has no recorded dependency on the export service.",
+                        "sha256": "ce867a086963df829a3d93939e29d6e59a1aed6bea3fb88c75a3678268e39997",
+                        "imported_by": "local-demo"
+                      },
+                      "document": {
+                        "id": "doc-beacon-approval",
+                        "name": "Beacon accessibility review",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T09:30:00Z"
+                    }
+                  ]
+                }
+              ],
+              "checks": [
+                {
+                  "id": "approval-beacon",
+                  "name": "Beacon accessibility checks passed",
+                  "state": "approved",
+                  "assessment": "supported"
+                }
+              ],
+              "issues": [],
+              "complete": true,
+              "truncated": false,
+              "max_hops": 8,
+              "path_limit": 50,
+              "revision": 34,
+              "assessed_at": "2026-10-16T19:41:22.469961+00:00",
+              "owner_resolution": {
+                "owner": {
+                  "id": "person-7",
+                  "name": "Sofia Reyes",
+                  "classification": "confirmed"
+                },
+                "records": [
+                  {
+                    "person": {
+                      "id": "person-7",
+                      "name": "Sofia Reyes",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-beacon-owned_by-person-7",
+                      "classification": "confirmed",
+                      "source": "doc-owner-current-v1",
+                      "current": true,
+                      "authority": 100,
+                      "valid_from": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  }
+                ],
+                "conflict": false,
+                "ambiguous": false,
+                "sources": [
+                  {
+                    "id": "doc-owner-current-v1",
+                    "name": "Authoritative ownership register",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-16T07:00:00Z",
+                    "current": true,
+                    "authority": "ownership-register",
+                    "synthetic": true,
+                    "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                    "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                    "imported_by": "local-demo",
+                    "kind": "DocumentVersion"
+                  }
+                ],
+                "complete": true,
+                "issues": [],
+                "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+              },
+              "history": [],
+              "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+              "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+            "status": "supported",
+            "project": {
+              "id": "project-beacon",
+              "name": "Project Beacon",
+              "classification": "confirmed",
+              "description": "Public status-page refresh",
+              "state": "planned",
+              "required_assumptions": [
+                "approval-beacon"
+              ],
+              "primary_assumption_id": "approval-beacon",
+              "decision_id": "decision-beacon",
+              "kind": "Project"
+            },
+            "paths": [
+              {
+                "assumption_id": "approval-beacon",
+                "assumption": {
+                  "id": "approval-beacon",
+                  "name": "Beacon accessibility checks passed",
+                  "classification": "confirmed",
+                  "state": "approved",
+                  "current": true,
+                  "required_evidence_authority": "product"
+                },
+                "path": [
+                  "project-beacon",
+                  "milestone-beacon",
+                  "decision-beacon",
+                  "approval-beacon"
+                ],
+                "edges": [
+                  {
+                    "id": "project-beacon-depends_on-milestone-beacon",
+                    "classification": "confirmed",
+                    "source": "doc-beacon-milestone-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-beacon-depends_on-decision-beacon",
+                    "classification": "confirmed",
+                    "source": "doc-beacon-milestone-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-beacon-depends_on-approval-beacon",
+                    "classification": "confirmed",
+                    "source": "doc-beacon-decision-v1",
+                    "current": true
+                  }
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "id": "approval-beacon",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-beacon-approval-v1",
+                      "name": "Beacon accessibility review",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T09:30:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Beacon accessibility checks passed. Beacon has no recorded dependency on the export service.",
+                      "sha256": "ce867a086963df829a3d93939e29d6e59a1aed6bea3fb88c75a3678268e39997",
+                      "imported_by": "local-demo"
+                    },
+                    "document": {
+                      "id": "doc-beacon-approval",
+                      "name": "Beacon accessibility review",
+                      "classification": "confirmed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-15T09:30:00Z"
+                  }
+                ]
+              }
+            ],
+            "checks": [
+              {
+                "id": "approval-beacon",
+                "name": "Beacon accessibility checks passed",
+                "state": "approved",
+                "assessment": "supported"
+              }
+            ],
+            "issues": [],
+            "complete": true,
+            "truncated": false,
+            "max_hops": 8,
+            "path_limit": 50,
+            "revision": 34,
+            "assessed_at": "2026-10-16T19:41:22.469961+00:00",
+            "owner_resolution": {
+              "owner": {
+                "id": "person-7",
+                "name": "Sofia Reyes",
+                "classification": "confirmed"
+              },
+              "records": [
+                {
+                  "person": {
+                    "id": "person-7",
+                    "name": "Sofia Reyes",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-beacon-owned_by-person-7",
+                    "classification": "confirmed",
+                    "source": "doc-owner-current-v1",
+                    "current": true,
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 100,
+                  "valid_from": "2026-10-16T07:00:00Z"
+                }
+              ],
+              "conflict": false,
+              "ambiguous": false,
+              "sources": [
+                {
+                  "id": "doc-owner-current-v1",
+                  "name": "Authoritative ownership register",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-16T07:00:00Z",
+                  "current": true,
+                  "authority": "ownership-register",
+                  "synthetic": true,
+                  "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                  "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                  "imported_by": "local-demo",
+                  "kind": "DocumentVersion"
+                }
+              ],
+              "complete": true,
+              "issues": [],
+              "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+            },
+            "history": [],
+            "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+            "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+          }
+        ],
+        "model_ms": 3400.3089999999997,
+        "model": "llama3:latest",
+        "open_followups": [],
+        "citation_check": {
+          "model_citation_coverage_complete": true,
+          "supplemental_source_ids": [],
+          "unavailable_path_source_ids": [
+            "doc-beacon-decision-v1",
+            "doc-beacon-milestone-v1"
+          ],
+          "source_excerpts": [
+            {
+              "id": "doc-beacon-approval-v1",
+              "excerpt": "Beacon accessibility checks passed. Beacon has no recorded dependency on the export service.",
+              "reason": "Recorded assessment or selected dependency path"
+            }
+          ],
+          "semantic_entailment": "unverified",
+          "note": "Supplemental sources are attached by application checks, not chosen by the model. Free-text conflicts and recommendations require human review."
+        },
+        "conclusion_origin": "application assessment",
+        "grounding_note": "Cited IDs and paths validated against tool outputs. Natural-language entailment still requires human review."
+      },
+      "elapsed_ms": 3425.272,
+      "status": "failed",
+      "model_citation_coverage_complete": true,
+      "state_unchanged": true
+    }
+  ],
+  "passed": 1,
+  "model_citation_coverage_complete": 5,
+  "semantic_entailment": "Not established. Source/path coverage and authoritative conclusions are checked; free prose requires human review.",
+  "owned_graph_cleaned": true
+}

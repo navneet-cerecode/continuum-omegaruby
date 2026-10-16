@@ -1,0 +1,28 @@
+{
+  "before": {
+    "change_ids": [
+      "change-export-withdrawn"
+    ],
+    "action_ids": [
+      "action-proposal-25-decision-atlas",
+      "action-proposal-25-decision-export"
+    ]
+  },
+  "database_outage": {
+    "status": 503,
+    "body": {
+      "error": "FalkorDB unavailable; connected context cannot be answered.",
+      "dependency": "FalkorDB"
+    }
+  },
+  "after": {
+    "change_ids": [
+      "change-export-withdrawn"
+    ],
+    "action_ids": [
+      "action-proposal-25-decision-atlas",
+      "action-proposal-25-decision-export"
+    ]
+  },
+  "restart_preserved_state": true
+}

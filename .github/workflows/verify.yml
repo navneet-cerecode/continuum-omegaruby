@@ -1,0 +1,38 @@
+name: Verify CONTINUUM
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      falkordb:
+        image: falkordb/falkordb:v4.14.11
+        ports: ["6380:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s --health-timeout 3s --health-retries 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.12.0'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: python -m pip install -r requirements.lock.txt
+      - run: npm ci && npm run build
+        working-directory: frontend
+      - run: python -m pytest -q --basetemp=.runtime/pytest-ci --junitxml=artifacts/pytest-ci.xml
+        env:
+          CONTINUUM_ACCESS: demo
+          FALKORDB_HOST: 127.0.0.1
+          FALKORDB_PORT: '6380'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-results
+          path: artifacts/pytest-ci.xml

@@ -1,0 +1,34 @@
+name: continuum
+services:
+  falkordb:
+    image: falkordb/falkordb:v4.14.11
+    ports:
+      - "127.0.0.1:6380:6379"
+    environment:
+      REDIS_ARGS: "--appendonly yes --appendfsync everysec --dir /data"
+      FALKORDB_ARGS: "TIMEOUT_DEFAULT 3000 TIMEOUT_MAX 5000"
+    volumes:
+      - continuum_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      FALKORDB_HOST: falkordb
+      FALKORDB_PORT: 6379
+      FALKORDB_GRAPH: ${FALKORDB_GRAPH:-continuum}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.openai.com/v1}
+      LLM_API_STYLE: ${LLM_API_STYLE:-responses}
+    depends_on:
+      falkordb:
+        condition: service_healthy
+volumes:
+  continuum_data:

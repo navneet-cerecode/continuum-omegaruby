@@ -1,0 +1,128 @@
+{
+  "verified_at": "2026-10-16T19:40:04.032110+00:00",
+  "graph": "continuum_load_e0e342657ede4583bda2b9ce59b3576e",
+  "real_database": true,
+  "synthetic": true,
+  "machine": "Windows-11-10.0.26300-SP0",
+  "samples": [
+    {
+      "concurrency": 1,
+      "runs": [
+        {
+          "ms": 284.769,
+          "status": "correct"
+        },
+        {
+          "ms": 263.215,
+          "status": "correct"
+        },
+        {
+          "ms": 287.44,
+          "status": "correct"
+        },
+        {
+          "ms": 263.127,
+          "status": "correct"
+        },
+        {
+          "ms": 294.881,
+          "status": "correct"
+        },
+        {
+          "ms": 240.567,
+          "status": "correct"
+        },
+        {
+          "ms": 266.892,
+          "status": "correct"
+        },
+        {
+          "ms": 259.155,
+          "status": "correct"
+        },
+        {
+          "ms": 277.74,
+          "status": "correct"
+        },
+        {
+          "ms": 242.604,
+          "status": "correct"
+        },
+        {
+          "ms": 256.181,
+          "status": "correct"
+        },
+        {
+          "ms": 260.862,
+          "status": "correct"
+        }
+      ],
+      "median_ms": 263.171,
+      "p95_observed_ms": 287.44,
+      "correct": 12,
+      "explicit_unavailable": 0
+    },
+    {
+      "concurrency": 4,
+      "runs": [
+        {
+          "ms": 350.948,
+          "status": "correct"
+        },
+        {
+          "ms": 333.295,
+          "status": "correct"
+        },
+        {
+          "ms": 351.197,
+          "status": "correct"
+        },
+        {
+          "ms": 334.143,
+          "status": "correct"
+        },
+        {
+          "ms": 346.692,
+          "status": "correct"
+        },
+        {
+          "ms": 343.801,
+          "status": "correct"
+        },
+        {
+          "ms": 336.984,
+          "status": "correct"
+        },
+        {
+          "ms": 333.092,
+          "status": "correct"
+        },
+        {
+          "ms": 352.161,
+          "status": "correct"
+        },
+        {
+          "ms": 356.609,
+          "status": "correct"
+        },
+        {
+          "ms": 355.689,
+          "status": "correct"
+        },
+        {
+          "ms": 340.828,
+          "status": "correct"
+        }
+      ],
+      "median_ms": 345.246,
+      "p95_observed_ms": 355.689,
+      "correct": 12,
+      "explicit_unavailable": 0
+    }
+  ],
+  "node_count": 1206,
+  "impacted_items": 127,
+  "unrelated_records_excluded": 1000,
+  "limits": "Small synthetic experiment with 12 samples per concurrency. No enterprise capacity, SLA or independent hardware claim.",
+  "owned_graph_cleaned": true
+}

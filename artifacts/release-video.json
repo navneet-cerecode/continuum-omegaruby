@@ -1,0 +1,28 @@
+{
+  "verified_at": "2026-10-16T19:59:54.785711+00:00",
+  "file": "CONTINUUM-OmegaRuby-demo.mp4",
+  "actual_recordings": true,
+  "synthetic_data": true,
+  "narration": false,
+  "workflow_speed_factors": [
+    6,
+    5,
+    1.5
+  ],
+  "metadata": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1440,
+        "height": 1050
+      }
+    ],
+    "format": {
+      "duration": "153.680000"
+    }
+  },
+  "uploaded": false,
+  "note": "Labeled edit of recorded UI, not a fabricated model or participant presentation. Review before submission."
+}

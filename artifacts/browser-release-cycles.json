@@ -1,0 +1,267 @@
+{
+  "verified_at": "2026-10-16T19:51:42.555Z",
+  "graph": "continuum_lifecycle_2703e5ddf8b04b9cbf3e0717206de010",
+  "events": [
+    "change-export-withdrawn",
+    "change-bb095289f58c2a5d-withdrawn"
+  ],
+  "tasks": [
+    "action-change-export-withdrawn-decision-export",
+    "action-change-bb095289f58c2a5d-withdrawn-decision-export"
+  ],
+  "real_database": true,
+  "browser": "Installed Chrome",
+  "two_cycles_completed": true,
+  "old_snapshot_unchanged": true,
+  "historical_read_only_during_active_withdrawal": true,
+  "fresh_history_selection": true,
+  "mobile_no_overflow": true,
+  "page_errors": [],
+  "csp_violations": [],
+  "api_responses": [
+    {
+      "path": "/api/auth/session",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/changes/withdraw",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/plans",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/actions/approve",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/actions/action-change-export-withdrawn-decision-export",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/restorations",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/restorations/restoration-export-a289914d49750318/approve",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/changes/withdraw",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/plans",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/actions/approve",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/actions/action-change-bb095289f58c2a5d-withdrawn-decision-export",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/restorations",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/restorations/restoration-b852418ba749bcac/approve",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    }
+  ]
+}

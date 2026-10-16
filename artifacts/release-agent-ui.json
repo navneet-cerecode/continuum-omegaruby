@@ -1,0 +1,1006 @@
+{
+  "verified_at": "2026-10-16T19:55:54.077Z",
+  "live": true,
+  "graph": "continuum_lifecycle_2703e5ddf8b04b9cbf3e0717206de010",
+  "state_unchanged": true,
+  "result": {
+    "mode": "agent",
+    "answer": {
+      "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+      "supporting_paths": [
+        [
+          "project-atlas",
+          "milestone-atlas",
+          "decision-atlas",
+          "milestone-export",
+          "decision-export",
+          "assumption-capacity"
+        ],
+        [
+          "project-atlas",
+          "milestone-atlas",
+          "decision-atlas",
+          "milestone-export",
+          "decision-export",
+          "approval-restored-b852418ba749bcac"
+        ]
+      ],
+      "source_ids": [
+        "doc-capacity-v1",
+        "doc-approval-restoration-b852418ba749bcac-v1"
+      ],
+      "conflicts": [
+        "conflict between ownership records"
+      ],
+      "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners."
+    },
+    "trace": [
+      {
+        "tool": "assess_launch_readiness",
+        "input": {
+          "value": "project-atlas"
+        },
+        "duration_ms": 15.321,
+        "result": {
+          "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+          "status": "supported",
+          "project": {
+            "id": "project-atlas",
+            "name": "Project Atlas",
+            "classification": "confirmed",
+            "description": "Launch of governed customer data exports",
+            "state": "planned",
+            "launch_date": "2026-10-20",
+            "required_assumptions": [
+              "approval-restored-b852418ba749bcac",
+              "assumption-capacity"
+            ],
+            "primary_assumption_id": "approval-restored-b852418ba749bcac",
+            "decision_id": "decision-atlas",
+            "security_prerequisite_id": "approval-restored-b852418ba749bcac",
+            "kind": "Project"
+          },
+          "paths": [
+            {
+              "assumption_id": "assumption-capacity",
+              "assumption": {
+                "id": "assumption-capacity",
+                "name": "Export capacity supports the launch cohort",
+                "classification": "confirmed",
+                "state": "confirmed",
+                "current": true,
+                "valid_from": "2026-10-15T10:00:00Z",
+                "required_evidence_authority": "platform"
+              },
+              "path": [
+                "project-atlas",
+                "milestone-atlas",
+                "decision-atlas",
+                "milestone-export",
+                "decision-export",
+                "assumption-capacity"
+              ],
+              "edges": [
+                {
+                  "id": "project-atlas-depends_on-milestone-atlas",
+                  "classification": "confirmed",
+                  "source": "doc-launch-checklist-v1",
+                  "current": true
+                },
+                {
+                  "id": "milestone-atlas-depends_on-decision-atlas",
+                  "classification": "confirmed",
+                  "source": "doc-atlas-ga-v1",
+                  "current": true
+                },
+                {
+                  "id": "decision-atlas-depends_on-milestone-export",
+                  "classification": "confirmed",
+                  "source": "doc-atlas-decision-v1",
+                  "current": true
+                },
+                {
+                  "id": "milestone-export-depends_on-decision-export",
+                  "classification": "confirmed",
+                  "source": "doc-export-gate-v1",
+                  "current": true
+                },
+                {
+                  "id": "decision-export-depends_on-assumption-capacity",
+                  "classification": "confirmed",
+                  "source": "doc-export-decision-v1",
+                  "current": true
+                }
+              ]
+            },
+            {
+              "assumption_id": "approval-restored-b852418ba749bcac",
+              "assumption": {
+                "id": "approval-restored-b852418ba749bcac",
+                "name": "Replacement: Export service security approval",
+                "state": "approved",
+                "current": true,
+                "valid_from": "2026-10-16T19:51:41.526096+00:00",
+                "required_evidence_authority": "security",
+                "classification": "confirmed",
+                "synthetic": true,
+                "lineage_id": "approval-export",
+                "approved_at": "2026-10-16T19:51:42.093076+00:00"
+              },
+              "path": [
+                "project-atlas",
+                "milestone-atlas",
+                "decision-atlas",
+                "milestone-export",
+                "decision-export",
+                "approval-restored-b852418ba749bcac"
+              ],
+              "edges": [
+                {
+                  "id": "project-atlas-depends_on-milestone-atlas",
+                  "classification": "confirmed",
+                  "source": "doc-launch-checklist-v1",
+                  "current": true
+                },
+                {
+                  "id": "milestone-atlas-depends_on-decision-atlas",
+                  "classification": "confirmed",
+                  "source": "doc-atlas-ga-v1",
+                  "current": true
+                },
+                {
+                  "id": "decision-atlas-depends_on-milestone-export",
+                  "classification": "confirmed",
+                  "source": "doc-atlas-decision-v1",
+                  "current": true
+                },
+                {
+                  "id": "milestone-export-depends_on-decision-export",
+                  "classification": "confirmed",
+                  "source": "doc-export-gate-v1",
+                  "current": true
+                },
+                {
+                  "id": "decision-export-depends_on-approval-export-restoration-export-a289914d49750318-restoration-b852418ba749bcac",
+                  "classification": "confirmed",
+                  "source": "doc-approval-restoration-b852418ba749bcac-v1",
+                  "current": true,
+                  "valid_from": "2026-10-16T19:51:42.093076+00:00",
+                  "review_id": "restoration-b852418ba749bcac",
+                  "revalidated_from": "approval-export-restored-a289914d49750318"
+                }
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "id": "assumption-capacity",
+              "evidence": [
+                {
+                  "version": {
+                    "id": "doc-capacity-v1",
+                    "name": "Capacity test report",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-15T10:00:00Z",
+                    "current": true,
+                    "authority": "platform",
+                    "synthetic": true,
+                    "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+                    "sha256": "158fb4ab6955725a4db9fecae7d571b46228e8c3eef1c18dde4281a1eccf1591",
+                    "imported_by": "local-demo"
+                  },
+                  "document": {
+                    "id": "doc-capacity",
+                    "name": "Capacity test report",
+                    "classification": "confirmed",
+                    "synthetic": true
+                  },
+                  "valid_from": "2026-10-15T10:00:00Z"
+                }
+              ]
+            },
+            {
+              "id": "approval-restored-b852418ba749bcac",
+              "evidence": [
+                {
+                  "version": {
+                    "id": "doc-approval-restoration-b852418ba749bcac-v1",
+                    "name": "Synthetic replacement review: Replacement: Export service security approval",
+                    "version": 1,
+                    "authority": "security",
+                    "valid_from": "2026-10-16T19:51:41.526096+00:00",
+                    "current": true,
+                    "classification": "confirmed",
+                    "synthetic": true,
+                    "excerpt": "Synthetic review passed. The recorded controls were rechecked, and Replacement: Export service security approval is approved for the reviewed scope.",
+                    "sha256": "b852418ba749bcacae6d8427eab4085d7798963e92df4a564673dee9f036da6d",
+                    "reference": "REVIEW-42",
+                    "origin": "human-entered synthetic replacement review"
+                  },
+                  "document": {
+                    "id": "doc-approval-restoration-b852418ba749bcac",
+                    "name": "Synthetic replacement review: Replacement: Export service security approval",
+                    "synthetic": true
+                  },
+                  "valid_from": "2026-10-16T19:51:41.526096+00:00"
+                }
+              ]
+            }
+          ],
+          "dependency_sources": [
+            {
+              "id": "doc-launch-checklist-v1",
+              "name": "Atlas launch checklist",
+              "classification": "confirmed",
+              "version": 1,
+              "valid_from": "2026-10-15T17:00:00Z",
+              "current": true,
+              "authority": "checklist",
+              "synthetic": true,
+              "excerpt": "Launch lead must review security, delivery and customer commitments. Recorded dependencies are a partial model, not proof of every possible risk.",
+              "sha256": "284d564683a755d190b8f19a0b5d23a90a61eecd9143e1fe93572a95db27f48a",
+              "imported_by": "local-demo",
+              "kind": "DocumentVersion"
+            },
+            {
+              "id": "doc-atlas-ga-v1",
+              "name": "Atlas availability milestone",
+              "classification": "confirmed",
+              "version": 1,
+              "valid_from": "2026-10-15T12:10:00Z",
+              "current": true,
+              "authority": "product",
+              "synthetic": true,
+              "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+              "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3",
+              "imported_by": "local-demo",
+              "kind": "DocumentVersion"
+            },
+            {
+              "id": "doc-atlas-decision-v1",
+              "name": "Atlas launch decision",
+              "classification": "confirmed",
+              "version": 1,
+              "valid_from": "2026-10-15T12:00:00Z",
+              "current": true,
+              "authority": "product",
+              "synthetic": true,
+              "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+              "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+              "imported_by": "local-demo",
+              "kind": "DocumentVersion"
+            },
+            {
+              "id": "doc-export-gate-v1",
+              "name": "Export production gate",
+              "classification": "confirmed",
+              "version": 1,
+              "valid_from": "2026-10-15T11:10:00Z",
+              "current": true,
+              "authority": "platform",
+              "synthetic": true,
+              "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+              "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+              "imported_by": "local-demo",
+              "kind": "DocumentVersion"
+            },
+            {
+              "id": "doc-export-decision-v1",
+              "name": "Export release decision",
+              "classification": "confirmed",
+              "version": 1,
+              "valid_from": "2026-10-15T11:00:00Z",
+              "current": true,
+              "authority": "product",
+              "synthetic": true,
+              "excerpt": "Approve export service release based on SEC-41 security approval and capacity evidence. Review if either prerequisite changes.",
+              "sha256": "5fca47eb9a2cb26407b768967a39a8165bc46c4098dc6bc8f6f63357f0e50e11",
+              "imported_by": "local-demo",
+              "kind": "DocumentVersion"
+            },
+            {
+              "id": "doc-approval-restoration-b852418ba749bcac-v1",
+              "name": "Synthetic replacement review: Replacement: Export service security approval",
+              "version": 1,
+              "authority": "security",
+              "valid_from": "2026-10-16T19:51:41.526096+00:00",
+              "current": true,
+              "classification": "confirmed",
+              "synthetic": true,
+              "excerpt": "Synthetic review passed. The recorded controls were rechecked, and Replacement: Export service security approval is approved for the reviewed scope.",
+              "sha256": "b852418ba749bcacae6d8427eab4085d7798963e92df4a564673dee9f036da6d",
+              "reference": "REVIEW-42",
+              "origin": "human-entered synthetic replacement review",
+              "kind": "DocumentVersion"
+            }
+          ],
+          "checks": [
+            {
+              "id": "assumption-capacity",
+              "name": "Export capacity supports the launch cohort",
+              "state": "confirmed",
+              "assessment": "supported"
+            },
+            {
+              "id": "approval-restored-b852418ba749bcac",
+              "name": "Replacement: Export service security approval",
+              "state": "approved",
+              "assessment": "supported"
+            }
+          ],
+          "issues": [],
+          "complete": true,
+          "truncated": false,
+          "max_hops": 8,
+          "path_limit": 50,
+          "revision": 43,
+          "assessed_at": "2026-10-16T19:55:44.957379+00:00",
+          "owner_resolution": {
+            "owner": {
+              "id": "person-1",
+              "name": "Maya Chen",
+              "classification": "confirmed"
+            },
+            "records": [
+              {
+                "person": {
+                  "id": "person-1",
+                  "name": "Maya Chen",
+                  "classification": "confirmed"
+                },
+                "record": {
+                  "id": "project-atlas-owned_by-person-1",
+                  "classification": "confirmed",
+                  "source": "doc-owner-current-v1",
+                  "current": true,
+                  "authority": 100,
+                  "valid_from": "2026-10-16T07:00:00Z"
+                },
+                "authority": 100,
+                "valid_from": "2026-10-16T07:00:00Z"
+              },
+              {
+                "person": {
+                  "id": "person-6",
+                  "name": "Ethan Park",
+                  "classification": "confirmed"
+                },
+                "record": {
+                  "id": "project-atlas-owned_by-person-6",
+                  "classification": "confirmed",
+                  "source": "doc-owner-old-v1",
+                  "current": false,
+                  "authority": 20,
+                  "valid_from": "2026-10-15T08:00:00Z",
+                  "valid_to": "2026-10-16T07:00:00Z"
+                },
+                "authority": 20,
+                "valid_from": "2026-10-15T08:00:00Z"
+              }
+            ],
+            "conflict": true,
+            "ambiguous": false,
+            "sources": [
+              {
+                "id": "doc-owner-current-v1",
+                "name": "Authoritative ownership register",
+                "classification": "confirmed",
+                "version": 1,
+                "valid_from": "2026-10-16T07:00:00Z",
+                "current": true,
+                "authority": "ownership-register",
+                "synthetic": true,
+                "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                "imported_by": "local-demo",
+                "kind": "DocumentVersion"
+              },
+              {
+                "id": "doc-owner-old-v1",
+                "name": "Original Atlas project brief",
+                "classification": "confirmed",
+                "version": 1,
+                "valid_from": "2026-10-15T08:00:00Z",
+                "current": true,
+                "authority": "project-brief",
+                "synthetic": true,
+                "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc",
+                "imported_by": "local-demo",
+                "kind": "DocumentVersion"
+              }
+            ],
+            "complete": true,
+            "issues": [],
+            "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+          },
+          "history": [
+            {
+              "event": {
+                "id": "change-bb095289f58c2a5d-withdrawn",
+                "name": "Replacement: Export service security approval withdrawn",
+                "created_at": "2026-10-16T19:51:39.009271+00:00",
+                "current": true,
+                "state": "resolved",
+                "classification": "confirmed",
+                "synthetic": true,
+                "project_id": "project-atlas",
+                "prerequisite_id": "approval-export-restored-a289914d49750318",
+                "withdrawn_assumption_id": "approval-export-restored-a289914d49750318-withdrawn",
+                "withdrawal_source_id": "doc-withdrawal-bb095289f58c2a5d-v1",
+                "authority": "security",
+                "lineage_id": "approval-export",
+                "cycle_index": 2,
+                "previous_event_id": "change-export-withdrawn",
+                "snapshot_sha256": "25916ee9f71c480c94dce2f8bfa2432d9c217bf2ee1de1a19206383b4480e5f1",
+                "recorded_by": "local-demo",
+                "resolved_at": "2026-10-16T19:51:42.093076+00:00",
+                "restoration_review_id": "restoration-b852418ba749bcac",
+                "restored_assumption_id": "approval-restored-b852418ba749bcac"
+              },
+              "previous": {
+                "id": "approval-export-restored-a289914d49750318",
+                "name": "Replacement: Export service security approval",
+                "state": "superseded",
+                "current": false,
+                "valid_from": "2026-10-16T19:51:38.228766+00:00",
+                "required_evidence_authority": "security",
+                "classification": "confirmed",
+                "synthetic": true,
+                "lineage_id": "approval-export",
+                "approved_at": "2026-10-16T19:51:38.756246+00:00",
+                "valid_to": "2026-10-16T19:51:39.009271+00:00"
+              },
+              "created_at": "2026-10-16T19:51:39.009271+00:00"
+            },
+            {
+              "event": {
+                "id": "change-export-withdrawn",
+                "name": "Export service security approval withdrawn",
+                "created_at": "2026-10-16T19:51:36.726301+00:00",
+                "current": true,
+                "state": "resolved",
+                "classification": "confirmed",
+                "synthetic": true,
+                "project_id": "project-atlas",
+                "prerequisite_id": "approval-export",
+                "withdrawn_assumption_id": "approval-export-withdrawn",
+                "withdrawal_source_id": "doc-withdrawal-3a2dbbc2ded5b1fb-v1",
+                "authority": "security",
+                "lineage_id": "approval-export",
+                "cycle_index": 1,
+                "snapshot_sha256": "3b49414c8d2b84a309289c6e404c709332683255a7a30443c0bd43adf9f2a0ca",
+                "recorded_by": "local-demo",
+                "resolved_at": "2026-10-16T19:51:38.756246+00:00",
+                "restoration_review_id": "restoration-export-a289914d49750318",
+                "restored_assumption_id": "approval-export-restored-a289914d49750318"
+              },
+              "previous": {
+                "id": "approval-export",
+                "name": "Export service security approval",
+                "classification": "confirmed",
+                "state": "superseded",
+                "current": false,
+                "valid_from": "2026-10-15T09:00:00Z",
+                "required_evidence_authority": "security",
+                "valid_to": "2026-10-16T19:51:36.726301+00:00"
+              },
+              "created_at": "2026-10-16T19:51:36.726301+00:00"
+            }
+          ],
+          "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+          "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+        }
+      }
+    ],
+    "evidence": [
+      {
+        "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+        "status": "supported",
+        "project": {
+          "id": "project-atlas",
+          "name": "Project Atlas",
+          "classification": "confirmed",
+          "description": "Launch of governed customer data exports",
+          "state": "planned",
+          "launch_date": "2026-10-20",
+          "required_assumptions": [
+            "approval-restored-b852418ba749bcac",
+            "assumption-capacity"
+          ],
+          "primary_assumption_id": "approval-restored-b852418ba749bcac",
+          "decision_id": "decision-atlas",
+          "security_prerequisite_id": "approval-restored-b852418ba749bcac",
+          "kind": "Project"
+        },
+        "paths": [
+          {
+            "assumption_id": "assumption-capacity",
+            "assumption": {
+              "id": "assumption-capacity",
+              "name": "Export capacity supports the launch cohort",
+              "classification": "confirmed",
+              "state": "confirmed",
+              "current": true,
+              "valid_from": "2026-10-15T10:00:00Z",
+              "required_evidence_authority": "platform"
+            },
+            "path": [
+              "project-atlas",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "assumption-capacity"
+            ],
+            "edges": [
+              {
+                "id": "project-atlas-depends_on-milestone-atlas",
+                "classification": "confirmed",
+                "source": "doc-launch-checklist-v1",
+                "current": true
+              },
+              {
+                "id": "milestone-atlas-depends_on-decision-atlas",
+                "classification": "confirmed",
+                "source": "doc-atlas-ga-v1",
+                "current": true
+              },
+              {
+                "id": "decision-atlas-depends_on-milestone-export",
+                "classification": "confirmed",
+                "source": "doc-atlas-decision-v1",
+                "current": true
+              },
+              {
+                "id": "milestone-export-depends_on-decision-export",
+                "classification": "confirmed",
+                "source": "doc-export-gate-v1",
+                "current": true
+              },
+              {
+                "id": "decision-export-depends_on-assumption-capacity",
+                "classification": "confirmed",
+                "source": "doc-export-decision-v1",
+                "current": true
+              }
+            ]
+          },
+          {
+            "assumption_id": "approval-restored-b852418ba749bcac",
+            "assumption": {
+              "id": "approval-restored-b852418ba749bcac",
+              "name": "Replacement: Export service security approval",
+              "state": "approved",
+              "current": true,
+              "valid_from": "2026-10-16T19:51:41.526096+00:00",
+              "required_evidence_authority": "security",
+              "classification": "confirmed",
+              "synthetic": true,
+              "lineage_id": "approval-export",
+              "approved_at": "2026-10-16T19:51:42.093076+00:00"
+            },
+            "path": [
+              "project-atlas",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "approval-restored-b852418ba749bcac"
+            ],
+            "edges": [
+              {
+                "id": "project-atlas-depends_on-milestone-atlas",
+                "classification": "confirmed",
+                "source": "doc-launch-checklist-v1",
+                "current": true
+              },
+              {
+                "id": "milestone-atlas-depends_on-decision-atlas",
+                "classification": "confirmed",
+                "source": "doc-atlas-ga-v1",
+                "current": true
+              },
+              {
+                "id": "decision-atlas-depends_on-milestone-export",
+                "classification": "confirmed",
+                "source": "doc-atlas-decision-v1",
+                "current": true
+              },
+              {
+                "id": "milestone-export-depends_on-decision-export",
+                "classification": "confirmed",
+                "source": "doc-export-gate-v1",
+                "current": true
+              },
+              {
+                "id": "decision-export-depends_on-approval-export-restoration-export-a289914d49750318-restoration-b852418ba749bcac",
+                "classification": "confirmed",
+                "source": "doc-approval-restoration-b852418ba749bcac-v1",
+                "current": true,
+                "valid_from": "2026-10-16T19:51:42.093076+00:00",
+                "review_id": "restoration-b852418ba749bcac",
+                "revalidated_from": "approval-export-restored-a289914d49750318"
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "assumption-capacity",
+            "evidence": [
+              {
+                "version": {
+                  "id": "doc-capacity-v1",
+                  "name": "Capacity test report",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-15T10:00:00Z",
+                  "current": true,
+                  "authority": "platform",
+                  "synthetic": true,
+                  "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+                  "sha256": "158fb4ab6955725a4db9fecae7d571b46228e8c3eef1c18dde4281a1eccf1591",
+                  "imported_by": "local-demo"
+                },
+                "document": {
+                  "id": "doc-capacity",
+                  "name": "Capacity test report",
+                  "classification": "confirmed",
+                  "synthetic": true
+                },
+                "valid_from": "2026-10-15T10:00:00Z"
+              }
+            ]
+          },
+          {
+            "id": "approval-restored-b852418ba749bcac",
+            "evidence": [
+              {
+                "version": {
+                  "id": "doc-approval-restoration-b852418ba749bcac-v1",
+                  "name": "Synthetic replacement review: Replacement: Export service security approval",
+                  "version": 1,
+                  "authority": "security",
+                  "valid_from": "2026-10-16T19:51:41.526096+00:00",
+                  "current": true,
+                  "classification": "confirmed",
+                  "synthetic": true,
+                  "excerpt": "Synthetic review passed. The recorded controls were rechecked, and Replacement: Export service security approval is approved for the reviewed scope.",
+                  "sha256": "b852418ba749bcacae6d8427eab4085d7798963e92df4a564673dee9f036da6d",
+                  "reference": "REVIEW-42",
+                  "origin": "human-entered synthetic replacement review"
+                },
+                "document": {
+                  "id": "doc-approval-restoration-b852418ba749bcac",
+                  "name": "Synthetic replacement review: Replacement: Export service security approval",
+                  "synthetic": true
+                },
+                "valid_from": "2026-10-16T19:51:41.526096+00:00"
+              }
+            ]
+          }
+        ],
+        "dependency_sources": [
+          {
+            "id": "doc-launch-checklist-v1",
+            "name": "Atlas launch checklist",
+            "classification": "confirmed",
+            "version": 1,
+            "valid_from": "2026-10-15T17:00:00Z",
+            "current": true,
+            "authority": "checklist",
+            "synthetic": true,
+            "excerpt": "Launch lead must review security, delivery and customer commitments. Recorded dependencies are a partial model, not proof of every possible risk.",
+            "sha256": "284d564683a755d190b8f19a0b5d23a90a61eecd9143e1fe93572a95db27f48a",
+            "imported_by": "local-demo",
+            "kind": "DocumentVersion"
+          },
+          {
+            "id": "doc-atlas-ga-v1",
+            "name": "Atlas availability milestone",
+            "classification": "confirmed",
+            "version": 1,
+            "valid_from": "2026-10-15T12:10:00Z",
+            "current": true,
+            "authority": "product",
+            "synthetic": true,
+            "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+            "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3",
+            "imported_by": "local-demo",
+            "kind": "DocumentVersion"
+          },
+          {
+            "id": "doc-atlas-decision-v1",
+            "name": "Atlas launch decision",
+            "classification": "confirmed",
+            "version": 1,
+            "valid_from": "2026-10-15T12:00:00Z",
+            "current": true,
+            "authority": "product",
+            "synthetic": true,
+            "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+            "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+            "imported_by": "local-demo",
+            "kind": "DocumentVersion"
+          },
+          {
+            "id": "doc-export-gate-v1",
+            "name": "Export production gate",
+            "classification": "confirmed",
+            "version": 1,
+            "valid_from": "2026-10-15T11:10:00Z",
+            "current": true,
+            "authority": "platform",
+            "synthetic": true,
+            "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+            "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+            "imported_by": "local-demo",
+            "kind": "DocumentVersion"
+          },
+          {
+            "id": "doc-export-decision-v1",
+            "name": "Export release decision",
+            "classification": "confirmed",
+            "version": 1,
+            "valid_from": "2026-10-15T11:00:00Z",
+            "current": true,
+            "authority": "product",
+            "synthetic": true,
+            "excerpt": "Approve export service release based on SEC-41 security approval and capacity evidence. Review if either prerequisite changes.",
+            "sha256": "5fca47eb9a2cb26407b768967a39a8165bc46c4098dc6bc8f6f63357f0e50e11",
+            "imported_by": "local-demo",
+            "kind": "DocumentVersion"
+          },
+          {
+            "id": "doc-approval-restoration-b852418ba749bcac-v1",
+            "name": "Synthetic replacement review: Replacement: Export service security approval",
+            "version": 1,
+            "authority": "security",
+            "valid_from": "2026-10-16T19:51:41.526096+00:00",
+            "current": true,
+            "classification": "confirmed",
+            "synthetic": true,
+            "excerpt": "Synthetic review passed. The recorded controls were rechecked, and Replacement: Export service security approval is approved for the reviewed scope.",
+            "sha256": "b852418ba749bcacae6d8427eab4085d7798963e92df4a564673dee9f036da6d",
+            "reference": "REVIEW-42",
+            "origin": "human-entered synthetic replacement review",
+            "kind": "DocumentVersion"
+          }
+        ],
+        "checks": [
+          {
+            "id": "assumption-capacity",
+            "name": "Export capacity supports the launch cohort",
+            "state": "confirmed",
+            "assessment": "supported"
+          },
+          {
+            "id": "approval-restored-b852418ba749bcac",
+            "name": "Replacement: Export service security approval",
+            "state": "approved",
+            "assessment": "supported"
+          }
+        ],
+        "issues": [],
+        "complete": true,
+        "truncated": false,
+        "max_hops": 8,
+        "path_limit": 50,
+        "revision": 43,
+        "assessed_at": "2026-10-16T19:55:44.957379+00:00",
+        "owner_resolution": {
+          "owner": {
+            "id": "person-1",
+            "name": "Maya Chen",
+            "classification": "confirmed"
+          },
+          "records": [
+            {
+              "person": {
+                "id": "person-1",
+                "name": "Maya Chen",
+                "classification": "confirmed"
+              },
+              "record": {
+                "id": "project-atlas-owned_by-person-1",
+                "classification": "confirmed",
+                "source": "doc-owner-current-v1",
+                "current": true,
+                "authority": 100,
+                "valid_from": "2026-10-16T07:00:00Z"
+              },
+              "authority": 100,
+              "valid_from": "2026-10-16T07:00:00Z"
+            },
+            {
+              "person": {
+                "id": "person-6",
+                "name": "Ethan Park",
+                "classification": "confirmed"
+              },
+              "record": {
+                "id": "project-atlas-owned_by-person-6",
+                "classification": "confirmed",
+                "source": "doc-owner-old-v1",
+                "current": false,
+                "authority": 20,
+                "valid_from": "2026-10-15T08:00:00Z",
+                "valid_to": "2026-10-16T07:00:00Z"
+              },
+              "authority": 20,
+              "valid_from": "2026-10-15T08:00:00Z"
+            }
+          ],
+          "conflict": true,
+          "ambiguous": false,
+          "sources": [
+            {
+              "id": "doc-owner-current-v1",
+              "name": "Authoritative ownership register",
+              "classification": "confirmed",
+              "version": 1,
+              "valid_from": "2026-10-16T07:00:00Z",
+              "current": true,
+              "authority": "ownership-register",
+              "synthetic": true,
+              "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+              "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+              "imported_by": "local-demo",
+              "kind": "DocumentVersion"
+            },
+            {
+              "id": "doc-owner-old-v1",
+              "name": "Original Atlas project brief",
+              "classification": "confirmed",
+              "version": 1,
+              "valid_from": "2026-10-15T08:00:00Z",
+              "current": true,
+              "authority": "project-brief",
+              "synthetic": true,
+              "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+              "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc",
+              "imported_by": "local-demo",
+              "kind": "DocumentVersion"
+            }
+          ],
+          "complete": true,
+          "issues": [],
+          "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+        },
+        "history": [
+          {
+            "event": {
+              "id": "change-bb095289f58c2a5d-withdrawn",
+              "name": "Replacement: Export service security approval withdrawn",
+              "created_at": "2026-10-16T19:51:39.009271+00:00",
+              "current": true,
+              "state": "resolved",
+              "classification": "confirmed",
+              "synthetic": true,
+              "project_id": "project-atlas",
+              "prerequisite_id": "approval-export-restored-a289914d49750318",
+              "withdrawn_assumption_id": "approval-export-restored-a289914d49750318-withdrawn",
+              "withdrawal_source_id": "doc-withdrawal-bb095289f58c2a5d-v1",
+              "authority": "security",
+              "lineage_id": "approval-export",
+              "cycle_index": 2,
+              "previous_event_id": "change-export-withdrawn",
+              "snapshot_sha256": "25916ee9f71c480c94dce2f8bfa2432d9c217bf2ee1de1a19206383b4480e5f1",
+              "recorded_by": "local-demo",
+              "resolved_at": "2026-10-16T19:51:42.093076+00:00",
+              "restoration_review_id": "restoration-b852418ba749bcac",
+              "restored_assumption_id": "approval-restored-b852418ba749bcac"
+            },
+            "previous": {
+              "id": "approval-export-restored-a289914d49750318",
+              "name": "Replacement: Export service security approval",
+              "state": "superseded",
+              "current": false,
+              "valid_from": "2026-10-16T19:51:38.228766+00:00",
+              "required_evidence_authority": "security",
+              "classification": "confirmed",
+              "synthetic": true,
+              "lineage_id": "approval-export",
+              "approved_at": "2026-10-16T19:51:38.756246+00:00",
+              "valid_to": "2026-10-16T19:51:39.009271+00:00"
+            },
+            "created_at": "2026-10-16T19:51:39.009271+00:00"
+          },
+          {
+            "event": {
+              "id": "change-export-withdrawn",
+              "name": "Export service security approval withdrawn",
+              "created_at": "2026-10-16T19:51:36.726301+00:00",
+              "current": true,
+              "state": "resolved",
+              "classification": "confirmed",
+              "synthetic": true,
+              "project_id": "project-atlas",
+              "prerequisite_id": "approval-export",
+              "withdrawn_assumption_id": "approval-export-withdrawn",
+              "withdrawal_source_id": "doc-withdrawal-3a2dbbc2ded5b1fb-v1",
+              "authority": "security",
+              "lineage_id": "approval-export",
+              "cycle_index": 1,
+              "snapshot_sha256": "3b49414c8d2b84a309289c6e404c709332683255a7a30443c0bd43adf9f2a0ca",
+              "recorded_by": "local-demo",
+              "resolved_at": "2026-10-16T19:51:38.756246+00:00",
+              "restoration_review_id": "restoration-export-a289914d49750318",
+              "restored_assumption_id": "approval-export-restored-a289914d49750318"
+            },
+            "previous": {
+              "id": "approval-export",
+              "name": "Export service security approval",
+              "classification": "confirmed",
+              "state": "superseded",
+              "current": false,
+              "valid_from": "2026-10-15T09:00:00Z",
+              "required_evidence_authority": "security",
+              "valid_to": "2026-10-16T19:51:36.726301+00:00"
+            },
+            "created_at": "2026-10-16T19:51:36.726301+00:00"
+          }
+        ],
+        "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+        "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+      }
+    ],
+    "model_ms": 11508.507000000001,
+    "model": "llama3:latest",
+    "open_followups": [],
+    "citation_check": {
+      "model_citation_coverage_complete": false,
+      "supplemental_source_ids": [
+        "doc-atlas-decision-v1",
+        "doc-atlas-ga-v1",
+        "doc-export-decision-v1",
+        "doc-export-gate-v1",
+        "doc-launch-checklist-v1"
+      ],
+      "unavailable_path_source_ids": [],
+      "source_excerpts": [
+        {
+          "id": "doc-approval-restoration-b852418ba749bcac-v1",
+          "excerpt": "Synthetic review passed. The recorded controls were rechecked, and Replacement: Export service security approval is approved for the reviewed scope.",
+          "reason": "Recorded assessment or selected dependency path"
+        },
+        {
+          "id": "doc-atlas-decision-v1",
+          "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+          "reason": "Recorded assessment or selected dependency path"
+        },
+        {
+          "id": "doc-atlas-ga-v1",
+          "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+          "reason": "Recorded assessment or selected dependency path"
+        },
+        {
+          "id": "doc-capacity-v1",
+          "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+          "reason": "Recorded assessment or selected dependency path"
+        },
+        {
+          "id": "doc-export-decision-v1",
+          "excerpt": "Approve export service release based on SEC-41 security approval and capacity evidence. Review if either prerequisite changes.",
+          "reason": "Recorded assessment or selected dependency path"
+        },
+        {
+          "id": "doc-export-gate-v1",
+          "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+          "reason": "Recorded assessment or selected dependency path"
+        },
+        {
+          "id": "doc-launch-checklist-v1",
+          "excerpt": "Launch lead must review security, delivery and customer commitments. Recorded dependencies are a partial model, not proof of every possible risk.",
+          "reason": "Recorded assessment or selected dependency path"
+        }
+      ],
+      "semantic_entailment": "unverified",
+      "note": "Supplemental sources are attached by application checks, not chosen by the model. Free-text conflicts and recommendations require human review."
+    },
+    "conclusion_origin": "application assessment",
+    "grounding_note": "Cited IDs and paths validated against tool outputs. Natural-language entailment still requires human review."
+  }
+}

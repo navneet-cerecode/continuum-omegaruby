@@ -1,0 +1,22 @@
+{
+  "before": {
+    "actions": [
+      "action-change-export-withdrawn-decision-atlas",
+      "action-change-export-withdrawn-decision-export"
+    ],
+    "changes": [
+      "change-export-withdrawn"
+    ]
+  },
+  "migration": "Only missing required prerequisite/source authority fields added; revision advanced.",
+  "after": {
+    "actions": [
+      "action-change-export-withdrawn-decision-atlas",
+      "action-change-export-withdrawn-decision-export"
+    ],
+    "changes": [
+      "change-export-withdrawn"
+    ]
+  },
+  "existing_history_and_actions_preserved": true
+}

@@ -1,0 +1,1910 @@
+{
+  "team": "OmegaRuby",
+  "product": "CONTINUUM",
+  "track": "Track 3 \u2014 Company Brain",
+  "verification_date_ist": "2026-10-17",
+  "tests": {
+    "passed": 114,
+    "failed": 0,
+    "duration_seconds": 155.923,
+    "raw_result": "artifacts/pytest-release.xml",
+    "warning": "One Starlette HTTPX TestClient adapter deprecation warning"
+  },
+  "database": "Real official FalkorDB 4.14.11 + Redis 8.0.5 in Ubuntu WSL, persistent AOF",
+  "model": "Free local Ollama 0.40.4 + installed llama3:latest, no account/API key",
+  "live_agent_runs": [
+    {
+      "scenario": "before",
+      "elapsed_ms": 9842.505,
+      "tools": [
+        "assess_launch_readiness"
+      ]
+    },
+    {
+      "scenario": "after",
+      "elapsed_ms": 6261.467,
+      "tools": [
+        "get_open_followups"
+      ]
+    }
+  ],
+  "live_prompt_injection_actions_unchanged": true,
+  "baseline_browser": {
+    "verified_at": "2026-10-16T09:20:10.117Z",
+    "browser": "Installed Google Chrome, headless",
+    "viewport": [
+      1440,
+      1050
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "flow": "browser \u00e2\u2020\u2019 API \u00e2\u2020\u2019 real FalkorDB \u00e2\u2020\u2019 response",
+    "impact_count": 7,
+    "new_tasks": 2,
+    "fresh_session": true,
+    "mobile_no_overflow": true,
+    "page_errors": [],
+    "api_responses": [
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/agent",
+        "status": 200
+      },
+      {
+        "path": "/api/entities/decision-atlas",
+        "status": 200
+      },
+      {
+        "path": "/api/changes/withdraw-security",
+        "status": 200
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/impact/approval-export",
+        "status": 200
+      },
+      {
+        "path": "/api/entities/doc-acme-v1",
+        "status": 200
+      },
+      {
+        "path": "/api/plans",
+        "status": 200
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/impact/approval-export",
+        "status": 200
+      },
+      {
+        "path": "/api/actions/approve",
+        "status": 200
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/impact/approval-export",
+        "status": 200
+      }
+    ],
+    "live_model_run": true,
+    "focused_edge_evidence_verified": true
+  },
+  "hardening": {
+    "generated_at": "2026-10-16T10:59:30.329640+00:00",
+    "product": "CONTINUUM",
+    "team": "OmegaRuby",
+    "scope": "First local-demo hardening pass",
+    "tests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 35.244,
+      "raw_result": "artifacts/pytest-hardening.xml"
+    },
+    "dependency_audits": {
+      "python_known_findings": 0,
+      "frontend_known_findings": 0,
+      "caveat": "Dated advisory inventories; not proof of security"
+    },
+    "browser": {
+      "verified_at": "2026-10-16T10:55:53.273Z",
+      "browser": "Installed Chrome",
+      "real_database": true,
+      "scenarios": [
+        {
+          "scenario": "preserved-demo",
+          "status": "review_required",
+          "page_errors": [],
+          "csp_violations": [],
+          "mobile_no_overflow": true,
+          "state_unchanged": true,
+          "api_responses": [
+            {
+              "path": "/api/health",
+              "status": 200
+            },
+            {
+              "path": "/api/overview",
+              "status": 200
+            },
+            {
+              "path": "/api/readiness",
+              "status": 200
+            },
+            {
+              "path": "/api/impact/approval-export",
+              "status": 200
+            },
+            {
+              "path": "/api/entities/decision-atlas",
+              "status": 200
+            }
+          ]
+        },
+        {
+          "scenario": "expired-security-evidence",
+          "status": "unknown",
+          "page_errors": [],
+          "csp_violations": [],
+          "mobile_no_overflow": true,
+          "state_unchanged": true,
+          "api_responses": [
+            {
+              "path": "/api/health",
+              "status": 200
+            },
+            {
+              "path": "/api/overview",
+              "status": 200
+            },
+            {
+              "path": "/api/readiness",
+              "status": 200
+            },
+            {
+              "path": "/api/entities/decision-atlas",
+              "status": 200
+            }
+          ]
+        }
+      ]
+    },
+    "state_preservation": {
+      "before": {
+        "actions": [
+          "action-change-export-withdrawn-decision-atlas",
+          "action-change-export-withdrawn-decision-export"
+        ],
+        "changes": [
+          "change-export-withdrawn"
+        ]
+      },
+      "migration": "Only missing required prerequisite/source authority fields added; revision advanced.",
+      "after": {
+        "actions": [
+          "action-change-export-withdrawn-decision-atlas",
+          "action-change-export-withdrawn-decision-export"
+        ],
+        "changes": [
+          "change-export-withdrawn"
+        ]
+      },
+      "existing_history_and_actions_preserved": true
+    },
+    "live_agent_runs": [
+      {
+        "scenario": "before",
+        "status": "passed",
+        "elapsed_ms": 9842.505,
+        "tools": [
+          "assess_launch_readiness"
+        ]
+      },
+      {
+        "scenario": "after",
+        "status": "passed",
+        "elapsed_ms": 6261.467,
+        "tools": [
+          "get_open_followups"
+        ]
+      }
+    ],
+    "remaining_limits": [
+      "Local only; no public authentication/authorization or tenant isolation",
+      "Curated metadata; natural-language entailment unverified",
+      "Per-document guarded imports; whole-fixture seeding is multiwrite",
+      "Unmanaged database races unsupported",
+      "Process-local single model slot",
+      "Bounded traversal and retrieval; no enterprise load benchmark",
+      "Security restoration workflow not implemented",
+      "Full Docker execution and clean install on another machine unverified"
+    ]
+  },
+  "lifecycle": {
+    "generated_at": "2026-10-16T13:58:20.599430+00:00",
+    "product": "CONTINUUM",
+    "team": "OmegaRuby",
+    "scope": "Synthetic Atlas security withdrawal and restoration lifecycle",
+    "tests": {
+      "passed": 80,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 41.556,
+      "raw_result": "artifacts/pytest-lifecycle.xml",
+      "warning": "One Starlette HTTPX TestClient adapter deprecation warning"
+    },
+    "browser": {
+      "verified_at": "2026-10-16T13:51:02.033Z",
+      "graph": "continuum_lifecycle_300497a6be9846e5b893e7614a8e464e",
+      "browser": "Installed Chrome",
+      "real_database": true,
+      "flow": "withdrawal \u00e2\u2020\u2019 follow-up \u00e2\u2020\u2019 replacement evidence \u00e2\u2020\u2019 explicit revalidation \u00e2\u2020\u2019 resolved",
+      "supported_after_resolution": true,
+      "fresh_session": true,
+      "original_history_retained": true,
+      "followup_completed_separately": true,
+      "seven_explicit_item_confirmations": true,
+      "mobile_no_overflow": true,
+      "page_errors": [],
+      "csp_violations": [],
+      "api_responses": [
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/changes/withdraw-security",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/plans",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/action-change-export-withdrawn-decision-export",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-export-395e9595765b5d0b",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-export-395e9595765b5d0b/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export-restored-395e9595765b5d0b",
+          "status": 200
+        },
+        {
+          "path": "/api/entities/restoration-export-395e9595765b5d0b",
+          "status": 200
+        }
+      ]
+    },
+    "live_agent_runs": [
+      {
+        "scenario": "restored-readiness",
+        "elapsed_ms": 5168.43,
+        "tools": [
+          "assess_launch_readiness"
+        ]
+      },
+      {
+        "scenario": "resolved-recap",
+        "elapsed_ms": 11946.754,
+        "tools": [
+          "get_open_followups"
+        ]
+      }
+    ],
+    "original_demo_state_preserved": true,
+    "original_graph": "continuum_release_final",
+    "build": "TypeScript check + Vite production build passed",
+    "limitations": [
+      "Synthetic single-project/event lifecycle; no repeated withdrawal cycle",
+      "Synthetic role confirmation without authenticated identity",
+      "No external verification or general language entailment guarantee",
+      "Local only; no public authorization or company isolation",
+      "Unmanaged database races unsupported",
+      "Full Docker run/clean installation on another machine unverified"
+    ]
+  },
+  "multi_project": {
+    "generated_at": "2026-10-16T18:27:19.515770+00:00",
+    "team": "OmegaRuby",
+    "product": "CONTINUUM",
+    "scope": "Project/prerequisite-scoped Atlas, Beacon and Orbit workflows",
+    "tests": {
+      "passed": 90,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 58.701,
+      "raw_result": "artifacts/pytest-multi-project.xml",
+      "warning": "One Starlette HTTPX TestClient adapter deprecation warning"
+    },
+    "browser": {
+      "verified_at": "2026-10-16T18:18:38.297Z",
+      "graph": "continuum_lifecycle_411274ec658e41388db145ae583aef3a",
+      "real_database": true,
+      "browser": "Installed Chrome",
+      "scenarios": [
+        {
+          "project": "project-atlas",
+          "impact_count": 7,
+          "authority": "security",
+          "full_lifecycle": true,
+          "unrelated_projects_supported": true,
+          "scoped_tasks": true,
+          "mobile_no_overflow": true
+        },
+        {
+          "project": "project-beacon",
+          "impact_count": 3,
+          "authority": "product",
+          "full_lifecycle": true,
+          "unrelated_projects_supported": true,
+          "scoped_tasks": true,
+          "mobile_no_overflow": true
+        },
+        {
+          "project": "project-orbit",
+          "impact_count": 3,
+          "authority": "platform",
+          "full_lifecycle": true,
+          "unrelated_projects_supported": true,
+          "scoped_tasks": true,
+          "mobile_no_overflow": true
+        }
+      ],
+      "fresh_project_session": true,
+      "page_errors": [],
+      "csp_violations": [],
+      "api_responses": [
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/changes/withdraw",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/plans",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/action-change-export-withdrawn-decision-export",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-export-a289914d49750318",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-export-a289914d49750318/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-export-restored-a289914d49750318",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/changes/withdraw",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-beacon",
+          "status": 200
+        },
+        {
+          "path": "/api/plans",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-beacon",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-beacon",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-beacon",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/action-change-2e53ff77c81abf8b-withdrawn-decision-beacon",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-beacon",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-39451b029c9beab2",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-beacon",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-39451b029c9beab2/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-restored-39451b029c9beab2",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/changes/withdraw",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-orbit",
+          "status": 200
+        },
+        {
+          "path": "/api/plans",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-orbit",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-orbit",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-orbit",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/action-change-3e1bfba55a504484-withdrawn-decision-orbit",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-orbit",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-d974f9759a4b4959",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-orbit",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-d974f9759a4b4959/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/impact/approval-restored-d974f9759a4b4959",
+          "status": 200
+        }
+      ]
+    },
+    "final_build_display": {
+      "verified_at": "2026-10-16T18:22:23.648Z",
+      "graph": "continuum_lifecycle_411274ec658e41388db145ae583aef3a",
+      "read_only": true,
+      "final_build": true,
+      "all_projects": true,
+      "page_errors": [],
+      "csp_violations": [],
+      "mobile_no_overflow": true
+    },
+    "live_agent_runs": [
+      {
+        "project": "project-beacon",
+        "elapsed_ms": 13200.085,
+        "tools": [
+          "assess_launch_readiness"
+        ]
+      },
+      {
+        "project": "project-orbit",
+        "elapsed_ms": 3946.456,
+        "tools": [
+          "assess_launch_readiness"
+        ]
+      }
+    ],
+    "original_demo_records_preserved": true,
+    "normal_demo_readiness": {
+      "project-atlas": "review_required",
+      "project-beacon": "supported",
+      "project-orbit": "supported"
+    },
+    "fixture_extension": "Two disclosed synthetic documents, independent Orbit gates and Beacon owners; original source versions retained",
+    "build": "TypeScript check + Vite production build passed",
+    "limits": [
+      "Local single company; project filters are not authorization",
+      "Curated synthetic fixture; arbitrary extraction/entailment unverified",
+      "Repeated-cycle UX and general event picker unfinished",
+      "No public login or verified real reviewer identity",
+      "Pagination and larger/concurrent workloads need evaluation",
+      "Full Docker execution and another-machine setup unverified"
+    ]
+  },
+  "cycles": {
+    "generated_at": "2026-10-16T19:02:16.536640+00:00",
+    "verification_date_ist": "2026-10-17",
+    "team": "OmegaRuby",
+    "product": "CONTINUUM",
+    "scope": "Repeated approval cycles and historical incident selection",
+    "tests": {
+      "passed": 103,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 85.524,
+      "raw_result": "artifacts/pytest-cycles.xml",
+      "warning": "One Starlette HTTPX TestClient adapter deprecation warning"
+    },
+    "browser": {
+      "verified_at": "2026-10-16T18:49:59.488Z",
+      "graph": "continuum_lifecycle_547961598f1f403aa482c2cae83b9586",
+      "events": [
+        "change-export-withdrawn",
+        "change-bb095289f58c2a5d-withdrawn"
+      ],
+      "tasks": [
+        "action-change-export-withdrawn-decision-export",
+        "action-change-bb095289f58c2a5d-withdrawn-decision-export"
+      ],
+      "real_database": true,
+      "browser": "Installed Chrome",
+      "two_cycles_completed": true,
+      "old_snapshot_unchanged": true,
+      "historical_read_only_during_active_withdrawal": true,
+      "fresh_history_selection": true,
+      "mobile_no_overflow": true,
+      "page_errors": [],
+      "csp_violations": [],
+      "api_responses": [
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/changes/withdraw",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/plans",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/action-change-export-withdrawn-decision-export",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-export-a289914d49750318/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/changes/withdraw",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/plans",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/action-change-bb095289f58c2a5d-withdrawn-decision-export",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-b852418ba749bcac/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        }
+      ]
+    },
+    "final_build_display": {
+      "verified_at": "2026-10-16T18:58:40.357Z",
+      "graph": "continuum_lifecycle_547961598f1f403aa482c2cae83b9586",
+      "final_build": true,
+      "historical_graph_label": true,
+      "owner_at_withdrawal_label": true,
+      "mobile_no_overflow": true,
+      "page_errors": [],
+      "csp_violations": []
+    },
+    "live_agent_runs": [
+      {
+        "scenario": "historical-incident",
+        "elapsed_ms": 12883.045,
+        "tools": [
+          "get_change_event"
+        ],
+        "conclusion": "This selected incident is resolved. Current project readiness is review_required; historical impact does not establish current approval."
+      },
+      {
+        "scenario": "current-readiness",
+        "elapsed_ms": 5818.413,
+        "tools": [
+          "assess_launch_readiness"
+        ],
+        "conclusion": "Review required; launch is not automatically cancelled."
+      }
+    ],
+    "live_model_state_unchanged": true,
+    "original_demo_records_preserved": true,
+    "normal_demo_readiness": {
+      "atlas": "review_required",
+      "beacon": "supported",
+      "orbit": "supported"
+    },
+    "normal_demo_revision": 40,
+    "build": "TypeScript check + Vite production build passed",
+    "limits": [
+      "Historical model prose selected only ownership citations, repeated a path and gave a weak conflict description; membership checks do not establish entailment",
+      "Legacy history is reconstructed, not an event-time snapshot",
+      "SHA-256 snapshot checksum is not an administrator-resistant signature",
+      "Picker lists 100 recent project incidents; older known IDs have direct access",
+      "Local synthetic company; project selection is not authorization",
+      "Arbitrary extraction, authenticated reviewers and larger workload evaluation unfinished",
+      "Full Docker execution and another-machine setup unverified"
+    ]
+  },
+  "release": {
+    "generated_at": "2026-10-16T20:06:24.878583+00:00",
+    "verification_date_ist": "2026-10-17",
+    "team": "OmegaRuby",
+    "product": "CONTINUUM",
+    "scope": "Optional account/company access, reviewed onboarding, record pages, evidence coverage, load/setup and actual video",
+    "tests": {
+      "passed": 114,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 155.923,
+      "raw_result": "artifacts/pytest-release.xml",
+      "warning": "One Starlette HTTPX TestClient adapter deprecation warning"
+    },
+    "browser": {
+      "verified_at": "2026-10-16T19:45:54.164Z",
+      "real_database": true,
+      "account_sessions": true,
+      "role_denial": true,
+      "csrf_denial": true,
+      "company_isolation": true,
+      "preview_before_import": true,
+      "import_actor_recorded": true,
+      "paged_35_records": true,
+      "fresh_authenticated_session": true,
+      "mobile_no_overflow": true,
+      "page_errors": [],
+      "csp_violations": []
+    },
+    "final_build_display": {
+      "verified_at": "2026-10-16T19:47:57.722Z",
+      "final_build": true,
+      "mobile_no_overflow": true,
+      "page_errors": [],
+      "csp_violations": []
+    },
+    "repeated_cycles_browser": {
+      "verified_at": "2026-10-16T19:51:42.555Z",
+      "graph": "continuum_lifecycle_2703e5ddf8b04b9cbf3e0717206de010",
+      "events": [
+        "change-export-withdrawn",
+        "change-bb095289f58c2a5d-withdrawn"
+      ],
+      "tasks": [
+        "action-change-export-withdrawn-decision-export",
+        "action-change-bb095289f58c2a5d-withdrawn-decision-export"
+      ],
+      "real_database": true,
+      "browser": "Installed Chrome",
+      "two_cycles_completed": true,
+      "old_snapshot_unchanged": true,
+      "historical_read_only_during_active_withdrawal": true,
+      "fresh_history_selection": true,
+      "mobile_no_overflow": true,
+      "page_errors": [],
+      "csp_violations": [],
+      "api_responses": [
+        {
+          "path": "/api/auth/session",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/changes/withdraw",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/plans",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/action-change-export-withdrawn-decision-export",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-export-a289914d49750318/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/changes/withdraw",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/plans",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/actions/action-change-bb095289f58c2a5d-withdrawn-decision-export",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/restorations/restoration-b852418ba749bcac/approve",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        },
+        {
+          "path": "/api/health",
+          "status": 200
+        },
+        {
+          "path": "/api/readiness",
+          "status": 200
+        },
+        {
+          "path": "/api/overview",
+          "status": 200
+        }
+      ]
+    },
+    "live_model_evaluation": {
+      "passed": 5,
+      "scenarios": 5,
+      "model_citation_coverage_complete": 5,
+      "semantic_entailment": "unverified",
+      "initial_failed_cases_retained": 4,
+      "raw_result": "artifacts/release-model-eval.json",
+      "initial_raw_result": "artifacts/release-model-eval-initial.json",
+      "timings_ms": {
+        "atlas-supported": 5710.049,
+        "beacon-supported": 3387.164,
+        "orbit-supported": 3449.61,
+        "atlas-withdrawn": 5742.272,
+        "beacon-after-atlas-change": 3473.796
+      }
+    },
+    "live_agent_ui": {
+      "live": true,
+      "state_unchanged": true,
+      "raw_result": "artifacts/release-agent-ui.json"
+    },
+    "synthetic_load": {
+      "verified_at": "2026-10-16T19:40:04.032110+00:00",
+      "graph": "continuum_load_e0e342657ede4583bda2b9ce59b3576e",
+      "real_database": true,
+      "synthetic": true,
+      "machine": "Windows-11-10.0.26300-SP0",
+      "samples": [
+        {
+          "concurrency": 1,
+          "runs": [
+            {
+              "ms": 284.769,
+              "status": "correct"
+            },
+            {
+              "ms": 263.215,
+              "status": "correct"
+            },
+            {
+              "ms": 287.44,
+              "status": "correct"
+            },
+            {
+              "ms": 263.127,
+              "status": "correct"
+            },
+            {
+              "ms": 294.881,
+              "status": "correct"
+            },
+            {
+              "ms": 240.567,
+              "status": "correct"
+            },
+            {
+              "ms": 266.892,
+              "status": "correct"
+            },
+            {
+              "ms": 259.155,
+              "status": "correct"
+            },
+            {
+              "ms": 277.74,
+              "status": "correct"
+            },
+            {
+              "ms": 242.604,
+              "status": "correct"
+            },
+            {
+              "ms": 256.181,
+              "status": "correct"
+            },
+            {
+              "ms": 260.862,
+              "status": "correct"
+            }
+          ],
+          "median_ms": 263.171,
+          "p95_observed_ms": 287.44,
+          "correct": 12,
+          "explicit_unavailable": 0
+        },
+        {
+          "concurrency": 4,
+          "runs": [
+            {
+              "ms": 350.948,
+              "status": "correct"
+            },
+            {
+              "ms": 333.295,
+              "status": "correct"
+            },
+            {
+              "ms": 351.197,
+              "status": "correct"
+            },
+            {
+              "ms": 334.143,
+              "status": "correct"
+            },
+            {
+              "ms": 346.692,
+              "status": "correct"
+            },
+            {
+              "ms": 343.801,
+              "status": "correct"
+            },
+            {
+              "ms": 336.984,
+              "status": "correct"
+            },
+            {
+              "ms": 333.092,
+              "status": "correct"
+            },
+            {
+              "ms": 352.161,
+              "status": "correct"
+            },
+            {
+              "ms": 356.609,
+              "status": "correct"
+            },
+            {
+              "ms": 355.689,
+              "status": "correct"
+            },
+            {
+              "ms": 340.828,
+              "status": "correct"
+            }
+          ],
+          "median_ms": 345.246,
+          "p95_observed_ms": 355.689,
+          "correct": 12,
+          "explicit_unavailable": 0
+        }
+      ],
+      "node_count": 1206,
+      "impacted_items": 127,
+      "unrelated_records_excluded": 1000,
+      "limits": "Small synthetic experiment with 12 samples per concurrency. No enterprise capacity, SLA or independent hardware claim.",
+      "owned_graph_cleaned": true
+    },
+    "fresh_same_machine_install": {
+      "verified_at": "2026-10-16T20:00:51.7846685Z",
+      "passed": true,
+      "source_archive": "CONTINUUM-OmegaRuby-source.zip",
+      "graph": "continuum_clean_083ebdcd48d24c309aae056b3cddc6aa",
+      "fresh_python_environment": true,
+      "npm_ci": true,
+      "production_build": true,
+      "api_release_tests": true,
+      "http_backend_and_ui": true,
+      "another_machine": false,
+      "docker_execution": false,
+      "limits": "Same Windows machine, shared existing WSL FalkorDB service, cached dependency downloads may be used. No Docker or other-machine claim.",
+      "tested_archive_sha256": "c346db4ca96431fb375a0c65457a8856f3c9fa4ce062d32d7f6bc9c58c19679d",
+      "final_application_source_matches_tested_extraction": true,
+      "application_files_compared": 37
+    },
+    "original_demo_records_preserved": true,
+    "normal_demo_readiness": {
+      "atlas": "review_required",
+      "beacon": "supported",
+      "orbit": "supported"
+    },
+    "normal_access_mode": "demo",
+    "dependency_audits": {
+      "python_known_findings": 0,
+      "frontend_known_findings": 0,
+      "method": "pip-audit exact pinned inventory and npm audit"
+    },
+    "video": {
+      "verified_at": "2026-10-16T19:59:54.785711+00:00",
+      "file": "CONTINUUM-OmegaRuby-demo.mp4",
+      "actual_recordings": true,
+      "synthetic_data": true,
+      "narration": false,
+      "workflow_speed_factors": [
+        6,
+        5,
+        1.5
+      ],
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1440,
+            "height": 1050
+          }
+        ],
+        "format": {
+          "duration": "153.680000"
+        }
+      },
+      "uploaded": false,
+      "note": "Labeled edit of recorded UI, not a fabricated model or participant presentation. Review before submission."
+    },
+    "build": "TypeScript/Vite passed; Compose default/account configuration validated; non-root single-worker Dockerfile prepared",
+    "ci": "GitHub Actions workflow prepared; no remote execution claimed",
+    "outstanding": [
+      "Administrator chooses real account credentials and enables accounts if desired; default demo remains explicit",
+      "Working Docker engine and full container execution",
+      "Another-machine installation",
+      "Public repository publication and video upload destination/final review",
+      "Participant registration, contribution and technical-understanding sign-off",
+      "Final event submission",
+      "Automatic arbitrary-format extraction, general semantic entailment and public production operations"
+    ]
+  },
+  "database_and_backend_restart_preserved_state": true,
+  "actual_database_outage_status": 503,
+  "build": "TypeScript + Vite production build passed; Compose configuration validated",
+  "outstanding": [
+    "Complete Docker image run on working engine",
+    "Clean installation on another machine",
+    "Public repository publication",
+    "Demo video upload; actual local recording supplied",
+    "Human contribution and understanding sign-off",
+    "Registration/submission confirmation"
+  ],
+  "claims_excluded": [
+    "General arbitrary-document extraction",
+    "Enterprise scale",
+    "Production readiness",
+    "Public deployment",
+    "Verified participant understanding"
+  ]
+}

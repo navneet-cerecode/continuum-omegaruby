@@ -1,0 +1,86 @@
+// Requires scripts/serve-lifecycle-qa.py on 8000. Refuses non-owned graphs.
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+(async () => {
+  const graph = fs.readFileSync('.runtime/lifecycle-qa-graph.txt', 'utf8').trim();
+  assert(/^continuum_lifecycle_[a-f0-9]{32}$/.test(graph));
+  const browser = await chromium.launch({channel:'chrome',headless:true});
+  try {
+    const context = await browser.newContext({baseURL:'http://127.0.0.1:8000',viewport:{width:1440,height:1050}});
+    const page = await context.newPage();
+    const errors=[], responses=[];
+    page.on('pageerror',e=>errors.push(e.message));
+    page.on('response',r=>{if(r.url().includes('/api/'))responses.push({path:new URL(r.url()).pathname,status:r.status()});});
+    await page.addInitScript(()=>{window.__csp=[];document.addEventListener('securitypolicyviolation',e=>window.__csp.push(e.violatedDirective));});
+    await page.goto('/');
+    await page.getByText('FalkorDB connected').waitFor();
+    const initial=await (await page.request.get('/api/overview')).json();
+    // Verify actual graph identity through a private test marker, not just an empty fixture.
+    const marker=await (await page.request.get('/api/entities/lifecycle-qa-marker')).json();
+    assert.equal(marker.entity.name,graph);
+    assert.equal(initial.history.length,0);assert.equal(initial.actions.length,0);
+    await page.getByRole('button',{name:'Introduce security update',exact:true}).click();
+    await page.getByRole('heading',{name:'7 connected items need review.'}).waitFor();
+    await page.getByRole('button',{name:'Generate response plan',exact:true}).click();
+    await page.getByRole('heading',{name:'Review before creating work.'}).waitFor();
+    const boxes=page.getByRole('checkbox');assert.equal(await boxes.count(),4);
+    for(let i=1;i<4;i++)await boxes.nth(i).uncheck();
+    await page.getByRole('button',{name:'Approve selected tasks',exact:true}).click();
+    await page.getByText('Selected internal tasks persisted in FalkorDB. No messages were sent.').waitFor();
+    await page.getByRole('button',{name:'Change investigation',exact:true}).click();
+    const panel=page.locator('.restoration-panel');
+    await panel.getByLabel('I confirm this synthetic security review explicitly approves the export service.').check();
+    await panel.getByRole('button',{name:'Record evidence for review',exact:true}).click();
+    await panel.getByText('Close the event’s open follow-ups before resolving the withdrawal.',{exact:true}).waitFor();
+    assert(await panel.getByRole('button',{name:'Revalidate and resolve withdrawal'}).isDisabled());
+    assert.equal((await (await page.request.get('/api/readiness')).json()).status,'review_required');
+    await panel.screenshot({path:'artifacts/lifecycle-pending-review.png'});
+    await panel.getByRole('button',{name:'Open follow-up queue',exact:true}).click();
+    await page.getByRole('button',{name:'Complete',exact:true}).click();
+    await page.getByRole('dialog',{name:'Complete follow-up'}).getByRole('button',{name:'Mark complete',exact:true}).click();
+    await page.getByText('Follow-up completed. Security approval still needs review.').waitFor();
+    await page.getByRole('button',{name:'Change investigation',exact:true}).click();
+    await panel.getByRole('button',{name:'Refresh review',exact:true}).click();
+    await page.waitForFunction(() => !document.querySelector('.replacement-review fieldset')?.disabled);
+    const reviewBoxes=panel.locator('fieldset input[type=checkbox]');
+    await reviewBoxes.first().waitFor({state:'visible'});
+    // Seven item checks and one explicit role confirmation; none are preselected.
+    assert.equal(await reviewBoxes.count(),8);
+    for(let i=0;i<7;i++) {assert(!(await reviewBoxes.nth(i).isChecked()));await reviewBoxes.nth(i).check();}
+    await panel.getByLabel('Revalidation rationale').fill('Synthetic launch-owner review verified the replacement security evidence and every affected dependency.');
+    await reviewBoxes.last().check();
+    await panel.screenshot({path:'artifacts/lifecycle-ready-to-resolve.png'});
+    await panel.getByRole('button',{name:'Revalidate and resolve withdrawal',exact:true}).click();
+    await page.getByRole('heading',{name:'Approval restored. History retained.'}).waitFor();
+    await page.getByRole('heading',{name:'7 connected items revalidated.'}).waitFor();
+    const final=await (await page.request.get('/api/overview')).json();
+    const ready=await (await page.request.get('/api/readiness')).json();
+    const recap=await (await page.request.get('/api/recap')).json();
+    assert.equal(ready.status,'supported');assert.equal(final.history[0].event.state,'resolved');
+    assert.equal(final.actions[0].action.state,'completed');assert.equal(final.history.length,1);
+    assert.equal(recap.impact.count,7);assert(recap.sources.some(s=>s.version.id.startsWith('doc-security-restoration-')));
+    await page.evaluate(()=>window.scrollTo(0,0));
+    await page.screenshot({path:'artifacts/lifecycle-resolved-desktop.png',fullPage:true});
+    await panel.getByRole('button',{name:'Inspect revalidation record'}).click();
+    await page.getByRole('dialog',{name:'Entity evidence'}).waitFor();
+    await page.getByRole('dialog').getByText('RestorationReview',{exact:true}).waitFor();
+    await page.getByRole('dialog').getByRole('heading',{name:'Revalidation rationale'}).waitFor();
+    await page.keyboard.press('Escape');
+    const fresh=await context.newPage();await fresh.goto('/');
+    await fresh.getByText('FalkorDB connected').waitFor();
+    assert.equal(await fresh.locator('.readiness-checks').getByText('Withdrawn',{exact:true}).count(),0);
+    await fresh.locator('.readiness-checks').getByText('Approved',{exact:true}).waitFor();
+    await fresh.setViewportSize({width:390,height:844});
+    assert(await fresh.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    await fresh.screenshot({path:'artifacts/lifecycle-context-mobile.png',fullPage:true});
+    await fresh.getByRole('button',{name:'Change investigation',exact:true}).click();
+    await fresh.getByRole('heading',{name:'Approval restored. History retained.'}).waitFor();
+    assert(await fresh.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    await fresh.screenshot({path:'artifacts/lifecycle-resolved-mobile.png',fullPage:true});
+    const csp=await page.evaluate(()=>window.__csp);
+    assert.deepEqual(errors,[]);assert.deepEqual(csp,[]);assert(responses.every(r=>r.status===200),JSON.stringify(responses));
+    const report={verified_at:new Date().toISOString(),graph,browser:'Installed Chrome',real_database:true,flow:'withdrawal → follow-up → replacement evidence → explicit revalidation → resolved',supported_after_resolution:true,fresh_session:true,original_history_retained:true,followup_completed_separately:true,seven_explicit_item_confirmations:true,mobile_no_overflow:true,page_errors:errors,csp_violations:csp,api_responses:responses};
+    fs.writeFileSync('artifacts/browser-lifecycle.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
+  } finally {await browser.close();}
+})().catch(e=>{console.error(e);process.exit(1);});

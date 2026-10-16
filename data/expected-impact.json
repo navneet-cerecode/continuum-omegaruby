@@ -1,0 +1,18 @@
+{
+  "trigger": "approval-export",
+  "expected": [
+    "decision-export",
+    "milestone-export",
+    "decision-atlas",
+    "milestone-atlas",
+    "project-atlas",
+    "commitment-acme",
+    "commitment-harbor"
+  ],
+  "excluded": [
+    "project-beacon",
+    "project-orbit",
+    "decision-beacon",
+    "milestone-beacon"
+  ]
+}

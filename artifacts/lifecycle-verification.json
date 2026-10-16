@@ -1,0 +1,214 @@
+{
+  "generated_at": "2026-10-16T13:58:20.599430+00:00",
+  "product": "CONTINUUM",
+  "team": "OmegaRuby",
+  "scope": "Synthetic Atlas security withdrawal and restoration lifecycle",
+  "tests": {
+    "passed": 80,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 41.556,
+    "raw_result": "artifacts/pytest-lifecycle.xml",
+    "warning": "One Starlette HTTPX TestClient adapter deprecation warning"
+  },
+  "browser": {
+    "verified_at": "2026-10-16T13:51:02.033Z",
+    "graph": "continuum_lifecycle_300497a6be9846e5b893e7614a8e464e",
+    "browser": "Installed Chrome",
+    "real_database": true,
+    "flow": "withdrawal \u00e2\u2020\u2019 follow-up \u00e2\u2020\u2019 replacement evidence \u00e2\u2020\u2019 explicit revalidation \u00e2\u2020\u2019 resolved",
+    "supported_after_resolution": true,
+    "fresh_session": true,
+    "original_history_retained": true,
+    "followup_completed_separately": true,
+    "seven_explicit_item_confirmations": true,
+    "mobile_no_overflow": true,
+    "page_errors": [],
+    "csp_violations": [],
+    "api_responses": [
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/changes/withdraw-security",
+        "status": 200
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/impact/approval-export",
+        "status": 200
+      },
+      {
+        "path": "/api/plans",
+        "status": 200
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/impact/approval-export",
+        "status": 200
+      },
+      {
+        "path": "/api/actions/approve",
+        "status": 200
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/impact/approval-export",
+        "status": 200
+      },
+      {
+        "path": "/api/restorations",
+        "status": 200
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/impact/approval-export",
+        "status": 200
+      },
+      {
+        "path": "/api/actions/action-change-export-withdrawn-decision-export",
+        "status": 200
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/impact/approval-export",
+        "status": 200
+      },
+      {
+        "path": "/api/restorations/restoration-export-395e9595765b5d0b",
+        "status": 200
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/impact/approval-export",
+        "status": 200
+      },
+      {
+        "path": "/api/restorations/restoration-export-395e9595765b5d0b/approve",
+        "status": 200
+      },
+      {
+        "path": "/api/health",
+        "status": 200
+      },
+      {
+        "path": "/api/overview",
+        "status": 200
+      },
+      {
+        "path": "/api/readiness",
+        "status": 200
+      },
+      {
+        "path": "/api/impact/approval-export-restored-395e9595765b5d0b",
+        "status": 200
+      },
+      {
+        "path": "/api/entities/restoration-export-395e9595765b5d0b",
+        "status": 200
+      }
+    ]
+  },
+  "live_agent_runs": [
+    {
+      "scenario": "restored-readiness",
+      "elapsed_ms": 5168.43,
+      "tools": [
+        "assess_launch_readiness"
+      ]
+    },
+    {
+      "scenario": "resolved-recap",
+      "elapsed_ms": 11946.754,
+      "tools": [
+        "get_open_followups"
+      ]
+    }
+  ],
+  "original_demo_state_preserved": true,
+  "original_graph": "continuum_release_final",
+  "build": "TypeScript check + Vite production build passed",
+  "limitations": [
+    "Synthetic single-project/event lifecycle; no repeated withdrawal cycle",
+    "Synthetic role confirmation without authenticated identity",
+    "No external verification or general language entailment guarantee",
+    "Local only; no public authorization or company isolation",
+    "Unmanaged database races unsupported",
+    "Full Docker run/clean installation on another machine unverified"
+  ]
+}

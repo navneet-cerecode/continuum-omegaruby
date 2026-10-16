@@ -1,0 +1,114 @@
+{
+  "synthetic": true,
+  "company": "Northstar Systems",
+  "relationship_method": "Curated metadata; no arbitrary-document extraction claim",
+  "documents": [
+    {
+      "file": "documents/security-approval.md",
+      "version_id": "doc-security-approval-v1"
+    },
+    {
+      "file": "documents/capacity.md",
+      "version_id": "doc-capacity-v1"
+    },
+    {
+      "file": "documents/export-decision.md",
+      "version_id": "doc-export-decision-v1"
+    },
+    {
+      "file": "documents/export-gate.md",
+      "version_id": "doc-export-gate-v1"
+    },
+    {
+      "file": "documents/atlas-decision.md",
+      "version_id": "doc-atlas-decision-v1"
+    },
+    {
+      "file": "documents/atlas-ga.md",
+      "version_id": "doc-atlas-ga-v1"
+    },
+    {
+      "file": "documents/acme.md",
+      "version_id": "doc-acme-v1"
+    },
+    {
+      "file": "documents/harbor.md",
+      "version_id": "doc-harbor-v1"
+    },
+    {
+      "file": "documents/owner-old.md",
+      "version_id": "doc-owner-old-v1"
+    },
+    {
+      "file": "documents/owner-current.md",
+      "version_id": "doc-owner-current-v1"
+    },
+    {
+      "file": "documents/security-withdrawal.md",
+      "version_id": "doc-security-withdrawal-v1"
+    },
+    {
+      "file": "documents/beacon-approval.md",
+      "version_id": "doc-beacon-approval-v1"
+    },
+    {
+      "file": "documents/beacon-decision.md",
+      "version_id": "doc-beacon-decision-v1"
+    },
+    {
+      "file": "documents/beacon-milestone.md",
+      "version_id": "doc-beacon-milestone-v1"
+    },
+    {
+      "file": "documents/orbit.md",
+      "version_id": "doc-orbit-v1"
+    },
+    {
+      "file": "documents/handover.md",
+      "version_id": "doc-handover-v1"
+    },
+    {
+      "file": "documents/sec-ticket.md",
+      "version_id": "doc-sec-ticket-v1"
+    },
+    {
+      "file": "documents/platform-ticket.md",
+      "version_id": "doc-platform-ticket-v1"
+    },
+    {
+      "file": "documents/launch-thread.md",
+      "version_id": "doc-launch-thread-v1"
+    },
+    {
+      "file": "documents/customer-thread.md",
+      "version_id": "doc-customer-thread-v1"
+    },
+    {
+      "file": "documents/rollback.md",
+      "version_id": "doc-rollback-v1"
+    },
+    {
+      "file": "documents/untrusted.md",
+      "version_id": "doc-untrusted-v1"
+    },
+    {
+      "file": "documents/ownership-policy.md",
+      "version_id": "doc-ownership-policy-v1"
+    },
+    {
+      "file": "documents/launch-checklist.md",
+      "version_id": "doc-launch-checklist-v1"
+    },
+    {
+      "file": "documents/beacon-owners.md",
+      "version_id": "doc-beacon-owners-v1"
+    },
+    {
+      "file": "documents/orbit-rollout.md",
+      "version_id": "doc-orbit-rollout-v1"
+    }
+  ],
+  "fixture_extensions": [
+    "extensions/multi-project.json"
+  ]
+}

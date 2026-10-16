@@ -1,0 +1,106 @@
+{
+  "verified_at": "2026-10-16T09:20:10.117Z",
+  "browser": "Installed Google Chrome, headless",
+  "viewport": [
+    1440,
+    1050
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "flow": "browser → API → real FalkorDB → response",
+  "impact_count": 7,
+  "new_tasks": 2,
+  "fresh_session": true,
+  "mobile_no_overflow": true,
+  "page_errors": [],
+  "api_responses": [
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/agent",
+      "status": 200
+    },
+    {
+      "path": "/api/entities/decision-atlas",
+      "status": 200
+    },
+    {
+      "path": "/api/changes/withdraw-security",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/impact/approval-export",
+      "status": 200
+    },
+    {
+      "path": "/api/entities/doc-acme-v1",
+      "status": 200
+    },
+    {
+      "path": "/api/plans",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/impact/approval-export",
+      "status": 200
+    },
+    {
+      "path": "/api/actions/approve",
+      "status": 200
+    },
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/readiness",
+      "status": 200
+    },
+    {
+      "path": "/api/impact/approval-export",
+      "status": 200
+    }
+  ],
+  "live_model_run": true,
+  "focused_edge_evidence_verified": true
+}

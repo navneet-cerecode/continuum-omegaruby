@@ -1,0 +1,23 @@
+{
+  "synthetic": true,
+  "description": "Explicitly curated fixture extension; not extracted from existing prose.",
+  "nodes": [
+    {"kind":"Assumption","id":"approval-orbit","name":"Orbit identity rollout controls confirmed","state":"confirmed","current":true,"classification":"confirmed","valid_from":"2026-10-16T07:00:00Z","required_evidence_authority":"platform"},
+    {"kind":"Decision","id":"decision-orbit","name":"Proceed with Orbit identity rollout","state":"approved","current":true,"classification":"confirmed"},
+    {"kind":"Milestone","id":"milestone-orbit","name":"Orbit internal identity pilot","state":"scheduled","classification":"confirmed"}
+  ],
+  "policies": [
+    {"id":"project-atlas","primary_assumption_id":"approval-export","decision_id":"decision-atlas"},
+    {"id":"project-beacon","primary_assumption_id":"approval-beacon","decision_id":"decision-beacon"},
+    {"id":"project-orbit","required_assumptions":["approval-orbit"],"primary_assumption_id":"approval-orbit","decision_id":"decision-orbit"}
+  ],
+  "edges": [
+    {"from":"decision-orbit","type":"DEPENDS_ON","to":"approval-orbit","id":"decision-orbit-depends_on-approval-orbit","source":"doc-orbit-rollout-v1","current":true,"classification":"confirmed"},
+    {"from":"milestone-orbit","type":"DEPENDS_ON","to":"decision-orbit","id":"milestone-orbit-depends_on-decision-orbit","source":"doc-orbit-rollout-v1","current":true,"classification":"confirmed"},
+    {"from":"project-orbit","type":"DEPENDS_ON","to":"milestone-orbit","id":"project-orbit-depends_on-milestone-orbit","source":"doc-orbit-rollout-v1","current":true,"classification":"confirmed"},
+    {"from":"decision-beacon","type":"OWNED_BY","to":"person-7","id":"decision-beacon-owned_by-person-7","source":"doc-beacon-owners-v1","current":true,"authority":100,"valid_from":"2026-10-16T07:00:00Z","classification":"confirmed"},
+    {"from":"milestone-beacon","type":"OWNED_BY","to":"person-7","id":"milestone-beacon-owned_by-person-7","source":"doc-beacon-owners-v1","current":true,"authority":100,"valid_from":"2026-10-16T07:00:00Z","classification":"confirmed"},
+    {"from":"decision-orbit","type":"OWNED_BY","to":"person-3","id":"decision-orbit-owned_by-person-3","source":"doc-orbit-rollout-v1","current":true,"authority":100,"valid_from":"2026-10-16T07:00:00Z","classification":"confirmed"},
+    {"from":"milestone-orbit","type":"OWNED_BY","to":"person-3","id":"milestone-orbit-owned_by-person-3","source":"doc-orbit-rollout-v1","current":true,"authority":100,"valid_from":"2026-10-16T07:00:00Z","classification":"confirmed"}
+  ]
+}

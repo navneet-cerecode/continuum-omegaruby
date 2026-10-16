@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-10-16T20:00:51.7846685Z",
+  "passed": true,
+  "source_archive": "CONTINUUM-OmegaRuby-source.zip",
+  "graph": "continuum_clean_083ebdcd48d24c309aae056b3cddc6aa",
+  "fresh_python_environment": true,
+  "npm_ci": true,
+  "production_build": true,
+  "api_release_tests": true,
+  "http_backend_and_ui": true,
+  "another_machine": false,
+  "docker_execution": false,
+  "limits": "Same Windows machine, shared existing WSL FalkorDB service, cached dependency downloads may be used. No Docker or other-machine claim.",
+  "tested_archive_sha256": "c346db4ca96431fb375a0c65457a8856f3c9fa4ce062d32d7f6bc9c58c19679d",
+  "final_application_source_matches_tested_extraction": true,
+  "application_files_compared": 37
+}

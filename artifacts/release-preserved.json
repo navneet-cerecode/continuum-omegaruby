@@ -1,0 +1,140 @@
+{
+  "before": {
+    "graph": "continuum_release_final",
+    "actions": [
+      {
+        "action": {
+          "id": "action-change-export-withdrawn-decision-export",
+          "name": "Review Release the export service",
+          "state": "approved",
+          "created_at": "2026-10-16T09:20:00.971832+00:00",
+          "proposal_id": "proposal-25-287d7530-decision-export",
+          "classification": "confirmed"
+        },
+        "owner": "Noah Patel",
+        "decision": "Release the export service",
+        "target_id": "decision-export",
+        "event_id": "change-export-withdrawn",
+        "trigger": "Export service security approval withdrawn",
+        "created_at": "2026-10-16T09:20:00.971832+00:00"
+      },
+      {
+        "action": {
+          "id": "action-change-export-withdrawn-decision-atlas",
+          "name": "Review Proceed with Atlas launch",
+          "state": "approved",
+          "created_at": "2026-10-16T09:20:00.971832+00:00",
+          "proposal_id": "proposal-25-287d7530-decision-atlas",
+          "classification": "confirmed"
+        },
+        "owner": "Maya Chen",
+        "decision": "Proceed with Atlas launch",
+        "target_id": "decision-atlas",
+        "event_id": "change-export-withdrawn",
+        "trigger": "Export service security approval withdrawn",
+        "created_at": "2026-10-16T09:20:00.971832+00:00"
+      }
+    ],
+    "history": [
+      {
+        "event": {
+          "id": "change-export-withdrawn",
+          "name": "Export service security approval withdrawn",
+          "created_at": "2026-10-16T09:19:59.980271+00:00",
+          "current": true,
+          "state": "unresolved",
+          "classification": "confirmed",
+          "synthetic": true
+        },
+        "previous": {
+          "id": "approval-export",
+          "name": "Export service security approval",
+          "classification": "confirmed",
+          "state": "superseded",
+          "current": false,
+          "valid_from": "2026-10-15T09:00:00Z",
+          "valid_to": "2026-10-16T09:19:59.980271+00:00",
+          "required_evidence_authority": "security"
+        },
+        "created_at": "2026-10-16T09:19:59.980271+00:00"
+      }
+    ],
+    "restorations": []
+  },
+  "after": {
+    "graph": "continuum_release_final",
+    "actions": [
+      {
+        "action": {
+          "id": "action-change-export-withdrawn-decision-export",
+          "name": "Review Release the export service",
+          "state": "approved",
+          "created_at": "2026-10-16T09:20:00.971832+00:00",
+          "proposal_id": "proposal-25-287d7530-decision-export",
+          "classification": "confirmed"
+        },
+        "owner": "Noah Patel",
+        "decision": "Release the export service",
+        "target_id": "decision-export",
+        "event_id": "change-export-withdrawn",
+        "trigger": "Export service security approval withdrawn",
+        "created_at": "2026-10-16T09:20:00.971832+00:00"
+      },
+      {
+        "action": {
+          "id": "action-change-export-withdrawn-decision-atlas",
+          "name": "Review Proceed with Atlas launch",
+          "state": "approved",
+          "created_at": "2026-10-16T09:20:00.971832+00:00",
+          "proposal_id": "proposal-25-287d7530-decision-atlas",
+          "classification": "confirmed"
+        },
+        "owner": "Maya Chen",
+        "decision": "Proceed with Atlas launch",
+        "target_id": "decision-atlas",
+        "event_id": "change-export-withdrawn",
+        "trigger": "Export service security approval withdrawn",
+        "created_at": "2026-10-16T09:20:00.971832+00:00"
+      }
+    ],
+    "history": [
+      {
+        "event": {
+          "id": "change-export-withdrawn",
+          "name": "Export service security approval withdrawn",
+          "created_at": "2026-10-16T09:19:59.980271+00:00",
+          "current": true,
+          "state": "unresolved",
+          "classification": "confirmed",
+          "synthetic": true
+        },
+        "previous": {
+          "id": "approval-export",
+          "name": "Export service security approval",
+          "classification": "confirmed",
+          "state": "superseded",
+          "current": false,
+          "valid_from": "2026-10-15T09:00:00Z",
+          "valid_to": "2026-10-16T09:19:59.980271+00:00",
+          "required_evidence_authority": "security"
+        },
+        "created_at": "2026-10-16T09:19:59.980271+00:00"
+      }
+    ],
+    "restorations": []
+  },
+  "state_unchanged": true,
+  "health": {
+    "database": "available",
+    "revision": 40,
+    "agent_configured": true,
+    "synthetic": true,
+    "team": "OmegaRuby"
+  },
+  "access_mode": "demo",
+  "readiness": {
+    "atlas": "review_required",
+    "beacon": "supported",
+    "orbit": "supported"
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "baseURL": "http://127.0.0.1:8000",
+  "mutations": false,
+  "flow": "Chrome → frontend → FastAPI → real FalkorDB → UI",
+  "checks": [
+    "Keyboard workspace search opens real source evidence; Escape closes",
+    "Nested evidence back navigation, native focus containment, and focus restoration",
+    "Explicit zero-result search and clear action",
+    "Grounded readiness exploration and answer preservation across navigation",
+    "Dependency nodes, edge evidence, path selection, and complete impact evidence",
+    "All three screens fit seven widths from 320 to 1920 pixels",
+    "Reduced-motion removes dialog animation",
+    "Simulated database outage has clear feedback and a working retry"
+  ],
+  "responsive": [
+    {
+      "view": "context",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "view": "investigation",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "view": "queue",
+      "width": 320,
+      "scrollWidth": 320
+    },
+    {
+      "view": "context",
+      "width": 375,
+      "scrollWidth": 375
+    },
+    {
+      "view": "investigation",
+      "width": 375,
+      "scrollWidth": 375
+    },
+    {
+      "view": "queue",
+      "width": 375,
+      "scrollWidth": 375
+    },
+    {
+      "view": "context",
+      "width": 430,
+      "scrollWidth": 430
+    },
+    {
+      "view": "investigation",
+      "width": 430,
+      "scrollWidth": 430
+    },
+    {
+      "view": "queue",
+      "width": 430,
+      "scrollWidth": 430
+    },
+    {
+      "view": "context",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "view": "investigation",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "view": "queue",
+      "width": 768,
+      "scrollWidth": 768
+    },
+    {
+      "view": "context",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "view": "investigation",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "view": "queue",
+      "width": 1024,
+      "scrollWidth": 1024
+    },
+    {
+      "view": "context",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "view": "investigation",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "view": "queue",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "view": "context",
+      "width": 1920,
+      "scrollWidth": 1920
+    },
+    {
+      "view": "investigation",
+      "width": 1920,
+      "scrollWidth": 1920
+    },
+    {
+      "view": "queue",
+      "width": 1920,
+      "scrollWidth": 1920
+    }
+  ],
+  "accessibility": [
+    {
+      "screen": "evidence-desktop",
+      "violations": []
+    },
+    {
+      "screen": "context-375",
+      "violations": []
+    },
+    {
+      "screen": "investigation-375",
+      "violations": []
+    },
+    {
+      "screen": "queue-375",
+      "violations": []
+    },
+    {
+      "screen": "context-1440",
+      "violations": []
+    },
+    {
+      "screen": "investigation-1440",
+      "violations": []
+    },
+    {
+      "screen": "queue-1440",
+      "violations": []
+    },
+    {
+      "screen": "search-mobile",
+      "violations": []
+    },
+    {
+      "screen": "evidence-mobile",
+      "violations": []
+    }
+  ],
+  "page_errors": [],
+  "api_failures": [],
+  "axe_version": "4.14.0",
+  "accessibility_violations": 0,
+  "verified_at": "2026-10-16T10:14:57.255Z"
+}

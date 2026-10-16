@@ -1,0 +1,836 @@
+{
+  "verified_at": "2026-10-16T18:19:28.265729+00:00",
+  "graph": "continuum_lifecycle_411274ec658e41388db145ae583aef3a",
+  "live": true,
+  "provider": "Local Ollama",
+  "runs": [
+    {
+      "project": "project-beacon",
+      "scenario": "restored-readiness",
+      "status": "passed",
+      "elapsed_ms": 13200.085,
+      "result": {
+        "mode": "agent",
+        "answer": {
+          "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+          "supporting_paths": [
+            [
+              "project-beacon",
+              "milestone-beacon",
+              "decision-beacon",
+              "approval-restored-39451b029c9beab2"
+            ]
+          ],
+          "source_ids": [
+            "doc-approval-restoration-39451b029c9beab2-v1",
+            "doc-beacon-milestone-v1",
+            "doc-approval-restoration-39451b029c9beab2-v1",
+            "doc-owner-current-v1"
+          ],
+          "conflicts": [],
+          "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners."
+        },
+        "trace": [
+          {
+            "tool": "assess_launch_readiness",
+            "input": {
+              "value": "project-beacon"
+            },
+            "duration_ms": 8.704,
+            "result": {
+              "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+              "status": "supported",
+              "project": {
+                "id": "project-beacon",
+                "name": "Project Beacon",
+                "classification": "confirmed",
+                "description": "Public status-page refresh",
+                "state": "planned",
+                "required_assumptions": [
+                  "approval-restored-39451b029c9beab2"
+                ],
+                "primary_assumption_id": "approval-restored-39451b029c9beab2",
+                "decision_id": "decision-beacon",
+                "kind": "Project"
+              },
+              "paths": [
+                {
+                  "assumption_id": "approval-restored-39451b029c9beab2",
+                  "assumption": {
+                    "id": "approval-restored-39451b029c9beab2",
+                    "name": "Replacement: Beacon accessibility checks passed",
+                    "state": "approved",
+                    "current": true,
+                    "valid_from": "2026-10-16T18:18:34.856671+00:00",
+                    "required_evidence_authority": "product",
+                    "classification": "confirmed",
+                    "synthetic": true,
+                    "approved_at": "2026-10-16T18:18:35.838214+00:00"
+                  },
+                  "path": [
+                    "project-beacon",
+                    "milestone-beacon",
+                    "decision-beacon",
+                    "approval-restored-39451b029c9beab2"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-beacon-depends_on-milestone-beacon",
+                      "classification": "confirmed",
+                      "source": "doc-beacon-milestone-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-beacon-depends_on-decision-beacon",
+                      "classification": "confirmed",
+                      "source": "doc-beacon-milestone-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-beacon-depends_on-approval-beacon-restoration-39451b029c9beab2",
+                      "classification": "confirmed",
+                      "source": "doc-approval-restoration-39451b029c9beab2-v1",
+                      "current": true,
+                      "valid_from": "2026-10-16T18:18:35.838214+00:00",
+                      "review_id": "restoration-39451b029c9beab2",
+                      "revalidated_from": "approval-beacon"
+                    }
+                  ]
+                }
+              ],
+              "sources": [
+                {
+                  "id": "approval-restored-39451b029c9beab2",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-approval-restoration-39451b029c9beab2-v1",
+                        "name": "Synthetic replacement review: Beacon accessibility checks passed",
+                        "version": 1,
+                        "authority": "product",
+                        "valid_from": "2026-10-16T18:18:34.856671+00:00",
+                        "current": true,
+                        "classification": "confirmed",
+                        "synthetic": true,
+                        "excerpt": "Synthetic review passed. The recorded controls were rechecked, and Beacon accessibility checks passed is approved for the reviewed scope.",
+                        "sha256": "39451b029c9beab20c00a67678ad9369d65ce03bea2cb8ba4452900ecffe5d21",
+                        "reference": "REVIEW-42",
+                        "origin": "human-entered synthetic replacement review"
+                      },
+                      "document": {
+                        "id": "doc-approval-restoration-39451b029c9beab2",
+                        "name": "Synthetic replacement review: Beacon accessibility checks passed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-16T18:18:34.856671+00:00"
+                    }
+                  ]
+                }
+              ],
+              "checks": [
+                {
+                  "id": "approval-restored-39451b029c9beab2",
+                  "name": "Replacement: Beacon accessibility checks passed",
+                  "state": "approved",
+                  "assessment": "supported"
+                }
+              ],
+              "issues": [],
+              "complete": true,
+              "truncated": false,
+              "max_hops": 8,
+              "path_limit": 50,
+              "revision": 48,
+              "assessed_at": "2026-10-16T18:19:38.137992+00:00",
+              "owner_resolution": {
+                "owner": {
+                  "id": "person-7",
+                  "name": "Sofia Reyes",
+                  "classification": "confirmed"
+                },
+                "records": [
+                  {
+                    "person": {
+                      "id": "person-7",
+                      "name": "Sofia Reyes",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-beacon-owned_by-person-7",
+                      "classification": "confirmed",
+                      "source": "doc-owner-current-v1",
+                      "current": true,
+                      "authority": 100,
+                      "valid_from": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  }
+                ],
+                "conflict": false,
+                "ambiguous": false,
+                "sources": [
+                  {
+                    "id": "doc-owner-current-v1",
+                    "name": "Authoritative ownership register",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-16T07:00:00Z",
+                    "current": true,
+                    "authority": "ownership-register",
+                    "synthetic": true,
+                    "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                    "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                    "kind": "DocumentVersion"
+                  }
+                ],
+                "complete": true,
+                "issues": [],
+                "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+              },
+              "history": [
+                {
+                  "event": {
+                    "id": "change-2e53ff77c81abf8b-withdrawn",
+                    "name": "Beacon accessibility checks passed withdrawn",
+                    "created_at": "2026-10-16T18:18:34.315885+00:00",
+                    "current": true,
+                    "state": "resolved",
+                    "classification": "confirmed",
+                    "synthetic": true,
+                    "project_id": "project-beacon",
+                    "prerequisite_id": "approval-beacon",
+                    "withdrawn_assumption_id": "approval-beacon-withdrawn",
+                    "withdrawal_source_id": "doc-withdrawal-2e53ff77c81abf8b-v1",
+                    "authority": "product",
+                    "resolved_at": "2026-10-16T18:18:35.838214+00:00",
+                    "restoration_review_id": "restoration-39451b029c9beab2",
+                    "restored_assumption_id": "approval-restored-39451b029c9beab2"
+                  },
+                  "previous": {
+                    "id": "approval-beacon",
+                    "name": "Beacon accessibility checks passed",
+                    "classification": "confirmed",
+                    "state": "superseded",
+                    "current": false,
+                    "required_evidence_authority": "product",
+                    "valid_to": "2026-10-16T18:18:34.315885+00:00"
+                  },
+                  "created_at": "2026-10-16T18:18:34.315885+00:00"
+                }
+              ],
+              "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+              "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+            "status": "supported",
+            "project": {
+              "id": "project-beacon",
+              "name": "Project Beacon",
+              "classification": "confirmed",
+              "description": "Public status-page refresh",
+              "state": "planned",
+              "required_assumptions": [
+                "approval-restored-39451b029c9beab2"
+              ],
+              "primary_assumption_id": "approval-restored-39451b029c9beab2",
+              "decision_id": "decision-beacon",
+              "kind": "Project"
+            },
+            "paths": [
+              {
+                "assumption_id": "approval-restored-39451b029c9beab2",
+                "assumption": {
+                  "id": "approval-restored-39451b029c9beab2",
+                  "name": "Replacement: Beacon accessibility checks passed",
+                  "state": "approved",
+                  "current": true,
+                  "valid_from": "2026-10-16T18:18:34.856671+00:00",
+                  "required_evidence_authority": "product",
+                  "classification": "confirmed",
+                  "synthetic": true,
+                  "approved_at": "2026-10-16T18:18:35.838214+00:00"
+                },
+                "path": [
+                  "project-beacon",
+                  "milestone-beacon",
+                  "decision-beacon",
+                  "approval-restored-39451b029c9beab2"
+                ],
+                "edges": [
+                  {
+                    "id": "project-beacon-depends_on-milestone-beacon",
+                    "classification": "confirmed",
+                    "source": "doc-beacon-milestone-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-beacon-depends_on-decision-beacon",
+                    "classification": "confirmed",
+                    "source": "doc-beacon-milestone-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-beacon-depends_on-approval-beacon-restoration-39451b029c9beab2",
+                    "classification": "confirmed",
+                    "source": "doc-approval-restoration-39451b029c9beab2-v1",
+                    "current": true,
+                    "valid_from": "2026-10-16T18:18:35.838214+00:00",
+                    "review_id": "restoration-39451b029c9beab2",
+                    "revalidated_from": "approval-beacon"
+                  }
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "id": "approval-restored-39451b029c9beab2",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-approval-restoration-39451b029c9beab2-v1",
+                      "name": "Synthetic replacement review: Beacon accessibility checks passed",
+                      "version": 1,
+                      "authority": "product",
+                      "valid_from": "2026-10-16T18:18:34.856671+00:00",
+                      "current": true,
+                      "classification": "confirmed",
+                      "synthetic": true,
+                      "excerpt": "Synthetic review passed. The recorded controls were rechecked, and Beacon accessibility checks passed is approved for the reviewed scope.",
+                      "sha256": "39451b029c9beab20c00a67678ad9369d65ce03bea2cb8ba4452900ecffe5d21",
+                      "reference": "REVIEW-42",
+                      "origin": "human-entered synthetic replacement review"
+                    },
+                    "document": {
+                      "id": "doc-approval-restoration-39451b029c9beab2",
+                      "name": "Synthetic replacement review: Beacon accessibility checks passed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-16T18:18:34.856671+00:00"
+                  }
+                ]
+              }
+            ],
+            "checks": [
+              {
+                "id": "approval-restored-39451b029c9beab2",
+                "name": "Replacement: Beacon accessibility checks passed",
+                "state": "approved",
+                "assessment": "supported"
+              }
+            ],
+            "issues": [],
+            "complete": true,
+            "truncated": false,
+            "max_hops": 8,
+            "path_limit": 50,
+            "revision": 48,
+            "assessed_at": "2026-10-16T18:19:38.137992+00:00",
+            "owner_resolution": {
+              "owner": {
+                "id": "person-7",
+                "name": "Sofia Reyes",
+                "classification": "confirmed"
+              },
+              "records": [
+                {
+                  "person": {
+                    "id": "person-7",
+                    "name": "Sofia Reyes",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-beacon-owned_by-person-7",
+                    "classification": "confirmed",
+                    "source": "doc-owner-current-v1",
+                    "current": true,
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 100,
+                  "valid_from": "2026-10-16T07:00:00Z"
+                }
+              ],
+              "conflict": false,
+              "ambiguous": false,
+              "sources": [
+                {
+                  "id": "doc-owner-current-v1",
+                  "name": "Authoritative ownership register",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-16T07:00:00Z",
+                  "current": true,
+                  "authority": "ownership-register",
+                  "synthetic": true,
+                  "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                  "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                  "kind": "DocumentVersion"
+                }
+              ],
+              "complete": true,
+              "issues": [],
+              "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+            },
+            "history": [
+              {
+                "event": {
+                  "id": "change-2e53ff77c81abf8b-withdrawn",
+                  "name": "Beacon accessibility checks passed withdrawn",
+                  "created_at": "2026-10-16T18:18:34.315885+00:00",
+                  "current": true,
+                  "state": "resolved",
+                  "classification": "confirmed",
+                  "synthetic": true,
+                  "project_id": "project-beacon",
+                  "prerequisite_id": "approval-beacon",
+                  "withdrawn_assumption_id": "approval-beacon-withdrawn",
+                  "withdrawal_source_id": "doc-withdrawal-2e53ff77c81abf8b-v1",
+                  "authority": "product",
+                  "resolved_at": "2026-10-16T18:18:35.838214+00:00",
+                  "restoration_review_id": "restoration-39451b029c9beab2",
+                  "restored_assumption_id": "approval-restored-39451b029c9beab2"
+                },
+                "previous": {
+                  "id": "approval-beacon",
+                  "name": "Beacon accessibility checks passed",
+                  "classification": "confirmed",
+                  "state": "superseded",
+                  "current": false,
+                  "required_evidence_authority": "product",
+                  "valid_to": "2026-10-16T18:18:34.315885+00:00"
+                },
+                "created_at": "2026-10-16T18:18:34.315885+00:00"
+              }
+            ],
+            "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+            "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+          }
+        ],
+        "model_ms": 13130.755,
+        "model": "llama3:latest",
+        "open_followups": [],
+        "grounding_note": "Cited IDs and paths validated against tool outputs. Natural-language entailment still requires human review."
+      }
+    },
+    {
+      "project": "project-orbit",
+      "scenario": "restored-readiness",
+      "status": "passed",
+      "elapsed_ms": 3946.456,
+      "result": {
+        "mode": "agent",
+        "answer": {
+          "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+          "supporting_paths": [
+            [
+              "project-orbit",
+              "milestone-orbit",
+              "decision-orbit",
+              "approval-restored-d974f9759a4b4959"
+            ]
+          ],
+          "source_ids": [
+            "doc-approval-restoration-d974f9759a4b4959-v1",
+            "doc-orbit-rollout-v1",
+            "doc-approval-restoration-d974f9759a4b4959-v1"
+          ],
+          "conflicts": [],
+          "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners."
+        },
+        "trace": [
+          {
+            "tool": "assess_launch_readiness",
+            "input": {
+              "value": "project-orbit"
+            },
+            "duration_ms": 8.469,
+            "result": {
+              "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+              "status": "supported",
+              "project": {
+                "id": "project-orbit",
+                "name": "Project Orbit",
+                "classification": "confirmed",
+                "description": "Shared identity rollout",
+                "state": "planned",
+                "required_assumptions": [
+                  "approval-restored-d974f9759a4b4959"
+                ],
+                "primary_assumption_id": "approval-restored-d974f9759a4b4959",
+                "decision_id": "decision-orbit",
+                "kind": "Project"
+              },
+              "paths": [
+                {
+                  "assumption_id": "approval-restored-d974f9759a4b4959",
+                  "assumption": {
+                    "id": "approval-restored-d974f9759a4b4959",
+                    "name": "Replacement: Orbit identity rollout controls confirmed",
+                    "state": "approved",
+                    "current": true,
+                    "valid_from": "2026-10-16T18:18:36.839734+00:00",
+                    "required_evidence_authority": "platform",
+                    "classification": "confirmed",
+                    "synthetic": true,
+                    "approved_at": "2026-10-16T18:18:37.736404+00:00"
+                  },
+                  "path": [
+                    "project-orbit",
+                    "milestone-orbit",
+                    "decision-orbit",
+                    "approval-restored-d974f9759a4b4959"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-orbit-depends_on-milestone-orbit",
+                      "source": "doc-orbit-rollout-v1",
+                      "current": true,
+                      "classification": "confirmed"
+                    },
+                    {
+                      "id": "milestone-orbit-depends_on-decision-orbit",
+                      "source": "doc-orbit-rollout-v1",
+                      "current": true,
+                      "classification": "confirmed"
+                    },
+                    {
+                      "id": "decision-orbit-depends_on-approval-orbit-restoration-d974f9759a4b4959",
+                      "source": "doc-approval-restoration-d974f9759a4b4959-v1",
+                      "current": true,
+                      "classification": "confirmed",
+                      "valid_from": "2026-10-16T18:18:37.736404+00:00",
+                      "review_id": "restoration-d974f9759a4b4959",
+                      "revalidated_from": "approval-orbit"
+                    }
+                  ]
+                }
+              ],
+              "sources": [
+                {
+                  "id": "approval-restored-d974f9759a4b4959",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-approval-restoration-d974f9759a4b4959-v1",
+                        "name": "Synthetic replacement review: Orbit identity rollout controls confirmed",
+                        "version": 1,
+                        "authority": "platform",
+                        "valid_from": "2026-10-16T18:18:36.839734+00:00",
+                        "current": true,
+                        "classification": "confirmed",
+                        "synthetic": true,
+                        "excerpt": "Synthetic review passed. The recorded controls were rechecked, and Orbit identity rollout controls confirmed is approved for the reviewed scope.",
+                        "sha256": "d974f9759a4b49598c9dc1d238c4650943a4f1a31dbff494297e65485b1ec400",
+                        "reference": "REVIEW-42",
+                        "origin": "human-entered synthetic replacement review"
+                      },
+                      "document": {
+                        "id": "doc-approval-restoration-d974f9759a4b4959",
+                        "name": "Synthetic replacement review: Orbit identity rollout controls confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-16T18:18:36.839734+00:00"
+                    }
+                  ]
+                }
+              ],
+              "checks": [
+                {
+                  "id": "approval-restored-d974f9759a4b4959",
+                  "name": "Replacement: Orbit identity rollout controls confirmed",
+                  "state": "approved",
+                  "assessment": "supported"
+                }
+              ],
+              "issues": [],
+              "complete": true,
+              "truncated": false,
+              "max_hops": 8,
+              "path_limit": 50,
+              "revision": 48,
+              "assessed_at": "2026-10-16T18:19:42.264907+00:00",
+              "owner_resolution": {
+                "owner": {
+                  "id": "person-3",
+                  "name": "Leah Ortiz",
+                  "classification": "confirmed"
+                },
+                "records": [
+                  {
+                    "person": {
+                      "id": "person-3",
+                      "name": "Leah Ortiz",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-orbit-owned_by-person-3",
+                      "classification": "confirmed",
+                      "source": "doc-owner-current-v1",
+                      "current": true,
+                      "authority": 100,
+                      "valid_from": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  }
+                ],
+                "conflict": false,
+                "ambiguous": false,
+                "sources": [
+                  {
+                    "id": "doc-owner-current-v1",
+                    "name": "Authoritative ownership register",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-16T07:00:00Z",
+                    "current": true,
+                    "authority": "ownership-register",
+                    "synthetic": true,
+                    "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                    "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                    "kind": "DocumentVersion"
+                  }
+                ],
+                "complete": true,
+                "issues": [],
+                "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+              },
+              "history": [
+                {
+                  "event": {
+                    "id": "change-3e1bfba55a504484-withdrawn",
+                    "name": "Orbit identity rollout controls confirmed withdrawn",
+                    "created_at": "2026-10-16T18:18:36.316956+00:00",
+                    "current": true,
+                    "state": "resolved",
+                    "classification": "confirmed",
+                    "synthetic": true,
+                    "project_id": "project-orbit",
+                    "prerequisite_id": "approval-orbit",
+                    "withdrawn_assumption_id": "approval-orbit-withdrawn",
+                    "withdrawal_source_id": "doc-withdrawal-3e1bfba55a504484-v1",
+                    "authority": "platform",
+                    "resolved_at": "2026-10-16T18:18:37.736404+00:00",
+                    "restoration_review_id": "restoration-d974f9759a4b4959",
+                    "restored_assumption_id": "approval-restored-d974f9759a4b4959"
+                  },
+                  "previous": {
+                    "id": "approval-orbit",
+                    "name": "Orbit identity rollout controls confirmed",
+                    "state": "superseded",
+                    "current": false,
+                    "classification": "confirmed",
+                    "valid_from": "2026-10-16T07:00:00Z",
+                    "required_evidence_authority": "platform",
+                    "valid_to": "2026-10-16T18:18:36.316956+00:00"
+                  },
+                  "created_at": "2026-10-16T18:18:36.316956+00:00"
+                }
+              ],
+              "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+              "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+            "status": "supported",
+            "project": {
+              "id": "project-orbit",
+              "name": "Project Orbit",
+              "classification": "confirmed",
+              "description": "Shared identity rollout",
+              "state": "planned",
+              "required_assumptions": [
+                "approval-restored-d974f9759a4b4959"
+              ],
+              "primary_assumption_id": "approval-restored-d974f9759a4b4959",
+              "decision_id": "decision-orbit",
+              "kind": "Project"
+            },
+            "paths": [
+              {
+                "assumption_id": "approval-restored-d974f9759a4b4959",
+                "assumption": {
+                  "id": "approval-restored-d974f9759a4b4959",
+                  "name": "Replacement: Orbit identity rollout controls confirmed",
+                  "state": "approved",
+                  "current": true,
+                  "valid_from": "2026-10-16T18:18:36.839734+00:00",
+                  "required_evidence_authority": "platform",
+                  "classification": "confirmed",
+                  "synthetic": true,
+                  "approved_at": "2026-10-16T18:18:37.736404+00:00"
+                },
+                "path": [
+                  "project-orbit",
+                  "milestone-orbit",
+                  "decision-orbit",
+                  "approval-restored-d974f9759a4b4959"
+                ],
+                "edges": [
+                  {
+                    "id": "project-orbit-depends_on-milestone-orbit",
+                    "source": "doc-orbit-rollout-v1",
+                    "current": true,
+                    "classification": "confirmed"
+                  },
+                  {
+                    "id": "milestone-orbit-depends_on-decision-orbit",
+                    "source": "doc-orbit-rollout-v1",
+                    "current": true,
+                    "classification": "confirmed"
+                  },
+                  {
+                    "id": "decision-orbit-depends_on-approval-orbit-restoration-d974f9759a4b4959",
+                    "source": "doc-approval-restoration-d974f9759a4b4959-v1",
+                    "current": true,
+                    "classification": "confirmed",
+                    "valid_from": "2026-10-16T18:18:37.736404+00:00",
+                    "review_id": "restoration-d974f9759a4b4959",
+                    "revalidated_from": "approval-orbit"
+                  }
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "id": "approval-restored-d974f9759a4b4959",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-approval-restoration-d974f9759a4b4959-v1",
+                      "name": "Synthetic replacement review: Orbit identity rollout controls confirmed",
+                      "version": 1,
+                      "authority": "platform",
+                      "valid_from": "2026-10-16T18:18:36.839734+00:00",
+                      "current": true,
+                      "classification": "confirmed",
+                      "synthetic": true,
+                      "excerpt": "Synthetic review passed. The recorded controls were rechecked, and Orbit identity rollout controls confirmed is approved for the reviewed scope.",
+                      "sha256": "d974f9759a4b49598c9dc1d238c4650943a4f1a31dbff494297e65485b1ec400",
+                      "reference": "REVIEW-42",
+                      "origin": "human-entered synthetic replacement review"
+                    },
+                    "document": {
+                      "id": "doc-approval-restoration-d974f9759a4b4959",
+                      "name": "Synthetic replacement review: Orbit identity rollout controls confirmed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-16T18:18:36.839734+00:00"
+                  }
+                ]
+              }
+            ],
+            "checks": [
+              {
+                "id": "approval-restored-d974f9759a4b4959",
+                "name": "Replacement: Orbit identity rollout controls confirmed",
+                "state": "approved",
+                "assessment": "supported"
+              }
+            ],
+            "issues": [],
+            "complete": true,
+            "truncated": false,
+            "max_hops": 8,
+            "path_limit": 50,
+            "revision": 48,
+            "assessed_at": "2026-10-16T18:19:42.264907+00:00",
+            "owner_resolution": {
+              "owner": {
+                "id": "person-3",
+                "name": "Leah Ortiz",
+                "classification": "confirmed"
+              },
+              "records": [
+                {
+                  "person": {
+                    "id": "person-3",
+                    "name": "Leah Ortiz",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-orbit-owned_by-person-3",
+                    "classification": "confirmed",
+                    "source": "doc-owner-current-v1",
+                    "current": true,
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 100,
+                  "valid_from": "2026-10-16T07:00:00Z"
+                }
+              ],
+              "conflict": false,
+              "ambiguous": false,
+              "sources": [
+                {
+                  "id": "doc-owner-current-v1",
+                  "name": "Authoritative ownership register",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-16T07:00:00Z",
+                  "current": true,
+                  "authority": "ownership-register",
+                  "synthetic": true,
+                  "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                  "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                  "kind": "DocumentVersion"
+                }
+              ],
+              "complete": true,
+              "issues": [],
+              "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+            },
+            "history": [
+              {
+                "event": {
+                  "id": "change-3e1bfba55a504484-withdrawn",
+                  "name": "Orbit identity rollout controls confirmed withdrawn",
+                  "created_at": "2026-10-16T18:18:36.316956+00:00",
+                  "current": true,
+                  "state": "resolved",
+                  "classification": "confirmed",
+                  "synthetic": true,
+                  "project_id": "project-orbit",
+                  "prerequisite_id": "approval-orbit",
+                  "withdrawn_assumption_id": "approval-orbit-withdrawn",
+                  "withdrawal_source_id": "doc-withdrawal-3e1bfba55a504484-v1",
+                  "authority": "platform",
+                  "resolved_at": "2026-10-16T18:18:37.736404+00:00",
+                  "restoration_review_id": "restoration-d974f9759a4b4959",
+                  "restored_assumption_id": "approval-restored-d974f9759a4b4959"
+                },
+                "previous": {
+                  "id": "approval-orbit",
+                  "name": "Orbit identity rollout controls confirmed",
+                  "state": "superseded",
+                  "current": false,
+                  "classification": "confirmed",
+                  "valid_from": "2026-10-16T07:00:00Z",
+                  "required_evidence_authority": "platform",
+                  "valid_to": "2026-10-16T18:18:36.316956+00:00"
+                },
+                "created_at": "2026-10-16T18:18:36.316956+00:00"
+              }
+            ],
+            "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+            "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+          }
+        ],
+        "model_ms": 3921.0989999999997,
+        "model": "llama3:latest",
+        "open_followups": [],
+        "grounding_note": "Cited IDs and paths validated against tool outputs. Natural-language entailment still requires human review."
+      }
+    }
+  ],
+  "state_unchanged": true
+}

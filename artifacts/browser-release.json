@@ -1,0 +1,15 @@
+{
+  "verified_at": "2026-10-16T19:45:54.164Z",
+  "real_database": true,
+  "account_sessions": true,
+  "role_denial": true,
+  "csrf_denial": true,
+  "company_isolation": true,
+  "preview_before_import": true,
+  "import_actor_recorded": true,
+  "paged_35_records": true,
+  "fresh_authenticated_session": true,
+  "mobile_no_overflow": true,
+  "page_errors": [],
+  "csp_violations": []
+}

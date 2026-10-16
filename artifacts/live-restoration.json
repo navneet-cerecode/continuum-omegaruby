@@ -1,0 +1,3665 @@
+{
+  "verified_at": "2026-10-16T13:51:14.897326+00:00",
+  "live": true,
+  "graph": "continuum_lifecycle_300497a6be9846e5b893e7614a8e464e",
+  "provider": "Local Ollama",
+  "runs": [
+    {
+      "scenario": "restored-readiness",
+      "status": "passed",
+      "elapsed_ms": 5168.43,
+      "result": {
+        "mode": "agent",
+        "answer": {
+          "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+          "supporting_paths": [
+            [
+              "project-atlas",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "assumption-capacity"
+            ],
+            [
+              "project-atlas",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "approval-export-restored-395e9595765b5d0b"
+            ]
+          ],
+          "source_ids": [
+            "doc-capacity-v1",
+            "doc-security-restoration-395e9595765b5d0b-v1"
+          ],
+          "conflicts": [
+            "ambiguous ownership"
+          ],
+          "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners."
+        },
+        "trace": [
+          {
+            "tool": "assess_launch_readiness",
+            "input": {
+              "value": "project-atlas"
+            },
+            "duration_ms": 12.196,
+            "result": {
+              "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+              "status": "supported",
+              "project": {
+                "id": "project-atlas",
+                "name": "Project Atlas",
+                "classification": "confirmed",
+                "description": "Launch of governed customer data exports",
+                "state": "planned",
+                "launch_date": "2026-10-20",
+                "required_assumptions": [
+                  "approval-export-restored-395e9595765b5d0b",
+                  "assumption-capacity"
+                ],
+                "security_prerequisite_id": "approval-export-restored-395e9595765b5d0b",
+                "kind": "Project"
+              },
+              "paths": [
+                {
+                  "assumption_id": "assumption-capacity",
+                  "assumption": {
+                    "id": "assumption-capacity",
+                    "name": "Export capacity supports the launch cohort",
+                    "classification": "confirmed",
+                    "state": "confirmed",
+                    "current": true,
+                    "valid_from": "2026-10-15T10:00:00Z",
+                    "required_evidence_authority": "platform"
+                  },
+                  "path": [
+                    "project-atlas",
+                    "milestone-atlas",
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "assumption-capacity"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-atlas-depends_on-milestone-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-launch-checklist-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-atlas-depends_on-decision-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-ga-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-assumption-capacity",
+                      "classification": "confirmed",
+                      "source": "doc-export-decision-v1",
+                      "current": true
+                    }
+                  ]
+                },
+                {
+                  "assumption_id": "approval-export-restored-395e9595765b5d0b",
+                  "assumption": {
+                    "id": "approval-export-restored-395e9595765b5d0b",
+                    "name": "Replacement export security approval",
+                    "state": "approved",
+                    "current": true,
+                    "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                    "required_evidence_authority": "security",
+                    "classification": "confirmed",
+                    "synthetic": true,
+                    "approved_at": "2026-10-16T13:51:00.975914+00:00"
+                  },
+                  "path": [
+                    "project-atlas",
+                    "milestone-atlas",
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "approval-export-restored-395e9595765b5d0b"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-atlas-depends_on-milestone-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-launch-checklist-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-atlas-depends_on-decision-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-ga-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                      "classification": "confirmed",
+                      "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "current": true,
+                      "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                      "review_id": "restoration-export-395e9595765b5d0b",
+                      "revalidated_from": "approval-export"
+                    }
+                  ]
+                }
+              ],
+              "sources": [
+                {
+                  "id": "assumption-capacity",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-capacity-v1",
+                        "name": "Capacity test report",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T10:00:00Z",
+                        "current": true,
+                        "authority": "platform",
+                        "synthetic": true,
+                        "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+                        "sha256": "158fb4ab6955725a4db9fecae7d571b46228e8c3eef1c18dde4281a1eccf1591"
+                      },
+                      "document": {
+                        "id": "doc-capacity",
+                        "name": "Capacity test report",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T10:00:00Z"
+                    }
+                  ]
+                },
+                {
+                  "id": "approval-export-restored-395e9595765b5d0b",
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "name": "Synthetic replacement security review",
+                        "version": 1,
+                        "authority": "security",
+                        "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                        "current": true,
+                        "classification": "confirmed",
+                        "synthetic": true,
+                        "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                        "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                        "reference": "SEC-42",
+                        "origin": "human-entered synthetic replacement review"
+                      },
+                      "document": {
+                        "id": "doc-security-restoration-395e9595765b5d0b",
+                        "name": "Synthetic replacement security review",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-16T13:50:59.334900+00:00"
+                    }
+                  ]
+                }
+              ],
+              "checks": [
+                {
+                  "id": "assumption-capacity",
+                  "name": "Export capacity supports the launch cohort",
+                  "state": "confirmed",
+                  "assessment": "supported"
+                },
+                {
+                  "id": "approval-export-restored-395e9595765b5d0b",
+                  "name": "Replacement export security approval",
+                  "state": "approved",
+                  "assessment": "supported"
+                }
+              ],
+              "issues": [],
+              "complete": true,
+              "truncated": false,
+              "max_hops": 8,
+              "path_limit": 50,
+              "revision": 29,
+              "assessed_at": "2026-10-16T13:51:16.228303+00:00",
+              "owner_resolution": {
+                "owner": {
+                  "id": "person-1",
+                  "name": "Maya Chen",
+                  "classification": "confirmed"
+                },
+                "records": [
+                  {
+                    "person": {
+                      "id": "person-1",
+                      "name": "Maya Chen",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-atlas-owned_by-person-1",
+                      "classification": "confirmed",
+                      "source": "doc-owner-current-v1",
+                      "current": true,
+                      "authority": 100,
+                      "valid_from": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  {
+                    "person": {
+                      "id": "person-6",
+                      "name": "Ethan Park",
+                      "classification": "confirmed"
+                    },
+                    "record": {
+                      "id": "project-atlas-owned_by-person-6",
+                      "classification": "confirmed",
+                      "source": "doc-owner-old-v1",
+                      "current": false,
+                      "authority": 20,
+                      "valid_from": "2026-10-15T08:00:00Z",
+                      "valid_to": "2026-10-16T07:00:00Z"
+                    },
+                    "authority": 20,
+                    "valid_from": "2026-10-15T08:00:00Z"
+                  }
+                ],
+                "conflict": true,
+                "ambiguous": false,
+                "sources": [
+                  {
+                    "id": "doc-owner-current-v1",
+                    "name": "Authoritative ownership register",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-16T07:00:00Z",
+                    "current": true,
+                    "authority": "ownership-register",
+                    "synthetic": true,
+                    "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                    "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                    "kind": "DocumentVersion"
+                  },
+                  {
+                    "id": "doc-owner-old-v1",
+                    "name": "Original Atlas project brief",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-15T08:00:00Z",
+                    "current": true,
+                    "authority": "project-brief",
+                    "synthetic": true,
+                    "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                    "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc",
+                    "kind": "DocumentVersion"
+                  }
+                ],
+                "complete": true,
+                "issues": [],
+                "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+              },
+              "history": [
+                {
+                  "event": {
+                    "id": "change-export-withdrawn",
+                    "name": "Export service security approval withdrawn",
+                    "created_at": "2026-10-16T13:50:58.686803+00:00",
+                    "current": true,
+                    "state": "resolved",
+                    "classification": "confirmed",
+                    "synthetic": true,
+                    "resolved_at": "2026-10-16T13:51:00.975914+00:00",
+                    "restoration_review_id": "restoration-export-395e9595765b5d0b",
+                    "restored_assumption_id": "approval-export-restored-395e9595765b5d0b"
+                  },
+                  "previous": {
+                    "id": "approval-export",
+                    "name": "Export service security approval",
+                    "classification": "confirmed",
+                    "state": "superseded",
+                    "current": false,
+                    "valid_from": "2026-10-15T09:00:00Z",
+                    "required_evidence_authority": "security",
+                    "valid_to": "2026-10-16T13:50:58.686803+00:00"
+                  },
+                  "created_at": "2026-10-16T13:50:58.686803+00:00"
+                }
+              ],
+              "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+              "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "conclusion": "Recorded prerequisites support launch readiness; final approval remains with the launch lead.",
+            "status": "supported",
+            "project": {
+              "id": "project-atlas",
+              "name": "Project Atlas",
+              "classification": "confirmed",
+              "description": "Launch of governed customer data exports",
+              "state": "planned",
+              "launch_date": "2026-10-20",
+              "required_assumptions": [
+                "approval-export-restored-395e9595765b5d0b",
+                "assumption-capacity"
+              ],
+              "security_prerequisite_id": "approval-export-restored-395e9595765b5d0b",
+              "kind": "Project"
+            },
+            "paths": [
+              {
+                "assumption_id": "assumption-capacity",
+                "assumption": {
+                  "id": "assumption-capacity",
+                  "name": "Export capacity supports the launch cohort",
+                  "classification": "confirmed",
+                  "state": "confirmed",
+                  "current": true,
+                  "valid_from": "2026-10-15T10:00:00Z",
+                  "required_evidence_authority": "platform"
+                },
+                "path": [
+                  "project-atlas",
+                  "milestone-atlas",
+                  "decision-atlas",
+                  "milestone-export",
+                  "decision-export",
+                  "assumption-capacity"
+                ],
+                "edges": [
+                  {
+                    "id": "project-atlas-depends_on-milestone-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-launch-checklist-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-atlas-depends_on-decision-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-ga-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-atlas-depends_on-milestone-export",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-decision-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-export-depends_on-decision-export",
+                    "classification": "confirmed",
+                    "source": "doc-export-gate-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-export-depends_on-assumption-capacity",
+                    "classification": "confirmed",
+                    "source": "doc-export-decision-v1",
+                    "current": true
+                  }
+                ]
+              },
+              {
+                "assumption_id": "approval-export-restored-395e9595765b5d0b",
+                "assumption": {
+                  "id": "approval-export-restored-395e9595765b5d0b",
+                  "name": "Replacement export security approval",
+                  "state": "approved",
+                  "current": true,
+                  "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                  "required_evidence_authority": "security",
+                  "classification": "confirmed",
+                  "synthetic": true,
+                  "approved_at": "2026-10-16T13:51:00.975914+00:00"
+                },
+                "path": [
+                  "project-atlas",
+                  "milestone-atlas",
+                  "decision-atlas",
+                  "milestone-export",
+                  "decision-export",
+                  "approval-export-restored-395e9595765b5d0b"
+                ],
+                "edges": [
+                  {
+                    "id": "project-atlas-depends_on-milestone-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-launch-checklist-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-atlas-depends_on-decision-atlas",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-ga-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-atlas-depends_on-milestone-export",
+                    "classification": "confirmed",
+                    "source": "doc-atlas-decision-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "milestone-export-depends_on-decision-export",
+                    "classification": "confirmed",
+                    "source": "doc-export-gate-v1",
+                    "current": true
+                  },
+                  {
+                    "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                    "classification": "confirmed",
+                    "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                    "current": true,
+                    "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                    "review_id": "restoration-export-395e9595765b5d0b",
+                    "revalidated_from": "approval-export"
+                  }
+                ]
+              }
+            ],
+            "sources": [
+              {
+                "id": "assumption-capacity",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-capacity-v1",
+                      "name": "Capacity test report",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T10:00:00Z",
+                      "current": true,
+                      "authority": "platform",
+                      "synthetic": true,
+                      "excerpt": "Synthetic cohort capacity test meets the launch budget. This is a fictional test record, not a measured CONTINUUM benchmark.",
+                      "sha256": "158fb4ab6955725a4db9fecae7d571b46228e8c3eef1c18dde4281a1eccf1591"
+                    },
+                    "document": {
+                      "id": "doc-capacity",
+                      "name": "Capacity test report",
+                      "classification": "confirmed",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-15T10:00:00Z"
+                  }
+                ]
+              },
+              {
+                "id": "approval-export-restored-395e9595765b5d0b",
+                "evidence": [
+                  {
+                    "version": {
+                      "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "name": "Synthetic replacement security review",
+                      "version": 1,
+                      "authority": "security",
+                      "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                      "current": true,
+                      "classification": "confirmed",
+                      "synthetic": true,
+                      "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                      "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                      "reference": "SEC-42",
+                      "origin": "human-entered synthetic replacement review"
+                    },
+                    "document": {
+                      "id": "doc-security-restoration-395e9595765b5d0b",
+                      "name": "Synthetic replacement security review",
+                      "synthetic": true
+                    },
+                    "valid_from": "2026-10-16T13:50:59.334900+00:00"
+                  }
+                ]
+              }
+            ],
+            "checks": [
+              {
+                "id": "assumption-capacity",
+                "name": "Export capacity supports the launch cohort",
+                "state": "confirmed",
+                "assessment": "supported"
+              },
+              {
+                "id": "approval-export-restored-395e9595765b5d0b",
+                "name": "Replacement export security approval",
+                "state": "approved",
+                "assessment": "supported"
+              }
+            ],
+            "issues": [],
+            "complete": true,
+            "truncated": false,
+            "max_hops": 8,
+            "path_limit": 50,
+            "revision": 29,
+            "assessed_at": "2026-10-16T13:51:16.228303+00:00",
+            "owner_resolution": {
+              "owner": {
+                "id": "person-1",
+                "name": "Maya Chen",
+                "classification": "confirmed"
+              },
+              "records": [
+                {
+                  "person": {
+                    "id": "person-1",
+                    "name": "Maya Chen",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-atlas-owned_by-person-1",
+                    "classification": "confirmed",
+                    "source": "doc-owner-current-v1",
+                    "current": true,
+                    "authority": 100,
+                    "valid_from": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 100,
+                  "valid_from": "2026-10-16T07:00:00Z"
+                },
+                {
+                  "person": {
+                    "id": "person-6",
+                    "name": "Ethan Park",
+                    "classification": "confirmed"
+                  },
+                  "record": {
+                    "id": "project-atlas-owned_by-person-6",
+                    "classification": "confirmed",
+                    "source": "doc-owner-old-v1",
+                    "current": false,
+                    "authority": 20,
+                    "valid_from": "2026-10-15T08:00:00Z",
+                    "valid_to": "2026-10-16T07:00:00Z"
+                  },
+                  "authority": 20,
+                  "valid_from": "2026-10-15T08:00:00Z"
+                }
+              ],
+              "conflict": true,
+              "ambiguous": false,
+              "sources": [
+                {
+                  "id": "doc-owner-current-v1",
+                  "name": "Authoritative ownership register",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-16T07:00:00Z",
+                  "current": true,
+                  "authority": "ownership-register",
+                  "synthetic": true,
+                  "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                  "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                  "kind": "DocumentVersion"
+                },
+                {
+                  "id": "doc-owner-old-v1",
+                  "name": "Original Atlas project brief",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-15T08:00:00Z",
+                  "current": true,
+                  "authority": "project-brief",
+                  "synthetic": true,
+                  "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                  "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc",
+                  "kind": "DocumentVersion"
+                }
+              ],
+              "complete": true,
+              "issues": [],
+              "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+            },
+            "history": [
+              {
+                "event": {
+                  "id": "change-export-withdrawn",
+                  "name": "Export service security approval withdrawn",
+                  "created_at": "2026-10-16T13:50:58.686803+00:00",
+                  "current": true,
+                  "state": "resolved",
+                  "classification": "confirmed",
+                  "synthetic": true,
+                  "resolved_at": "2026-10-16T13:51:00.975914+00:00",
+                  "restoration_review_id": "restoration-export-395e9595765b5d0b",
+                  "restored_assumption_id": "approval-export-restored-395e9595765b5d0b"
+                },
+                "previous": {
+                  "id": "approval-export",
+                  "name": "Export service security approval",
+                  "classification": "confirmed",
+                  "state": "superseded",
+                  "current": false,
+                  "valid_from": "2026-10-15T09:00:00Z",
+                  "required_evidence_authority": "security",
+                  "valid_to": "2026-10-16T13:50:58.686803+00:00"
+                },
+                "created_at": "2026-10-16T13:50:58.686803+00:00"
+              }
+            ],
+            "next_step": "Inspect prerequisite evidence and confirm operational checks with current owners.",
+            "caveat": "Only recorded prerequisites were assessed; absence of other dependencies does not prove absence of risk."
+          }
+        ],
+        "model_ms": 5095.701999999999,
+        "model": "llama3:latest",
+        "open_followups": [],
+        "grounding_note": "Cited IDs and paths validated against tool outputs. Natural-language entailment still requires human review."
+      }
+    },
+    {
+      "scenario": "resolved-recap",
+      "status": "passed",
+      "elapsed_ms": 11946.754,
+      "result": {
+        "mode": "agent",
+        "answer": {
+          "conclusion": "Replacement security evidence was approved, affected items were revalidated, and the withdrawal was resolved. Final launch sign-off remains with the launch lead.",
+          "supporting_paths": [
+            [
+              "decision-export",
+              "approval-export-restored-395e9595765b5d0b"
+            ],
+            [
+              "milestone-export",
+              "decision-export",
+              "approval-export-restored-395e9595765b5d0b"
+            ],
+            [
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "approval-export-restored-395e9595765b5d0b"
+            ],
+            [
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "approval-export-restored-395e9595765b5d0b"
+            ],
+            [
+              "commitment-acme",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "approval-export-restored-395e9595765b5d0b"
+            ],
+            [
+              "commitment-harbor",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "approval-export-restored-395e9595765b5d0b"
+            ],
+            [
+              "project-atlas",
+              "milestone-atlas",
+              "decision-atlas",
+              "milestone-export",
+              "decision-export",
+              "approval-export-restored-395e9595765b5d0b"
+            ]
+          ],
+          "source_ids": [
+            "doc-security-restoration-395e9595765b5d0b-v1",
+            "doc-security-withdrawal-v1"
+          ],
+          "conflicts": [
+            "Recorded dependencies only. Missing paths do not establish absence of risk. A changed prerequisite requires review; it does not invalidate a decision."
+          ],
+          "next_step": "Inspect the replacement evidence and revalidation record; final launch sign-off remains a human decision."
+        },
+        "trace": [
+          {
+            "tool": "get_open_followups",
+            "input": {
+              "value": "workspace"
+            },
+            "duration_ms": 28.597,
+            "result": {
+              "conclusion": "Replacement security evidence was approved, affected items were revalidated, and the withdrawal was resolved. Final launch sign-off remains with the launch lead.",
+              "changes": [
+                {
+                  "event": {
+                    "id": "change-export-withdrawn",
+                    "name": "Export service security approval withdrawn",
+                    "created_at": "2026-10-16T13:50:58.686803+00:00",
+                    "current": true,
+                    "state": "resolved",
+                    "classification": "confirmed",
+                    "synthetic": true,
+                    "resolved_at": "2026-10-16T13:51:00.975914+00:00",
+                    "restoration_review_id": "restoration-export-395e9595765b5d0b",
+                    "restored_assumption_id": "approval-export-restored-395e9595765b5d0b"
+                  },
+                  "previous": {
+                    "id": "approval-export",
+                    "name": "Export service security approval",
+                    "classification": "confirmed",
+                    "state": "superseded",
+                    "current": false,
+                    "valid_from": "2026-10-15T09:00:00Z",
+                    "required_evidence_authority": "security",
+                    "valid_to": "2026-10-16T13:50:58.686803+00:00"
+                  },
+                  "created_at": "2026-10-16T13:50:58.686803+00:00"
+                }
+              ],
+              "impact": {
+                "items": [
+                  {
+                    "id": "decision-export",
+                    "name": "Release the export service",
+                    "path": [
+                      "decision-export",
+                      "approval-export-restored-395e9595765b5d0b"
+                    ],
+                    "edges": [
+                      {
+                        "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                        "classification": "confirmed",
+                        "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "current": true,
+                        "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                        "review_id": "restoration-export-395e9595765b5d0b",
+                        "revalidated_from": "approval-export"
+                      }
+                    ],
+                    "depth": 1,
+                    "kind": "Decision",
+                    "owner_resolution": {
+                      "owner": {
+                        "id": "person-4",
+                        "name": "Noah Patel",
+                        "classification": "confirmed"
+                      },
+                      "records": [
+                        {
+                          "person": {
+                            "id": "person-4",
+                            "name": "Noah Patel",
+                            "classification": "confirmed"
+                          },
+                          "record": {
+                            "id": "decision-export-owned_by-person-4",
+                            "classification": "confirmed",
+                            "source": "doc-owner-current-v1",
+                            "current": true,
+                            "authority": 100,
+                            "valid_from": "2026-10-16T07:00:00Z"
+                          },
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        }
+                      ],
+                      "conflict": false,
+                      "ambiguous": false,
+                      "sources": [
+                        {
+                          "id": "doc-owner-current-v1",
+                          "name": "Authoritative ownership register",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-16T07:00:00Z",
+                          "current": true,
+                          "authority": "ownership-register",
+                          "synthetic": true,
+                          "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                          "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                          "kind": "DocumentVersion"
+                        }
+                      ],
+                      "complete": true,
+                      "issues": [],
+                      "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                    },
+                    "evidence": [
+                      {
+                        "version": {
+                          "id": "doc-export-decision-v1",
+                          "name": "Export release decision",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T11:00:00Z",
+                          "current": true,
+                          "authority": "product",
+                          "synthetic": true,
+                          "excerpt": "Approve export service release based on SEC-41 security approval and capacity evidence. Review if either prerequisite changes.",
+                          "sha256": "5fca47eb9a2cb26407b768967a39a8165bc46c4098dc6bc8f6f63357f0e50e11"
+                        },
+                        "document": {
+                          "id": "doc-export-decision",
+                          "name": "Export release decision",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T11:00:00Z"
+                      }
+                    ],
+                    "path_evidence": [
+                      {
+                        "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "name": "Synthetic replacement security review",
+                        "version": 1,
+                        "authority": "security",
+                        "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                        "current": true,
+                        "classification": "confirmed",
+                        "synthetic": true,
+                        "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                        "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                        "reference": "SEC-42",
+                        "origin": "human-entered synthetic replacement review",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "evidence_issues": []
+                  },
+                  {
+                    "id": "milestone-export",
+                    "name": "Export service production gate",
+                    "path": [
+                      "milestone-export",
+                      "decision-export",
+                      "approval-export-restored-395e9595765b5d0b"
+                    ],
+                    "edges": [
+                      {
+                        "id": "milestone-export-depends_on-decision-export",
+                        "classification": "confirmed",
+                        "source": "doc-export-gate-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                        "classification": "confirmed",
+                        "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "current": true,
+                        "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                        "review_id": "restoration-export-395e9595765b5d0b",
+                        "revalidated_from": "approval-export"
+                      }
+                    ],
+                    "depth": 2,
+                    "kind": "Milestone",
+                    "owner_resolution": {
+                      "owner": {
+                        "id": "person-2",
+                        "name": "Arjun Rao",
+                        "classification": "confirmed"
+                      },
+                      "records": [
+                        {
+                          "person": {
+                            "id": "person-2",
+                            "name": "Arjun Rao",
+                            "classification": "confirmed"
+                          },
+                          "record": {
+                            "id": "milestone-export-owned_by-person-2",
+                            "classification": "confirmed",
+                            "source": "doc-owner-current-v1",
+                            "current": true,
+                            "authority": 100,
+                            "valid_from": "2026-10-16T07:00:00Z"
+                          },
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        }
+                      ],
+                      "conflict": false,
+                      "ambiguous": false,
+                      "sources": [
+                        {
+                          "id": "doc-owner-current-v1",
+                          "name": "Authoritative ownership register",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-16T07:00:00Z",
+                          "current": true,
+                          "authority": "ownership-register",
+                          "synthetic": true,
+                          "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                          "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                          "kind": "DocumentVersion"
+                        }
+                      ],
+                      "complete": true,
+                      "issues": [],
+                      "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                    },
+                    "evidence": [
+                      {
+                        "version": {
+                          "id": "doc-export-gate-v1",
+                          "name": "Export production gate",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T11:10:00Z",
+                          "current": true,
+                          "authority": "platform",
+                          "synthetic": true,
+                          "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                          "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383"
+                        },
+                        "document": {
+                          "id": "doc-export-gate",
+                          "name": "Export production gate",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T11:10:00Z"
+                      },
+                      {
+                        "version": {
+                          "id": "doc-platform-ticket-v1",
+                          "name": "PLAT-18 production gate ticket",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T10:30:00Z",
+                          "current": true,
+                          "authority": "ticket",
+                          "synthetic": true,
+                          "excerpt": "Arjun will verify the production gate against the release decision.",
+                          "sha256": "2d6f8942ea49721c72b21ef1e64555767037c137a8053f05f557ad5a73791b10"
+                        },
+                        "document": {
+                          "id": "doc-platform-ticket",
+                          "name": "PLAT-18 production gate ticket",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T10:30:00Z"
+                      }
+                    ],
+                    "path_evidence": [
+                      {
+                        "id": "doc-export-gate-v1",
+                        "name": "Export production gate",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T11:10:00Z",
+                        "current": true,
+                        "authority": "platform",
+                        "synthetic": true,
+                        "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                        "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "name": "Synthetic replacement security review",
+                        "version": 1,
+                        "authority": "security",
+                        "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                        "current": true,
+                        "classification": "confirmed",
+                        "synthetic": true,
+                        "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                        "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                        "reference": "SEC-42",
+                        "origin": "human-entered synthetic replacement review",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "evidence_issues": []
+                  },
+                  {
+                    "id": "decision-atlas",
+                    "name": "Proceed with Atlas launch",
+                    "path": [
+                      "decision-atlas",
+                      "milestone-export",
+                      "decision-export",
+                      "approval-export-restored-395e9595765b5d0b"
+                    ],
+                    "edges": [
+                      {
+                        "id": "decision-atlas-depends_on-milestone-export",
+                        "classification": "confirmed",
+                        "source": "doc-atlas-decision-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "milestone-export-depends_on-decision-export",
+                        "classification": "confirmed",
+                        "source": "doc-export-gate-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                        "classification": "confirmed",
+                        "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "current": true,
+                        "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                        "review_id": "restoration-export-395e9595765b5d0b",
+                        "revalidated_from": "approval-export"
+                      }
+                    ],
+                    "depth": 3,
+                    "kind": "Decision",
+                    "owner_resolution": {
+                      "owner": {
+                        "id": "person-1",
+                        "name": "Maya Chen",
+                        "classification": "confirmed"
+                      },
+                      "records": [
+                        {
+                          "person": {
+                            "id": "person-1",
+                            "name": "Maya Chen",
+                            "classification": "confirmed"
+                          },
+                          "record": {
+                            "id": "decision-atlas-owned_by-person-1",
+                            "classification": "confirmed",
+                            "source": "doc-owner-current-v1",
+                            "current": true,
+                            "authority": 100,
+                            "valid_from": "2026-10-16T07:00:00Z"
+                          },
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        }
+                      ],
+                      "conflict": false,
+                      "ambiguous": false,
+                      "sources": [
+                        {
+                          "id": "doc-owner-current-v1",
+                          "name": "Authoritative ownership register",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-16T07:00:00Z",
+                          "current": true,
+                          "authority": "ownership-register",
+                          "synthetic": true,
+                          "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                          "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                          "kind": "DocumentVersion"
+                        }
+                      ],
+                      "complete": true,
+                      "issues": [],
+                      "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                    },
+                    "evidence": [
+                      {
+                        "version": {
+                          "id": "doc-launch-thread-v1",
+                          "name": "Launch coordination discussion",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T14:30:00Z",
+                          "current": true,
+                          "authority": "discussion",
+                          "synthetic": true,
+                          "excerpt": "Maya: Customer promises depend on general availability. Please review dependency evidence when approval changes.",
+                          "sha256": "ba1674097dac85d99d1d9a9959f3e922dc721d628ec91c4b70f2016b7e1d6a4c"
+                        },
+                        "document": {
+                          "id": "doc-launch-thread",
+                          "name": "Launch coordination discussion",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T14:30:00Z"
+                      },
+                      {
+                        "version": {
+                          "id": "doc-atlas-decision-v1",
+                          "name": "Atlas launch decision",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T12:00:00Z",
+                          "current": true,
+                          "authority": "product",
+                          "synthetic": true,
+                          "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                          "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f"
+                        },
+                        "document": {
+                          "id": "doc-atlas-decision",
+                          "name": "Atlas launch decision",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T12:00:00Z"
+                      }
+                    ],
+                    "path_evidence": [
+                      {
+                        "id": "doc-atlas-decision-v1",
+                        "name": "Atlas launch decision",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:00:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                        "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-export-gate-v1",
+                        "name": "Export production gate",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T11:10:00Z",
+                        "current": true,
+                        "authority": "platform",
+                        "synthetic": true,
+                        "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                        "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "name": "Synthetic replacement security review",
+                        "version": 1,
+                        "authority": "security",
+                        "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                        "current": true,
+                        "classification": "confirmed",
+                        "synthetic": true,
+                        "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                        "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                        "reference": "SEC-42",
+                        "origin": "human-entered synthetic replacement review",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "evidence_issues": []
+                  },
+                  {
+                    "id": "milestone-atlas",
+                    "name": "Atlas general availability",
+                    "path": [
+                      "milestone-atlas",
+                      "decision-atlas",
+                      "milestone-export",
+                      "decision-export",
+                      "approval-export-restored-395e9595765b5d0b"
+                    ],
+                    "edges": [
+                      {
+                        "id": "milestone-atlas-depends_on-decision-atlas",
+                        "classification": "confirmed",
+                        "source": "doc-atlas-ga-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "decision-atlas-depends_on-milestone-export",
+                        "classification": "confirmed",
+                        "source": "doc-atlas-decision-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "milestone-export-depends_on-decision-export",
+                        "classification": "confirmed",
+                        "source": "doc-export-gate-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                        "classification": "confirmed",
+                        "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "current": true,
+                        "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                        "review_id": "restoration-export-395e9595765b5d0b",
+                        "revalidated_from": "approval-export"
+                      }
+                    ],
+                    "depth": 4,
+                    "kind": "Milestone",
+                    "owner_resolution": {
+                      "owner": {
+                        "id": "person-1",
+                        "name": "Maya Chen",
+                        "classification": "confirmed"
+                      },
+                      "records": [
+                        {
+                          "person": {
+                            "id": "person-1",
+                            "name": "Maya Chen",
+                            "classification": "confirmed"
+                          },
+                          "record": {
+                            "id": "milestone-atlas-owned_by-person-1",
+                            "classification": "confirmed",
+                            "source": "doc-owner-current-v1",
+                            "current": true,
+                            "authority": 100,
+                            "valid_from": "2026-10-16T07:00:00Z"
+                          },
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        }
+                      ],
+                      "conflict": false,
+                      "ambiguous": false,
+                      "sources": [
+                        {
+                          "id": "doc-owner-current-v1",
+                          "name": "Authoritative ownership register",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-16T07:00:00Z",
+                          "current": true,
+                          "authority": "ownership-register",
+                          "synthetic": true,
+                          "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                          "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                          "kind": "DocumentVersion"
+                        }
+                      ],
+                      "complete": true,
+                      "issues": [],
+                      "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                    },
+                    "evidence": [
+                      {
+                        "version": {
+                          "id": "doc-atlas-ga-v1",
+                          "name": "Atlas availability milestone",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T12:10:00Z",
+                          "current": true,
+                          "authority": "product",
+                          "synthetic": true,
+                          "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+                          "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3"
+                        },
+                        "document": {
+                          "id": "doc-atlas-ga",
+                          "name": "Atlas availability milestone",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T12:10:00Z"
+                      }
+                    ],
+                    "path_evidence": [
+                      {
+                        "id": "doc-atlas-ga-v1",
+                        "name": "Atlas availability milestone",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:10:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+                        "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-atlas-decision-v1",
+                        "name": "Atlas launch decision",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:00:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                        "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-export-gate-v1",
+                        "name": "Export production gate",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T11:10:00Z",
+                        "current": true,
+                        "authority": "platform",
+                        "synthetic": true,
+                        "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                        "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "name": "Synthetic replacement security review",
+                        "version": 1,
+                        "authority": "security",
+                        "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                        "current": true,
+                        "classification": "confirmed",
+                        "synthetic": true,
+                        "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                        "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                        "reference": "SEC-42",
+                        "origin": "human-entered synthetic replacement review",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "evidence_issues": []
+                  },
+                  {
+                    "id": "commitment-acme",
+                    "name": "Acme: governed exports by October 21",
+                    "path": [
+                      "commitment-acme",
+                      "milestone-atlas",
+                      "decision-atlas",
+                      "milestone-export",
+                      "decision-export",
+                      "approval-export-restored-395e9595765b5d0b"
+                    ],
+                    "edges": [
+                      {
+                        "id": "commitment-acme-depends_on-milestone-atlas",
+                        "classification": "confirmed",
+                        "source": "doc-acme-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "milestone-atlas-depends_on-decision-atlas",
+                        "classification": "confirmed",
+                        "source": "doc-atlas-ga-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "decision-atlas-depends_on-milestone-export",
+                        "classification": "confirmed",
+                        "source": "doc-atlas-decision-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "milestone-export-depends_on-decision-export",
+                        "classification": "confirmed",
+                        "source": "doc-export-gate-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                        "classification": "confirmed",
+                        "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "current": true,
+                        "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                        "review_id": "restoration-export-395e9595765b5d0b",
+                        "revalidated_from": "approval-export"
+                      }
+                    ],
+                    "depth": 5,
+                    "kind": "Commitment",
+                    "owner_resolution": {
+                      "owner": {
+                        "id": "person-9",
+                        "name": "Nora Singh",
+                        "classification": "confirmed"
+                      },
+                      "records": [
+                        {
+                          "person": {
+                            "id": "person-9",
+                            "name": "Nora Singh",
+                            "classification": "confirmed"
+                          },
+                          "record": {
+                            "id": "commitment-acme-owned_by-person-9",
+                            "classification": "confirmed",
+                            "source": "doc-owner-current-v1",
+                            "current": true,
+                            "authority": 100,
+                            "valid_from": "2026-10-16T07:00:00Z"
+                          },
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        }
+                      ],
+                      "conflict": false,
+                      "ambiguous": false,
+                      "sources": [
+                        {
+                          "id": "doc-owner-current-v1",
+                          "name": "Authoritative ownership register",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-16T07:00:00Z",
+                          "current": true,
+                          "authority": "ownership-register",
+                          "synthetic": true,
+                          "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                          "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                          "kind": "DocumentVersion"
+                        }
+                      ],
+                      "complete": true,
+                      "issues": [],
+                      "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                    },
+                    "evidence": [
+                      {
+                        "version": {
+                          "id": "doc-customer-thread-v1",
+                          "name": "Customer readiness discussion",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T15:00:00Z",
+                          "current": true,
+                          "authority": "discussion",
+                          "synthetic": true,
+                          "excerpt": "Nora and Zara will review commitments after launch evidence changes. Drafts must be approved before sending.",
+                          "sha256": "6dc573dc911654edb7e897df0719b4ce14f4a35d0ba001865d8f37872d6d5efe"
+                        },
+                        "document": {
+                          "id": "doc-customer-thread",
+                          "name": "Customer readiness discussion",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T15:00:00Z"
+                      },
+                      {
+                        "version": {
+                          "id": "doc-acme-v1",
+                          "name": "Acme commitment record",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T13:00:00Z",
+                          "current": true,
+                          "authority": "customer-success",
+                          "synthetic": true,
+                          "excerpt": "Acme Labs was promised governed exports by October 21, contingent on Atlas general availability. Nora Singh owns customer review.",
+                          "sha256": "b5015444fe3fc1b486c2c0911bb30d4e7779307dc586ff3ab67fdf42de2dcc51"
+                        },
+                        "document": {
+                          "id": "doc-acme",
+                          "name": "Acme commitment record",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T13:00:00Z"
+                      }
+                    ],
+                    "path_evidence": [
+                      {
+                        "id": "doc-acme-v1",
+                        "name": "Acme commitment record",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T13:00:00Z",
+                        "current": true,
+                        "authority": "customer-success",
+                        "synthetic": true,
+                        "excerpt": "Acme Labs was promised governed exports by October 21, contingent on Atlas general availability. Nora Singh owns customer review.",
+                        "sha256": "b5015444fe3fc1b486c2c0911bb30d4e7779307dc586ff3ab67fdf42de2dcc51",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-atlas-ga-v1",
+                        "name": "Atlas availability milestone",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:10:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+                        "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-atlas-decision-v1",
+                        "name": "Atlas launch decision",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:00:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                        "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-export-gate-v1",
+                        "name": "Export production gate",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T11:10:00Z",
+                        "current": true,
+                        "authority": "platform",
+                        "synthetic": true,
+                        "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                        "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "name": "Synthetic replacement security review",
+                        "version": 1,
+                        "authority": "security",
+                        "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                        "current": true,
+                        "classification": "confirmed",
+                        "synthetic": true,
+                        "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                        "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                        "reference": "SEC-42",
+                        "origin": "human-entered synthetic replacement review",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "evidence_issues": []
+                  },
+                  {
+                    "id": "commitment-harbor",
+                    "name": "Harbor: audit-ready exports by October 22",
+                    "path": [
+                      "commitment-harbor",
+                      "milestone-atlas",
+                      "decision-atlas",
+                      "milestone-export",
+                      "decision-export",
+                      "approval-export-restored-395e9595765b5d0b"
+                    ],
+                    "edges": [
+                      {
+                        "id": "commitment-harbor-depends_on-milestone-atlas",
+                        "classification": "confirmed",
+                        "source": "doc-harbor-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "milestone-atlas-depends_on-decision-atlas",
+                        "classification": "confirmed",
+                        "source": "doc-atlas-ga-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "decision-atlas-depends_on-milestone-export",
+                        "classification": "confirmed",
+                        "source": "doc-atlas-decision-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "milestone-export-depends_on-decision-export",
+                        "classification": "confirmed",
+                        "source": "doc-export-gate-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                        "classification": "confirmed",
+                        "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "current": true,
+                        "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                        "review_id": "restoration-export-395e9595765b5d0b",
+                        "revalidated_from": "approval-export"
+                      }
+                    ],
+                    "depth": 5,
+                    "kind": "Commitment",
+                    "owner_resolution": {
+                      "owner": {
+                        "id": "person-11",
+                        "name": "Zara Ali",
+                        "classification": "confirmed"
+                      },
+                      "records": [
+                        {
+                          "person": {
+                            "id": "person-11",
+                            "name": "Zara Ali",
+                            "classification": "confirmed"
+                          },
+                          "record": {
+                            "id": "commitment-harbor-owned_by-person-11",
+                            "classification": "confirmed",
+                            "source": "doc-owner-current-v1",
+                            "current": true,
+                            "authority": 100,
+                            "valid_from": "2026-10-16T07:00:00Z"
+                          },
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        }
+                      ],
+                      "conflict": false,
+                      "ambiguous": false,
+                      "sources": [
+                        {
+                          "id": "doc-owner-current-v1",
+                          "name": "Authoritative ownership register",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-16T07:00:00Z",
+                          "current": true,
+                          "authority": "ownership-register",
+                          "synthetic": true,
+                          "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                          "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                          "kind": "DocumentVersion"
+                        }
+                      ],
+                      "complete": true,
+                      "issues": [],
+                      "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                    },
+                    "evidence": [
+                      {
+                        "version": {
+                          "id": "doc-customer-thread-v1",
+                          "name": "Customer readiness discussion",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T15:00:00Z",
+                          "current": true,
+                          "authority": "discussion",
+                          "synthetic": true,
+                          "excerpt": "Nora and Zara will review commitments after launch evidence changes. Drafts must be approved before sending.",
+                          "sha256": "6dc573dc911654edb7e897df0719b4ce14f4a35d0ba001865d8f37872d6d5efe"
+                        },
+                        "document": {
+                          "id": "doc-customer-thread",
+                          "name": "Customer readiness discussion",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T15:00:00Z"
+                      },
+                      {
+                        "version": {
+                          "id": "doc-harbor-v1",
+                          "name": "Harbor commitment record",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T13:10:00Z",
+                          "current": true,
+                          "authority": "customer-success",
+                          "synthetic": true,
+                          "excerpt": "Harbor Analytics was promised audit-ready exports by October 22, contingent on Atlas general availability. Zara Ali owns review.",
+                          "sha256": "4f391d58044604082e44f43980d99020e23b9d907648bebd53f70df16a1cac09"
+                        },
+                        "document": {
+                          "id": "doc-harbor",
+                          "name": "Harbor commitment record",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T13:10:00Z"
+                      }
+                    ],
+                    "path_evidence": [
+                      {
+                        "id": "doc-harbor-v1",
+                        "name": "Harbor commitment record",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T13:10:00Z",
+                        "current": true,
+                        "authority": "customer-success",
+                        "synthetic": true,
+                        "excerpt": "Harbor Analytics was promised audit-ready exports by October 22, contingent on Atlas general availability. Zara Ali owns review.",
+                        "sha256": "4f391d58044604082e44f43980d99020e23b9d907648bebd53f70df16a1cac09",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-atlas-ga-v1",
+                        "name": "Atlas availability milestone",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:10:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+                        "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-atlas-decision-v1",
+                        "name": "Atlas launch decision",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:00:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                        "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-export-gate-v1",
+                        "name": "Export production gate",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T11:10:00Z",
+                        "current": true,
+                        "authority": "platform",
+                        "synthetic": true,
+                        "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                        "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "name": "Synthetic replacement security review",
+                        "version": 1,
+                        "authority": "security",
+                        "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                        "current": true,
+                        "classification": "confirmed",
+                        "synthetic": true,
+                        "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                        "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                        "reference": "SEC-42",
+                        "origin": "human-entered synthetic replacement review",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "evidence_issues": []
+                  },
+                  {
+                    "id": "project-atlas",
+                    "name": "Project Atlas",
+                    "path": [
+                      "project-atlas",
+                      "milestone-atlas",
+                      "decision-atlas",
+                      "milestone-export",
+                      "decision-export",
+                      "approval-export-restored-395e9595765b5d0b"
+                    ],
+                    "edges": [
+                      {
+                        "id": "project-atlas-depends_on-milestone-atlas",
+                        "classification": "confirmed",
+                        "source": "doc-launch-checklist-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "milestone-atlas-depends_on-decision-atlas",
+                        "classification": "confirmed",
+                        "source": "doc-atlas-ga-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "decision-atlas-depends_on-milestone-export",
+                        "classification": "confirmed",
+                        "source": "doc-atlas-decision-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "milestone-export-depends_on-decision-export",
+                        "classification": "confirmed",
+                        "source": "doc-export-gate-v1",
+                        "current": true
+                      },
+                      {
+                        "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                        "classification": "confirmed",
+                        "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "current": true,
+                        "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                        "review_id": "restoration-export-395e9595765b5d0b",
+                        "revalidated_from": "approval-export"
+                      }
+                    ],
+                    "depth": 5,
+                    "kind": "Project",
+                    "owner_resolution": {
+                      "owner": {
+                        "id": "person-1",
+                        "name": "Maya Chen",
+                        "classification": "confirmed"
+                      },
+                      "records": [
+                        {
+                          "person": {
+                            "id": "person-1",
+                            "name": "Maya Chen",
+                            "classification": "confirmed"
+                          },
+                          "record": {
+                            "id": "project-atlas-owned_by-person-1",
+                            "classification": "confirmed",
+                            "source": "doc-owner-current-v1",
+                            "current": true,
+                            "authority": 100,
+                            "valid_from": "2026-10-16T07:00:00Z"
+                          },
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        },
+                        {
+                          "person": {
+                            "id": "person-6",
+                            "name": "Ethan Park",
+                            "classification": "confirmed"
+                          },
+                          "record": {
+                            "id": "project-atlas-owned_by-person-6",
+                            "classification": "confirmed",
+                            "source": "doc-owner-old-v1",
+                            "current": false,
+                            "authority": 20,
+                            "valid_from": "2026-10-15T08:00:00Z",
+                            "valid_to": "2026-10-16T07:00:00Z"
+                          },
+                          "authority": 20,
+                          "valid_from": "2026-10-15T08:00:00Z"
+                        }
+                      ],
+                      "conflict": true,
+                      "ambiguous": false,
+                      "sources": [
+                        {
+                          "id": "doc-owner-current-v1",
+                          "name": "Authoritative ownership register",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-16T07:00:00Z",
+                          "current": true,
+                          "authority": "ownership-register",
+                          "synthetic": true,
+                          "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                          "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                          "kind": "DocumentVersion"
+                        },
+                        {
+                          "id": "doc-owner-old-v1",
+                          "name": "Original Atlas project brief",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T08:00:00Z",
+                          "current": true,
+                          "authority": "project-brief",
+                          "synthetic": true,
+                          "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                          "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc",
+                          "kind": "DocumentVersion"
+                        }
+                      ],
+                      "complete": true,
+                      "issues": [],
+                      "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                    },
+                    "evidence": [
+                      {
+                        "version": {
+                          "id": "doc-owner-current-v1",
+                          "name": "Authoritative ownership register",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-16T07:00:00Z",
+                          "current": true,
+                          "authority": "ownership-register",
+                          "synthetic": true,
+                          "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                          "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409"
+                        },
+                        "document": {
+                          "id": "doc-owner-current",
+                          "name": "Authoritative ownership register",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-16T07:00:00Z"
+                      },
+                      {
+                        "version": {
+                          "id": "doc-handover-v1",
+                          "name": "Atlas handover discussion",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-16T06:00:00Z",
+                          "current": true,
+                          "authority": "discussion",
+                          "synthetic": true,
+                          "excerpt": "Ethan: I am handing Atlas to Maya. Maya: I will update the authoritative ownership register.",
+                          "sha256": "f97ea120b3d1abc15232416506c96b42b7420ae80162ab97c76245cbc0938953"
+                        },
+                        "document": {
+                          "id": "doc-handover",
+                          "name": "Atlas handover discussion",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-16T06:00:00Z"
+                      },
+                      {
+                        "version": {
+                          "id": "doc-launch-checklist-v1",
+                          "name": "Atlas launch checklist",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T17:00:00Z",
+                          "current": true,
+                          "authority": "checklist",
+                          "synthetic": true,
+                          "excerpt": "Launch lead must review security, delivery and customer commitments. Recorded dependencies are a partial model, not proof of every possible risk.",
+                          "sha256": "284d564683a755d190b8f19a0b5d23a90a61eecd9143e1fe93572a95db27f48a"
+                        },
+                        "document": {
+                          "id": "doc-launch-checklist",
+                          "name": "Atlas launch checklist",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T17:00:00Z"
+                      },
+                      {
+                        "version": {
+                          "id": "doc-rollback-v1",
+                          "name": "Export rollback procedure",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T15:30:00Z",
+                          "current": true,
+                          "authority": "runbook",
+                          "synthetic": true,
+                          "excerpt": "A rollback procedure exists. This document alone does not approve a launch or remove a security risk.",
+                          "sha256": "ef234208882776ce2489d41c3b56beb857dda51c2201b59d59173163cf4eef79"
+                        },
+                        "document": {
+                          "id": "doc-rollback",
+                          "name": "Export rollback procedure",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T15:30:00Z"
+                      },
+                      {
+                        "version": {
+                          "id": "doc-owner-old-v1",
+                          "name": "Original Atlas project brief",
+                          "classification": "confirmed",
+                          "version": 1,
+                          "valid_from": "2026-10-15T08:00:00Z",
+                          "current": true,
+                          "authority": "project-brief",
+                          "synthetic": true,
+                          "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                          "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc"
+                        },
+                        "document": {
+                          "id": "doc-owner-old",
+                          "name": "Original Atlas project brief",
+                          "classification": "confirmed",
+                          "synthetic": true
+                        },
+                        "valid_from": "2026-10-15T08:00:00Z"
+                      }
+                    ],
+                    "path_evidence": [
+                      {
+                        "id": "doc-launch-checklist-v1",
+                        "name": "Atlas launch checklist",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T17:00:00Z",
+                        "current": true,
+                        "authority": "checklist",
+                        "synthetic": true,
+                        "excerpt": "Launch lead must review security, delivery and customer commitments. Recorded dependencies are a partial model, not proof of every possible risk.",
+                        "sha256": "284d564683a755d190b8f19a0b5d23a90a61eecd9143e1fe93572a95db27f48a",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-atlas-ga-v1",
+                        "name": "Atlas availability milestone",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:10:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+                        "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-atlas-decision-v1",
+                        "name": "Atlas launch decision",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:00:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                        "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-export-gate-v1",
+                        "name": "Export production gate",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T11:10:00Z",
+                        "current": true,
+                        "authority": "platform",
+                        "synthetic": true,
+                        "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                        "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                        "name": "Synthetic replacement security review",
+                        "version": 1,
+                        "authority": "security",
+                        "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                        "current": true,
+                        "classification": "confirmed",
+                        "synthetic": true,
+                        "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                        "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                        "reference": "SEC-42",
+                        "origin": "human-entered synthetic replacement review",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "evidence_issues": []
+                  }
+                ],
+                "count": 7,
+                "max_hops": 8,
+                "truncated": false,
+                "path_limit_reached": false,
+                "depth_limit_reached": false,
+                "sourced": true,
+                "caveat": "Recorded dependencies only. Missing paths do not establish absence of risk. A changed prerequisite requires review; it does not invalidate a decision."
+              },
+              "restorations": [
+                {
+                  "review": {
+                    "id": "restoration-export-395e9595765b5d0b",
+                    "name": "Replacement approval review",
+                    "state": "approved",
+                    "created_at": "2026-10-16T13:50:59.334900+00:00",
+                    "synthetic": true,
+                    "reviewed_at": "2026-10-16T13:51:00.975914+00:00",
+                    "reviewer_id": "person-1",
+                    "note": "Synthetic launch-owner review verified the replacement security evidence and every affected dependency.",
+                    "request_hash": "71d4ebbea0b6b1a324d483c562237266be81916e73b0218f041513ad87684f34",
+                    "reviewed_targets": [
+                      "decision-export",
+                      "milestone-export",
+                      "decision-atlas",
+                      "milestone-atlas",
+                      "commitment-acme",
+                      "commitment-harbor",
+                      "project-atlas"
+                    ]
+                  },
+                  "assumption_id": "approval-export-restored-395e9595765b5d0b",
+                  "source_id": "doc-security-restoration-395e9595765b5d0b-v1",
+                  "created_at": "2026-10-16T13:50:59.334900+00:00"
+                }
+              ],
+              "unresolved_actions": [],
+              "actions": [
+                {
+                  "action": {
+                    "id": "action-change-export-withdrawn-decision-export",
+                    "name": "Review Release the export service",
+                    "state": "completed",
+                    "created_at": "2026-10-16T13:50:59.141260+00:00",
+                    "proposal_id": "proposal-25-0e1173cb-decision-export",
+                    "classification": "confirmed",
+                    "updated_at": "2026-10-16T13:51:00.166613+00:00"
+                  },
+                  "owner": "Noah Patel",
+                  "decision": "Release the export service",
+                  "target_id": "decision-export",
+                  "event_id": "change-export-withdrawn",
+                  "trigger": "Export service security approval withdrawn",
+                  "created_at": "2026-10-16T13:50:59.141260+00:00"
+                }
+              ],
+              "sources": [
+                {
+                  "version": {
+                    "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                    "name": "Synthetic replacement security review",
+                    "version": 1,
+                    "authority": "security",
+                    "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                    "current": true,
+                    "classification": "confirmed",
+                    "synthetic": true,
+                    "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                    "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                    "reference": "SEC-42",
+                    "origin": "human-entered synthetic replacement review"
+                  },
+                  "document": {
+                    "id": "doc-security-restoration-395e9595765b5d0b",
+                    "name": "Synthetic replacement security review",
+                    "synthetic": true
+                  },
+                  "valid_from": "2026-10-16T13:50:59.334900+00:00"
+                },
+                {
+                  "version": {
+                    "id": "doc-security-withdrawal-v1",
+                    "name": "Synthetic security update (staged)",
+                    "classification": "confirmed",
+                    "version": 1,
+                    "valid_from": "2026-10-16T08:00:00Z",
+                    "current": true,
+                    "authority": "security",
+                    "synthetic": true,
+                    "excerpt": "The security approval for the export service has been withdrawn. Token rotation evidence is incomplete. A new security review is required before approval can be restored.",
+                    "sha256": "dde18a47904fcc4be45133af37e08147778c6bd70946a6c2e29f46433aee1723"
+                  },
+                  "document": {
+                    "id": "doc-security-withdrawal",
+                    "name": "Synthetic security update (staged)",
+                    "classification": "confirmed",
+                    "synthetic": true
+                  },
+                  "valid_from": "2026-10-16T08:00:00Z"
+                }
+              ],
+              "next_step": "Inspect the replacement evidence and revalidation record; final launch sign-off remains a human decision.",
+              "persisted": true
+            }
+          }
+        ],
+        "evidence": [
+          {
+            "conclusion": "Replacement security evidence was approved, affected items were revalidated, and the withdrawal was resolved. Final launch sign-off remains with the launch lead.",
+            "changes": [
+              {
+                "event": {
+                  "id": "change-export-withdrawn",
+                  "name": "Export service security approval withdrawn",
+                  "created_at": "2026-10-16T13:50:58.686803+00:00",
+                  "current": true,
+                  "state": "resolved",
+                  "classification": "confirmed",
+                  "synthetic": true,
+                  "resolved_at": "2026-10-16T13:51:00.975914+00:00",
+                  "restoration_review_id": "restoration-export-395e9595765b5d0b",
+                  "restored_assumption_id": "approval-export-restored-395e9595765b5d0b"
+                },
+                "previous": {
+                  "id": "approval-export",
+                  "name": "Export service security approval",
+                  "classification": "confirmed",
+                  "state": "superseded",
+                  "current": false,
+                  "valid_from": "2026-10-15T09:00:00Z",
+                  "required_evidence_authority": "security",
+                  "valid_to": "2026-10-16T13:50:58.686803+00:00"
+                },
+                "created_at": "2026-10-16T13:50:58.686803+00:00"
+              }
+            ],
+            "impact": {
+              "items": [
+                {
+                  "id": "decision-export",
+                  "name": "Release the export service",
+                  "path": [
+                    "decision-export",
+                    "approval-export-restored-395e9595765b5d0b"
+                  ],
+                  "edges": [
+                    {
+                      "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                      "classification": "confirmed",
+                      "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "current": true,
+                      "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                      "review_id": "restoration-export-395e9595765b5d0b",
+                      "revalidated_from": "approval-export"
+                    }
+                  ],
+                  "depth": 1,
+                  "kind": "Decision",
+                  "owner_resolution": {
+                    "owner": {
+                      "id": "person-4",
+                      "name": "Noah Patel",
+                      "classification": "confirmed"
+                    },
+                    "records": [
+                      {
+                        "person": {
+                          "id": "person-4",
+                          "name": "Noah Patel",
+                          "classification": "confirmed"
+                        },
+                        "record": {
+                          "id": "decision-export-owned_by-person-4",
+                          "classification": "confirmed",
+                          "source": "doc-owner-current-v1",
+                          "current": true,
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        },
+                        "authority": 100,
+                        "valid_from": "2026-10-16T07:00:00Z"
+                      }
+                    ],
+                    "conflict": false,
+                    "ambiguous": false,
+                    "sources": [
+                      {
+                        "id": "doc-owner-current-v1",
+                        "name": "Authoritative ownership register",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-16T07:00:00Z",
+                        "current": true,
+                        "authority": "ownership-register",
+                        "synthetic": true,
+                        "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                        "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "complete": true,
+                    "issues": [],
+                    "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                  },
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-export-decision-v1",
+                        "name": "Export release decision",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T11:00:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Approve export service release based on SEC-41 security approval and capacity evidence. Review if either prerequisite changes.",
+                        "sha256": "5fca47eb9a2cb26407b768967a39a8165bc46c4098dc6bc8f6f63357f0e50e11"
+                      },
+                      "document": {
+                        "id": "doc-export-decision",
+                        "name": "Export release decision",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T11:00:00Z"
+                    }
+                  ],
+                  "path_evidence": [
+                    {
+                      "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "name": "Synthetic replacement security review",
+                      "version": 1,
+                      "authority": "security",
+                      "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                      "current": true,
+                      "classification": "confirmed",
+                      "synthetic": true,
+                      "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                      "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                      "reference": "SEC-42",
+                      "origin": "human-entered synthetic replacement review",
+                      "kind": "DocumentVersion"
+                    }
+                  ],
+                  "evidence_issues": []
+                },
+                {
+                  "id": "milestone-export",
+                  "name": "Export service production gate",
+                  "path": [
+                    "milestone-export",
+                    "decision-export",
+                    "approval-export-restored-395e9595765b5d0b"
+                  ],
+                  "edges": [
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                      "classification": "confirmed",
+                      "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "current": true,
+                      "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                      "review_id": "restoration-export-395e9595765b5d0b",
+                      "revalidated_from": "approval-export"
+                    }
+                  ],
+                  "depth": 2,
+                  "kind": "Milestone",
+                  "owner_resolution": {
+                    "owner": {
+                      "id": "person-2",
+                      "name": "Arjun Rao",
+                      "classification": "confirmed"
+                    },
+                    "records": [
+                      {
+                        "person": {
+                          "id": "person-2",
+                          "name": "Arjun Rao",
+                          "classification": "confirmed"
+                        },
+                        "record": {
+                          "id": "milestone-export-owned_by-person-2",
+                          "classification": "confirmed",
+                          "source": "doc-owner-current-v1",
+                          "current": true,
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        },
+                        "authority": 100,
+                        "valid_from": "2026-10-16T07:00:00Z"
+                      }
+                    ],
+                    "conflict": false,
+                    "ambiguous": false,
+                    "sources": [
+                      {
+                        "id": "doc-owner-current-v1",
+                        "name": "Authoritative ownership register",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-16T07:00:00Z",
+                        "current": true,
+                        "authority": "ownership-register",
+                        "synthetic": true,
+                        "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                        "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "complete": true,
+                    "issues": [],
+                    "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                  },
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-export-gate-v1",
+                        "name": "Export production gate",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T11:10:00Z",
+                        "current": true,
+                        "authority": "platform",
+                        "synthetic": true,
+                        "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                        "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383"
+                      },
+                      "document": {
+                        "id": "doc-export-gate",
+                        "name": "Export production gate",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T11:10:00Z"
+                    },
+                    {
+                      "version": {
+                        "id": "doc-platform-ticket-v1",
+                        "name": "PLAT-18 production gate ticket",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T10:30:00Z",
+                        "current": true,
+                        "authority": "ticket",
+                        "synthetic": true,
+                        "excerpt": "Arjun will verify the production gate against the release decision.",
+                        "sha256": "2d6f8942ea49721c72b21ef1e64555767037c137a8053f05f557ad5a73791b10"
+                      },
+                      "document": {
+                        "id": "doc-platform-ticket",
+                        "name": "PLAT-18 production gate ticket",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T10:30:00Z"
+                    }
+                  ],
+                  "path_evidence": [
+                    {
+                      "id": "doc-export-gate-v1",
+                      "name": "Export production gate",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T11:10:00Z",
+                      "current": true,
+                      "authority": "platform",
+                      "synthetic": true,
+                      "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                      "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "name": "Synthetic replacement security review",
+                      "version": 1,
+                      "authority": "security",
+                      "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                      "current": true,
+                      "classification": "confirmed",
+                      "synthetic": true,
+                      "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                      "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                      "reference": "SEC-42",
+                      "origin": "human-entered synthetic replacement review",
+                      "kind": "DocumentVersion"
+                    }
+                  ],
+                  "evidence_issues": []
+                },
+                {
+                  "id": "decision-atlas",
+                  "name": "Proceed with Atlas launch",
+                  "path": [
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "approval-export-restored-395e9595765b5d0b"
+                  ],
+                  "edges": [
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                      "classification": "confirmed",
+                      "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "current": true,
+                      "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                      "review_id": "restoration-export-395e9595765b5d0b",
+                      "revalidated_from": "approval-export"
+                    }
+                  ],
+                  "depth": 3,
+                  "kind": "Decision",
+                  "owner_resolution": {
+                    "owner": {
+                      "id": "person-1",
+                      "name": "Maya Chen",
+                      "classification": "confirmed"
+                    },
+                    "records": [
+                      {
+                        "person": {
+                          "id": "person-1",
+                          "name": "Maya Chen",
+                          "classification": "confirmed"
+                        },
+                        "record": {
+                          "id": "decision-atlas-owned_by-person-1",
+                          "classification": "confirmed",
+                          "source": "doc-owner-current-v1",
+                          "current": true,
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        },
+                        "authority": 100,
+                        "valid_from": "2026-10-16T07:00:00Z"
+                      }
+                    ],
+                    "conflict": false,
+                    "ambiguous": false,
+                    "sources": [
+                      {
+                        "id": "doc-owner-current-v1",
+                        "name": "Authoritative ownership register",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-16T07:00:00Z",
+                        "current": true,
+                        "authority": "ownership-register",
+                        "synthetic": true,
+                        "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                        "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "complete": true,
+                    "issues": [],
+                    "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                  },
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-launch-thread-v1",
+                        "name": "Launch coordination discussion",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T14:30:00Z",
+                        "current": true,
+                        "authority": "discussion",
+                        "synthetic": true,
+                        "excerpt": "Maya: Customer promises depend on general availability. Please review dependency evidence when approval changes.",
+                        "sha256": "ba1674097dac85d99d1d9a9959f3e922dc721d628ec91c4b70f2016b7e1d6a4c"
+                      },
+                      "document": {
+                        "id": "doc-launch-thread",
+                        "name": "Launch coordination discussion",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T14:30:00Z"
+                    },
+                    {
+                      "version": {
+                        "id": "doc-atlas-decision-v1",
+                        "name": "Atlas launch decision",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:00:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                        "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f"
+                      },
+                      "document": {
+                        "id": "doc-atlas-decision",
+                        "name": "Atlas launch decision",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T12:00:00Z"
+                    }
+                  ],
+                  "path_evidence": [
+                    {
+                      "id": "doc-atlas-decision-v1",
+                      "name": "Atlas launch decision",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T12:00:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                      "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-export-gate-v1",
+                      "name": "Export production gate",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T11:10:00Z",
+                      "current": true,
+                      "authority": "platform",
+                      "synthetic": true,
+                      "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                      "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "name": "Synthetic replacement security review",
+                      "version": 1,
+                      "authority": "security",
+                      "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                      "current": true,
+                      "classification": "confirmed",
+                      "synthetic": true,
+                      "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                      "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                      "reference": "SEC-42",
+                      "origin": "human-entered synthetic replacement review",
+                      "kind": "DocumentVersion"
+                    }
+                  ],
+                  "evidence_issues": []
+                },
+                {
+                  "id": "milestone-atlas",
+                  "name": "Atlas general availability",
+                  "path": [
+                    "milestone-atlas",
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "approval-export-restored-395e9595765b5d0b"
+                  ],
+                  "edges": [
+                    {
+                      "id": "milestone-atlas-depends_on-decision-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-ga-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                      "classification": "confirmed",
+                      "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "current": true,
+                      "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                      "review_id": "restoration-export-395e9595765b5d0b",
+                      "revalidated_from": "approval-export"
+                    }
+                  ],
+                  "depth": 4,
+                  "kind": "Milestone",
+                  "owner_resolution": {
+                    "owner": {
+                      "id": "person-1",
+                      "name": "Maya Chen",
+                      "classification": "confirmed"
+                    },
+                    "records": [
+                      {
+                        "person": {
+                          "id": "person-1",
+                          "name": "Maya Chen",
+                          "classification": "confirmed"
+                        },
+                        "record": {
+                          "id": "milestone-atlas-owned_by-person-1",
+                          "classification": "confirmed",
+                          "source": "doc-owner-current-v1",
+                          "current": true,
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        },
+                        "authority": 100,
+                        "valid_from": "2026-10-16T07:00:00Z"
+                      }
+                    ],
+                    "conflict": false,
+                    "ambiguous": false,
+                    "sources": [
+                      {
+                        "id": "doc-owner-current-v1",
+                        "name": "Authoritative ownership register",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-16T07:00:00Z",
+                        "current": true,
+                        "authority": "ownership-register",
+                        "synthetic": true,
+                        "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                        "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "complete": true,
+                    "issues": [],
+                    "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                  },
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-atlas-ga-v1",
+                        "name": "Atlas availability milestone",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T12:10:00Z",
+                        "current": true,
+                        "authority": "product",
+                        "synthetic": true,
+                        "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+                        "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3"
+                      },
+                      "document": {
+                        "id": "doc-atlas-ga",
+                        "name": "Atlas availability milestone",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T12:10:00Z"
+                    }
+                  ],
+                  "path_evidence": [
+                    {
+                      "id": "doc-atlas-ga-v1",
+                      "name": "Atlas availability milestone",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T12:10:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+                      "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-atlas-decision-v1",
+                      "name": "Atlas launch decision",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T12:00:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                      "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-export-gate-v1",
+                      "name": "Export production gate",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T11:10:00Z",
+                      "current": true,
+                      "authority": "platform",
+                      "synthetic": true,
+                      "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                      "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "name": "Synthetic replacement security review",
+                      "version": 1,
+                      "authority": "security",
+                      "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                      "current": true,
+                      "classification": "confirmed",
+                      "synthetic": true,
+                      "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                      "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                      "reference": "SEC-42",
+                      "origin": "human-entered synthetic replacement review",
+                      "kind": "DocumentVersion"
+                    }
+                  ],
+                  "evidence_issues": []
+                },
+                {
+                  "id": "commitment-acme",
+                  "name": "Acme: governed exports by October 21",
+                  "path": [
+                    "commitment-acme",
+                    "milestone-atlas",
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "approval-export-restored-395e9595765b5d0b"
+                  ],
+                  "edges": [
+                    {
+                      "id": "commitment-acme-depends_on-milestone-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-acme-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-atlas-depends_on-decision-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-ga-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                      "classification": "confirmed",
+                      "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "current": true,
+                      "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                      "review_id": "restoration-export-395e9595765b5d0b",
+                      "revalidated_from": "approval-export"
+                    }
+                  ],
+                  "depth": 5,
+                  "kind": "Commitment",
+                  "owner_resolution": {
+                    "owner": {
+                      "id": "person-9",
+                      "name": "Nora Singh",
+                      "classification": "confirmed"
+                    },
+                    "records": [
+                      {
+                        "person": {
+                          "id": "person-9",
+                          "name": "Nora Singh",
+                          "classification": "confirmed"
+                        },
+                        "record": {
+                          "id": "commitment-acme-owned_by-person-9",
+                          "classification": "confirmed",
+                          "source": "doc-owner-current-v1",
+                          "current": true,
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        },
+                        "authority": 100,
+                        "valid_from": "2026-10-16T07:00:00Z"
+                      }
+                    ],
+                    "conflict": false,
+                    "ambiguous": false,
+                    "sources": [
+                      {
+                        "id": "doc-owner-current-v1",
+                        "name": "Authoritative ownership register",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-16T07:00:00Z",
+                        "current": true,
+                        "authority": "ownership-register",
+                        "synthetic": true,
+                        "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                        "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "complete": true,
+                    "issues": [],
+                    "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                  },
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-customer-thread-v1",
+                        "name": "Customer readiness discussion",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T15:00:00Z",
+                        "current": true,
+                        "authority": "discussion",
+                        "synthetic": true,
+                        "excerpt": "Nora and Zara will review commitments after launch evidence changes. Drafts must be approved before sending.",
+                        "sha256": "6dc573dc911654edb7e897df0719b4ce14f4a35d0ba001865d8f37872d6d5efe"
+                      },
+                      "document": {
+                        "id": "doc-customer-thread",
+                        "name": "Customer readiness discussion",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T15:00:00Z"
+                    },
+                    {
+                      "version": {
+                        "id": "doc-acme-v1",
+                        "name": "Acme commitment record",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T13:00:00Z",
+                        "current": true,
+                        "authority": "customer-success",
+                        "synthetic": true,
+                        "excerpt": "Acme Labs was promised governed exports by October 21, contingent on Atlas general availability. Nora Singh owns customer review.",
+                        "sha256": "b5015444fe3fc1b486c2c0911bb30d4e7779307dc586ff3ab67fdf42de2dcc51"
+                      },
+                      "document": {
+                        "id": "doc-acme",
+                        "name": "Acme commitment record",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T13:00:00Z"
+                    }
+                  ],
+                  "path_evidence": [
+                    {
+                      "id": "doc-acme-v1",
+                      "name": "Acme commitment record",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T13:00:00Z",
+                      "current": true,
+                      "authority": "customer-success",
+                      "synthetic": true,
+                      "excerpt": "Acme Labs was promised governed exports by October 21, contingent on Atlas general availability. Nora Singh owns customer review.",
+                      "sha256": "b5015444fe3fc1b486c2c0911bb30d4e7779307dc586ff3ab67fdf42de2dcc51",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-atlas-ga-v1",
+                      "name": "Atlas availability milestone",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T12:10:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+                      "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-atlas-decision-v1",
+                      "name": "Atlas launch decision",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T12:00:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                      "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-export-gate-v1",
+                      "name": "Export production gate",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T11:10:00Z",
+                      "current": true,
+                      "authority": "platform",
+                      "synthetic": true,
+                      "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                      "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "name": "Synthetic replacement security review",
+                      "version": 1,
+                      "authority": "security",
+                      "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                      "current": true,
+                      "classification": "confirmed",
+                      "synthetic": true,
+                      "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                      "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                      "reference": "SEC-42",
+                      "origin": "human-entered synthetic replacement review",
+                      "kind": "DocumentVersion"
+                    }
+                  ],
+                  "evidence_issues": []
+                },
+                {
+                  "id": "commitment-harbor",
+                  "name": "Harbor: audit-ready exports by October 22",
+                  "path": [
+                    "commitment-harbor",
+                    "milestone-atlas",
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "approval-export-restored-395e9595765b5d0b"
+                  ],
+                  "edges": [
+                    {
+                      "id": "commitment-harbor-depends_on-milestone-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-harbor-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-atlas-depends_on-decision-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-ga-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                      "classification": "confirmed",
+                      "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "current": true,
+                      "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                      "review_id": "restoration-export-395e9595765b5d0b",
+                      "revalidated_from": "approval-export"
+                    }
+                  ],
+                  "depth": 5,
+                  "kind": "Commitment",
+                  "owner_resolution": {
+                    "owner": {
+                      "id": "person-11",
+                      "name": "Zara Ali",
+                      "classification": "confirmed"
+                    },
+                    "records": [
+                      {
+                        "person": {
+                          "id": "person-11",
+                          "name": "Zara Ali",
+                          "classification": "confirmed"
+                        },
+                        "record": {
+                          "id": "commitment-harbor-owned_by-person-11",
+                          "classification": "confirmed",
+                          "source": "doc-owner-current-v1",
+                          "current": true,
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        },
+                        "authority": 100,
+                        "valid_from": "2026-10-16T07:00:00Z"
+                      }
+                    ],
+                    "conflict": false,
+                    "ambiguous": false,
+                    "sources": [
+                      {
+                        "id": "doc-owner-current-v1",
+                        "name": "Authoritative ownership register",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-16T07:00:00Z",
+                        "current": true,
+                        "authority": "ownership-register",
+                        "synthetic": true,
+                        "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                        "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "complete": true,
+                    "issues": [],
+                    "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                  },
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-customer-thread-v1",
+                        "name": "Customer readiness discussion",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T15:00:00Z",
+                        "current": true,
+                        "authority": "discussion",
+                        "synthetic": true,
+                        "excerpt": "Nora and Zara will review commitments after launch evidence changes. Drafts must be approved before sending.",
+                        "sha256": "6dc573dc911654edb7e897df0719b4ce14f4a35d0ba001865d8f37872d6d5efe"
+                      },
+                      "document": {
+                        "id": "doc-customer-thread",
+                        "name": "Customer readiness discussion",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T15:00:00Z"
+                    },
+                    {
+                      "version": {
+                        "id": "doc-harbor-v1",
+                        "name": "Harbor commitment record",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T13:10:00Z",
+                        "current": true,
+                        "authority": "customer-success",
+                        "synthetic": true,
+                        "excerpt": "Harbor Analytics was promised audit-ready exports by October 22, contingent on Atlas general availability. Zara Ali owns review.",
+                        "sha256": "4f391d58044604082e44f43980d99020e23b9d907648bebd53f70df16a1cac09"
+                      },
+                      "document": {
+                        "id": "doc-harbor",
+                        "name": "Harbor commitment record",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T13:10:00Z"
+                    }
+                  ],
+                  "path_evidence": [
+                    {
+                      "id": "doc-harbor-v1",
+                      "name": "Harbor commitment record",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T13:10:00Z",
+                      "current": true,
+                      "authority": "customer-success",
+                      "synthetic": true,
+                      "excerpt": "Harbor Analytics was promised audit-ready exports by October 22, contingent on Atlas general availability. Zara Ali owns review.",
+                      "sha256": "4f391d58044604082e44f43980d99020e23b9d907648bebd53f70df16a1cac09",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-atlas-ga-v1",
+                      "name": "Atlas availability milestone",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T12:10:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+                      "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-atlas-decision-v1",
+                      "name": "Atlas launch decision",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T12:00:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                      "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-export-gate-v1",
+                      "name": "Export production gate",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T11:10:00Z",
+                      "current": true,
+                      "authority": "platform",
+                      "synthetic": true,
+                      "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                      "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "name": "Synthetic replacement security review",
+                      "version": 1,
+                      "authority": "security",
+                      "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                      "current": true,
+                      "classification": "confirmed",
+                      "synthetic": true,
+                      "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                      "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                      "reference": "SEC-42",
+                      "origin": "human-entered synthetic replacement review",
+                      "kind": "DocumentVersion"
+                    }
+                  ],
+                  "evidence_issues": []
+                },
+                {
+                  "id": "project-atlas",
+                  "name": "Project Atlas",
+                  "path": [
+                    "project-atlas",
+                    "milestone-atlas",
+                    "decision-atlas",
+                    "milestone-export",
+                    "decision-export",
+                    "approval-export-restored-395e9595765b5d0b"
+                  ],
+                  "edges": [
+                    {
+                      "id": "project-atlas-depends_on-milestone-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-launch-checklist-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-atlas-depends_on-decision-atlas",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-ga-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-atlas-depends_on-milestone-export",
+                      "classification": "confirmed",
+                      "source": "doc-atlas-decision-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "milestone-export-depends_on-decision-export",
+                      "classification": "confirmed",
+                      "source": "doc-export-gate-v1",
+                      "current": true
+                    },
+                    {
+                      "id": "decision-export-depends_on-approval-export-restoration-export-395e9595765b5d0b",
+                      "classification": "confirmed",
+                      "source": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "current": true,
+                      "valid_from": "2026-10-16T13:51:00.975914+00:00",
+                      "review_id": "restoration-export-395e9595765b5d0b",
+                      "revalidated_from": "approval-export"
+                    }
+                  ],
+                  "depth": 5,
+                  "kind": "Project",
+                  "owner_resolution": {
+                    "owner": {
+                      "id": "person-1",
+                      "name": "Maya Chen",
+                      "classification": "confirmed"
+                    },
+                    "records": [
+                      {
+                        "person": {
+                          "id": "person-1",
+                          "name": "Maya Chen",
+                          "classification": "confirmed"
+                        },
+                        "record": {
+                          "id": "project-atlas-owned_by-person-1",
+                          "classification": "confirmed",
+                          "source": "doc-owner-current-v1",
+                          "current": true,
+                          "authority": 100,
+                          "valid_from": "2026-10-16T07:00:00Z"
+                        },
+                        "authority": 100,
+                        "valid_from": "2026-10-16T07:00:00Z"
+                      },
+                      {
+                        "person": {
+                          "id": "person-6",
+                          "name": "Ethan Park",
+                          "classification": "confirmed"
+                        },
+                        "record": {
+                          "id": "project-atlas-owned_by-person-6",
+                          "classification": "confirmed",
+                          "source": "doc-owner-old-v1",
+                          "current": false,
+                          "authority": 20,
+                          "valid_from": "2026-10-15T08:00:00Z",
+                          "valid_to": "2026-10-16T07:00:00Z"
+                        },
+                        "authority": 20,
+                        "valid_from": "2026-10-15T08:00:00Z"
+                      }
+                    ],
+                    "conflict": true,
+                    "ambiguous": false,
+                    "sources": [
+                      {
+                        "id": "doc-owner-current-v1",
+                        "name": "Authoritative ownership register",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-16T07:00:00Z",
+                        "current": true,
+                        "authority": "ownership-register",
+                        "synthetic": true,
+                        "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                        "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409",
+                        "kind": "DocumentVersion"
+                      },
+                      {
+                        "id": "doc-owner-old-v1",
+                        "name": "Original Atlas project brief",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T08:00:00Z",
+                        "current": true,
+                        "authority": "project-brief",
+                        "synthetic": true,
+                        "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                        "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc",
+                        "kind": "DocumentVersion"
+                      }
+                    ],
+                    "complete": true,
+                    "issues": [],
+                    "policy": "Current, valid, sourced records only; authority descending, then effective time descending. All equal-ranked owners must agree; incomplete or malformed records require review."
+                  },
+                  "evidence": [
+                    {
+                      "version": {
+                        "id": "doc-owner-current-v1",
+                        "name": "Authoritative ownership register",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-16T07:00:00Z",
+                        "current": true,
+                        "authority": "ownership-register",
+                        "synthetic": true,
+                        "excerpt": "Effective October 16, Maya Chen is the Atlas owner. Ethan Park handed over responsibility. This register overrides older project briefs.",
+                        "sha256": "50eb18457781b4312714f7ad59cc30561e43983b6978d517fb6e25b51581c409"
+                      },
+                      "document": {
+                        "id": "doc-owner-current",
+                        "name": "Authoritative ownership register",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-16T07:00:00Z"
+                    },
+                    {
+                      "version": {
+                        "id": "doc-handover-v1",
+                        "name": "Atlas handover discussion",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-16T06:00:00Z",
+                        "current": true,
+                        "authority": "discussion",
+                        "synthetic": true,
+                        "excerpt": "Ethan: I am handing Atlas to Maya. Maya: I will update the authoritative ownership register.",
+                        "sha256": "f97ea120b3d1abc15232416506c96b42b7420ae80162ab97c76245cbc0938953"
+                      },
+                      "document": {
+                        "id": "doc-handover",
+                        "name": "Atlas handover discussion",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-16T06:00:00Z"
+                    },
+                    {
+                      "version": {
+                        "id": "doc-launch-checklist-v1",
+                        "name": "Atlas launch checklist",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T17:00:00Z",
+                        "current": true,
+                        "authority": "checklist",
+                        "synthetic": true,
+                        "excerpt": "Launch lead must review security, delivery and customer commitments. Recorded dependencies are a partial model, not proof of every possible risk.",
+                        "sha256": "284d564683a755d190b8f19a0b5d23a90a61eecd9143e1fe93572a95db27f48a"
+                      },
+                      "document": {
+                        "id": "doc-launch-checklist",
+                        "name": "Atlas launch checklist",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T17:00:00Z"
+                    },
+                    {
+                      "version": {
+                        "id": "doc-rollback-v1",
+                        "name": "Export rollback procedure",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T15:30:00Z",
+                        "current": true,
+                        "authority": "runbook",
+                        "synthetic": true,
+                        "excerpt": "A rollback procedure exists. This document alone does not approve a launch or remove a security risk.",
+                        "sha256": "ef234208882776ce2489d41c3b56beb857dda51c2201b59d59173163cf4eef79"
+                      },
+                      "document": {
+                        "id": "doc-rollback",
+                        "name": "Export rollback procedure",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T15:30:00Z"
+                    },
+                    {
+                      "version": {
+                        "id": "doc-owner-old-v1",
+                        "name": "Original Atlas project brief",
+                        "classification": "confirmed",
+                        "version": 1,
+                        "valid_from": "2026-10-15T08:00:00Z",
+                        "current": true,
+                        "authority": "project-brief",
+                        "synthetic": true,
+                        "excerpt": "Atlas project owner: Ethan Park. This older project brief predates the authoritative handover.",
+                        "sha256": "a3dc38b5a14dab1569edbf86f81140486856b65cce996644eaa9f1623a177afc"
+                      },
+                      "document": {
+                        "id": "doc-owner-old",
+                        "name": "Original Atlas project brief",
+                        "classification": "confirmed",
+                        "synthetic": true
+                      },
+                      "valid_from": "2026-10-15T08:00:00Z"
+                    }
+                  ],
+                  "path_evidence": [
+                    {
+                      "id": "doc-launch-checklist-v1",
+                      "name": "Atlas launch checklist",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T17:00:00Z",
+                      "current": true,
+                      "authority": "checklist",
+                      "synthetic": true,
+                      "excerpt": "Launch lead must review security, delivery and customer commitments. Recorded dependencies are a partial model, not proof of every possible risk.",
+                      "sha256": "284d564683a755d190b8f19a0b5d23a90a61eecd9143e1fe93572a95db27f48a",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-atlas-ga-v1",
+                      "name": "Atlas availability milestone",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T12:10:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Atlas general availability depends on the Atlas launch decision. Target October 20.",
+                      "sha256": "58eb6fae0569b82773adf3497b1e1d92d5edfb3389793dd8445980417cd7c9d3",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-atlas-decision-v1",
+                      "name": "Atlas launch decision",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T12:00:00Z",
+                      "current": true,
+                      "authority": "product",
+                      "synthetic": true,
+                      "excerpt": "Proceed with Atlas launch once the export production gate is satisfied. Maya Chen owns the decision review.",
+                      "sha256": "dcad5a129cbae9628aec189d429b4a7e18769d27a2b665d8d046e655fe58432f",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-export-gate-v1",
+                      "name": "Export production gate",
+                      "classification": "confirmed",
+                      "version": 1,
+                      "valid_from": "2026-10-15T11:10:00Z",
+                      "current": true,
+                      "authority": "platform",
+                      "synthetic": true,
+                      "excerpt": "Production gate depends on the export release decision. Arjun Rao owns coordination.",
+                      "sha256": "e76b0f760ae3fb796e04d670abb015ef8c14e56d19b43b57cf3e992cccb36383",
+                      "kind": "DocumentVersion"
+                    },
+                    {
+                      "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                      "name": "Synthetic replacement security review",
+                      "version": 1,
+                      "authority": "security",
+                      "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                      "current": true,
+                      "classification": "confirmed",
+                      "synthetic": true,
+                      "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                      "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                      "reference": "SEC-42",
+                      "origin": "human-entered synthetic replacement review",
+                      "kind": "DocumentVersion"
+                    }
+                  ],
+                  "evidence_issues": []
+                }
+              ],
+              "count": 7,
+              "max_hops": 8,
+              "truncated": false,
+              "path_limit_reached": false,
+              "depth_limit_reached": false,
+              "sourced": true,
+              "caveat": "Recorded dependencies only. Missing paths do not establish absence of risk. A changed prerequisite requires review; it does not invalidate a decision."
+            },
+            "restorations": [
+              {
+                "review": {
+                  "id": "restoration-export-395e9595765b5d0b",
+                  "name": "Replacement approval review",
+                  "state": "approved",
+                  "created_at": "2026-10-16T13:50:59.334900+00:00",
+                  "synthetic": true,
+                  "reviewed_at": "2026-10-16T13:51:00.975914+00:00",
+                  "reviewer_id": "person-1",
+                  "note": "Synthetic launch-owner review verified the replacement security evidence and every affected dependency.",
+                  "request_hash": "71d4ebbea0b6b1a324d483c562237266be81916e73b0218f041513ad87684f34",
+                  "reviewed_targets": [
+                    "decision-export",
+                    "milestone-export",
+                    "decision-atlas",
+                    "milestone-atlas",
+                    "commitment-acme",
+                    "commitment-harbor",
+                    "project-atlas"
+                  ]
+                },
+                "assumption_id": "approval-export-restored-395e9595765b5d0b",
+                "source_id": "doc-security-restoration-395e9595765b5d0b-v1",
+                "created_at": "2026-10-16T13:50:59.334900+00:00"
+              }
+            ],
+            "unresolved_actions": [],
+            "actions": [
+              {
+                "action": {
+                  "id": "action-change-export-withdrawn-decision-export",
+                  "name": "Review Release the export service",
+                  "state": "completed",
+                  "created_at": "2026-10-16T13:50:59.141260+00:00",
+                  "proposal_id": "proposal-25-0e1173cb-decision-export",
+                  "classification": "confirmed",
+                  "updated_at": "2026-10-16T13:51:00.166613+00:00"
+                },
+                "owner": "Noah Patel",
+                "decision": "Release the export service",
+                "target_id": "decision-export",
+                "event_id": "change-export-withdrawn",
+                "trigger": "Export service security approval withdrawn",
+                "created_at": "2026-10-16T13:50:59.141260+00:00"
+              }
+            ],
+            "sources": [
+              {
+                "version": {
+                  "id": "doc-security-restoration-395e9595765b5d0b-v1",
+                  "name": "Synthetic replacement security review",
+                  "version": 1,
+                  "authority": "security",
+                  "valid_from": "2026-10-16T13:50:59.334900+00:00",
+                  "current": true,
+                  "classification": "confirmed",
+                  "synthetic": true,
+                  "excerpt": "Synthetic review SEC-42 passed. Token rotation controls were rechecked, and the export service is approved for the reviewed launch cohort.",
+                  "sha256": "395e9595765b5d0bf9696b51b4c24ad76f44c8b2fa05eaf7c21292b7296af8c8",
+                  "reference": "SEC-42",
+                  "origin": "human-entered synthetic replacement review"
+                },
+                "document": {
+                  "id": "doc-security-restoration-395e9595765b5d0b",
+                  "name": "Synthetic replacement security review",
+                  "synthetic": true
+                },
+                "valid_from": "2026-10-16T13:50:59.334900+00:00"
+              },
+              {
+                "version": {
+                  "id": "doc-security-withdrawal-v1",
+                  "name": "Synthetic security update (staged)",
+                  "classification": "confirmed",
+                  "version": 1,
+                  "valid_from": "2026-10-16T08:00:00Z",
+                  "current": true,
+                  "authority": "security",
+                  "synthetic": true,
+                  "excerpt": "The security approval for the export service has been withdrawn. Token rotation evidence is incomplete. A new security review is required before approval can be restored.",
+                  "sha256": "dde18a47904fcc4be45133af37e08147778c6bd70946a6c2e29f46433aee1723"
+                },
+                "document": {
+                  "id": "doc-security-withdrawal",
+                  "name": "Synthetic security update (staged)",
+                  "classification": "confirmed",
+                  "synthetic": true
+                },
+                "valid_from": "2026-10-16T08:00:00Z"
+              }
+            ],
+            "next_step": "Inspect the replacement evidence and revalidation record; final launch sign-off remains a human decision.",
+            "persisted": true
+          }
+        ],
+        "model_ms": 11898.973,
+        "model": "llama3:latest",
+        "open_followups": [],
+        "grounding_note": "Cited IDs and paths validated against tool outputs. Natural-language entailment still requires human review."
+      }
+    }
+  ],
+  "state_unchanged": true
+}
