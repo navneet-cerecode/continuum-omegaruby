@@ -37,4 +37,4 @@ Sessions last one hour, expire on server restart, and become invalid when the ac
 
 The loopback HTTP app sets `CONTINUUM_COOKIE_SECURE=false`. Set it true when HTTPS is actually configured. Public network exposure still needs a reviewed TLS/proxy configuration, host/origin policy, operational monitoring and independent security assessment. Host restrictions remain loopback-only. Do not interpret the account feature as a production deployment claim.
 
-For prepared Docker account mode use `compose.accounts.yaml` as an override after provisioning. It mounts the private identity file read-only and refuses to create a missing path. Full image execution remains unverified while the local Docker engine is unavailable.
+For Docker account mode use `compose.accounts.yaml` as an override after provisioning. It mounts the private identity file read-only and refuses to create a missing path. The application image's demo mode was built and run successfully on remote Linux CI; the account override is configuration-validated and its access behavior is covered through real native API/browser tests. Local Docker Desktop remains unavailable.

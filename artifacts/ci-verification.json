@@ -1,0 +1,24 @@
+{
+  "conclusion": "success",
+  "status": "completed",
+  "headSha": "0ef36d2640be61a7c7f0e0b7e36cb247d948e85b",
+  "url": "https://github.com/navneet-cerecode/continuum-omegaruby/actions/runs/38960810628",
+  "tests": {
+    "tests": 114,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "environment": "Fresh GitHub-hosted Ubuntu runner; official FalkorDB service container, locked Python/npm installation and full application Docker build/start/restart",
+  "full_application_container": true,
+  "container": {
+    "verified_at": "2026-10-16T20:16:16.299308+00:00",
+    "real_falkordb_container": true,
+    "real_application_container": true,
+    "production_ui_served": true,
+    "withdrawal_impact": 7,
+    "approved_followups": 1,
+    "application_container_restart_preserved_records": true,
+    "environment": "Fresh GitHub-hosted Ubuntu runner; Linux containers, no model inference in this check"
+  }
+}

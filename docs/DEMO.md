@@ -1,6 +1,6 @@
 # Suggested three-minute demo — OmegaRuby
 
-An actual silent walkthrough is now supplied at `artifacts/CONTINUUM-OmegaRuby-demo.mp4`, edited from real browser recordings with labeled playback speeds. It includes repeated cycles, accounts/imports and a genuine local-agent response. It has not been uploaded and does not substitute for participant explanation. The following narration plan remains available for a human-led recording. Official pages did not specify a video duration; verify submission-form constraints.
+An actual silent walkthrough is now supplied at `artifacts/CONTINUUM-OmegaRuby-demo.mp4`, edited from real browser recordings with labeled playback speeds. It includes repeated cycles, accounts/imports and a genuine local-agent response. The recording is attached to the GitHub release; it does not substitute for participant explanation. The following narration plan remains available for a human-led recording. Official pages did not specify a video duration; verify submission-form constraints.
 
 | Time | On screen | Say / show |
 |---|---|---|

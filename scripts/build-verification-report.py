@@ -70,10 +70,9 @@ report = {
     "actual_database_outage_status": runtime["database_outage"]["status"],
     "build": "TypeScript + Vite production build passed; Compose configuration validated",
     "outstanding": [
-        "Complete Docker image run on working engine",
-        "Clean installation on another machine",
-        "Public repository publication",
-        "Demo video upload; actual local recording supplied",
+        "Local Docker engine remains unavailable; full remote Linux container run passed",
+        "Second-user Windows setup unverified; independent Linux setup passed",
+        "No public application deployment claimed",
         "Human contribution and understanding sign-off",
         "Registration/submission confirmation",
     ],

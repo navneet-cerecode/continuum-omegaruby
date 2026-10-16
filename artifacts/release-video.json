@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-10-16T19:59:54.785711+00:00",
+  "verified_at": "2026-10-16T20:18:54.576158+00:00",
   "file": "CONTINUUM-OmegaRuby-demo.mp4",
   "actual_recordings": true,
   "synthetic_data": true,
@@ -23,6 +23,8 @@
       "duration": "153.680000"
     }
   },
-  "uploaded": false,
-  "note": "Labeled edit of recorded UI, not a fabricated model or participant presentation. Review before submission."
+  "uploaded": true,
+  "note": "Labeled edit of recorded UI, not a fabricated model or participant presentation. Review before submission.",
+  "release_tag": "v0.2.0",
+  "repository": "https://github.com/navneet-cerecode/continuum-omegaruby"
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T20:06:24.878583+00:00",
+  "generated_at": "2026-10-16T20:19:58.026965+00:00",
   "verification_date_ist": "2026-10-17",
   "team": "OmegaRuby",
   "product": "CONTINUUM",
@@ -480,7 +480,7 @@
     "method": "pip-audit exact pinned inventory and npm audit"
   },
   "video": {
-    "verified_at": "2026-10-16T19:59:54.785711+00:00",
+    "verified_at": "2026-10-16T20:18:54.576158+00:00",
     "file": "CONTINUUM-OmegaRuby-demo.mp4",
     "actual_recordings": true,
     "synthetic_data": true,
@@ -504,16 +504,41 @@
         "duration": "153.680000"
       }
     },
-    "uploaded": false,
-    "note": "Labeled edit of recorded UI, not a fabricated model or participant presentation. Review before submission."
+    "uploaded": true,
+    "note": "Labeled edit of recorded UI, not a fabricated model or participant presentation. Review before submission.",
+    "release_tag": "v0.2.0",
+    "repository": "https://github.com/navneet-cerecode/continuum-omegaruby"
   },
   "build": "TypeScript/Vite passed; Compose default/account configuration validated; non-root single-worker Dockerfile prepared",
-  "ci": "GitHub Actions workflow prepared; no remote execution claimed",
+  "ci": {
+    "conclusion": "success",
+    "status": "completed",
+    "headSha": "0ef36d2640be61a7c7f0e0b7e36cb247d948e85b",
+    "url": "https://github.com/navneet-cerecode/continuum-omegaruby/actions/runs/38960810628",
+    "tests": {
+      "tests": 114,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "environment": "Fresh GitHub-hosted Ubuntu runner; official FalkorDB service container, locked Python/npm installation and full application Docker build/start/restart",
+    "full_application_container": true,
+    "container": {
+      "verified_at": "2026-10-16T20:16:16.299308+00:00",
+      "real_falkordb_container": true,
+      "real_application_container": true,
+      "production_ui_served": true,
+      "withdrawal_impact": 7,
+      "approved_followups": 1,
+      "application_container_restart_preserved_records": true,
+      "environment": "Fresh GitHub-hosted Ubuntu runner; Linux containers, no model inference in this check"
+    }
+  },
   "outstanding": [
     "Administrator chooses real account credentials and enables accounts if desired; default demo remains explicit",
-    "Working Docker engine and full container execution",
-    "Another-machine installation",
-    "Public repository publication and video upload destination/final review",
+    "Local Docker engine remains unavailable; full containers verified on fresh remote Linux CI",
+    "Fresh second-user Windows installation unverified; independent Linux installation passed",
+    "No public application deployment claimed",
     "Participant registration, contribution and technical-understanding sign-off",
     "Final event submission",
     "Automatic arbitrary-format extraction, general semantic entailment and public production operations"

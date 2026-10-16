@@ -4,7 +4,7 @@
 
 OpenAI Codex assisted with product architecture, official-source research, fictional fixture authoring, backend and frontend implementation, tests, debugging, browser verification, local-runtime setup and documentation. These are AI-assisted artifacts. The locally configured Llama 3 model is an application inference dependency, reused through the existing Ollama installation. See the actual live-run report before claiming its behavior. A Qwen3 download was attempted as an optional native-tool model; download presence is not a verified inference result.
 
-Codex subsequently added account access, human-reviewed source batches, record pagination, broader evaluation and fresh-install fixes, and recorded/edited an actual silent browser demonstration. These additions are AI assistance, not evidence of participant understanding, narration or personal verification. The supplied video has not been uploaded.
+Codex subsequently added account access, human-reviewed source batches, record pagination, broader evaluation and fresh-install fixes, and recorded/edited an actual silent browser demonstration. These additions are AI assistance, not evidence of participant understanding, narration or personal verification. The supplied recording is attached to the authorized GitHub release.
 
 No generated fictional company record represents a real customer, person, deployment or test result. Fictional capacity/security test excerpts are part of the dataset, not measurements of CONTINUUM. Benchmark and verification artifacts separately identify actually executed checks.
 

@@ -1,0 +1,10 @@
+{
+  "verified_at": "2026-10-16T20:16:16.299308+00:00",
+  "real_falkordb_container": true,
+  "real_application_container": true,
+  "production_ui_served": true,
+  "withdrawal_impact": 7,
+  "approved_followups": 1,
+  "application_container_restart_preserved_records": true,
+  "environment": "Fresh GitHub-hosted Ubuntu runner; Linux containers, no model inference in this check"
+}

@@ -97,7 +97,7 @@ parts = [
     ),
     title(
         "limits",
-        "Verified locally: 114 tests and five live model scenarios\n\nCurated synthetic relationships; human-mapped Markdown\nCitation coverage is checked; prose entailment is unverified\nAccount mode is optional; the original demo stays intact\nDocker engine and another-machine checks remain outstanding\nParticipant understanding and submission require human completion",
+        "Verified locally: 114 tests and five live model scenarios\n\nCurated synthetic relationships; human-mapped Markdown\nCitation coverage is checked; prose entailment is unverified\nAccount mode is optional; the original demo stays intact\nFresh remote Linux build, tests and container restart passed\nParticipant understanding and submission require human completion",
         10,
     ),
 ]

@@ -68,7 +68,9 @@ frontend_audit = read("frontend-dependency-audit.json")
 assert not any(row["vulns"] for row in python_audit["dependencies"])
 assert frontend_audit["metadata"]["vulnerabilities"]["total"] == 0
 video = read("release-video.json")
-assert video["actual_recordings"] and not video["uploaded"]
+assert video["actual_recordings"]
+ci = read("ci-verification.json")
+assert ci["conclusion"] == "success" and ci["full_application_container"]
 report = {
     "generated_at": datetime.now(timezone.utc).isoformat(),
     "verification_date_ist": "2026-10-17",
@@ -115,12 +117,14 @@ report = {
     },
     "video": video,
     "build": "TypeScript/Vite passed; Compose default/account configuration validated; non-root single-worker Dockerfile prepared",
-    "ci": "GitHub Actions workflow prepared; no remote execution claimed",
+    "ci": ci,
     "outstanding": [
         "Administrator chooses real account credentials and enables accounts if desired; default demo remains explicit",
-        "Working Docker engine and full container execution",
-        "Another-machine installation",
-        "Public repository publication and video upload destination/final review",
+        "Local Docker engine remains unavailable; full containers verified on fresh remote Linux CI",
+        "Fresh second-user Windows installation unverified; independent Linux installation passed",
+        "Video release publication pending final upload step"
+        if not video["uploaded"]
+        else "No public application deployment claimed",
         "Participant registration, contribution and technical-understanding sign-off",
         "Final event submission",
         "Automatic arbitrary-format extraction, general semantic entailment and public production operations",

@@ -50,4 +50,5 @@ artifacts/*.json
 !artifacts/browser-release-cycles.json
 !artifacts/container-verification.json
 !artifacts/publication.json
+!artifacts/ci-verification.json
 artifacts/*.xml
