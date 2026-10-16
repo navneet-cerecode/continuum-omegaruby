@@ -48,4 +48,6 @@ artifacts/*.json
 !artifacts/release-video.json
 !artifacts/release-agent-ui.json
 !artifacts/browser-release-cycles.json
+!artifacts/container-verification.json
+!artifacts/publication.json
 artifacts/*.xml

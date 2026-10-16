@@ -31,8 +31,15 @@ jobs:
           CONTINUUM_ACCESS: demo
           FALKORDB_HOST: 127.0.0.1
           FALKORDB_PORT: '6380'
+      - name: Build and verify application container
+        run: |
+          docker build -t continuum-ci .
+          docker run --rm -d --name continuum-app-ci --network host -e FALKORDB_HOST=127.0.0.1 -e FALKORDB_PORT=6380 -e FALKORDB_GRAPH=continuum_container_ci -e CONTINUUM_ACCESS=demo continuum-ci
+          python scripts/verify-container.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: verification-results
-          path: artifacts/pytest-ci.xml
+          path: |
+            artifacts/pytest-ci.xml
+            artifacts/container-verification.json
