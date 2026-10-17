@@ -191,6 +191,14 @@ def run_agent(service, question, transport=None, observer=None):
         {"role": "system", "content": SYSTEM},
         {"role": "user", "content": question},
     ]
+    if style == "chat_completions":
+        messages[0]["content"] = (
+            SYSTEM.replace(
+                "Return a JSON object with",
+                "Return your final answer by calling finish_investigation with",
+            )
+            + "\nfinish_investigation only returns a validated answer. It never changes records. Call it alone after retrieving sufficient evidence; never call an invented json tool."
+        )
     if style == "ollama_json":
         messages[0]["content"] += (
             '\nYou select tools using a JSON protocol. Each turn return exactly one object: {"type":"tool_call","name":"TOOL_NAME","arguments":{"value":"ARGUMENT"}} OR {"type":"final","answer":{"conclusion":"...","supporting_paths":[],"source_ids":[],"conflicts":[],"next_step":"..."}}. No other fields, Markdown, or prose. Never return final before retrieving evidence. Here are the available tools: '
@@ -302,6 +310,17 @@ def run_agent(service, question, transport=None, observer=None):
                         }
                         for t in definitions
                     ]
+                    tools.append(
+                        {
+                            "type": "function",
+                            "function": {
+                                "name": "finish_investigation",
+                                "description": "Return the final answer after retrieving sufficient evidence. Copy exact source IDs and complete paths from tool results. This cannot mutate records.",
+                                "parameters": Answer.model_json_schema(),
+                                "strict": True,
+                            },
+                        }
+                    )
                     body = {
                         "model": model,
                         "messages": messages,
@@ -311,8 +330,8 @@ def run_agent(service, question, transport=None, observer=None):
                         "max_completion_tokens": 1800,
                     }
                     # Compatible providers such as Groq reject JSON mode with
-                    # tool calling. The system requests JSON; Answer validates
-                    # the final object before it can reach the application.
+                    # tool calling. A structured final-answer function is
+                    # validated before its object can reach the application.
                     response = client.post(
                         base + "/chat/completions",
                         headers={"Authorization": "Bearer " + key},
@@ -401,6 +420,18 @@ def run_agent(service, question, transport=None, observer=None):
                         for x in message.get("tool_calls", [])
                     ]
                     content = message.get("content") or ""
+                    final_calls = [
+                        x for x in calls if x["name"] == "finish_investigation"
+                    ]
+                    if final_calls:
+                        if len(calls) != 1:
+                            raise AgentUnavailable(
+                                "A final answer cannot be mixed with other tool calls"
+                            )
+                        content = final_calls[0]["arguments"]
+                        if not isinstance(content, str):
+                            content = json.dumps(content)
+                        calls = []
                 if not calls:
                     if not trace:
                         raise AgentUnavailable(

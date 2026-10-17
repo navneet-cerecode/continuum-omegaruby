@@ -172,7 +172,9 @@ def test_chat_completions_protocol(monkeypatch):
         calls.append(body)
         assert body["tools"][0]["function"]["strict"]
         if body.get("response_format") and body.get("tools"):
-            return httpx.Response(400, json={"error": "JSON mode cannot be combined with tool calling"})
+            return httpx.Response(
+                400, json={"error": "JSON mode cannot be combined with tool calling"}
+            )
         assert all("reasoning" not in message for message in body["messages"])
         if len(calls) == 1:
             return httpx.Response(
@@ -224,3 +226,85 @@ def test_chat_completions_protocol(monkeypatch):
         run_agent(FakeService(), "Atlas?", httpx.MockTransport(handler))["mode"]
         == "agent"
     )
+
+
+def chat_tool(name, arguments):
+    return httpx.Response(
+        200,
+        json={
+            "choices": [
+                {
+                    "message": {
+                        "role": "assistant",
+                        "tool_calls": [
+                            {
+                                "id": "call1",
+                                "type": "function",
+                                "function": {
+                                    "name": name,
+                                    "arguments": json.dumps(arguments),
+                                },
+                            }
+                        ],
+                    }
+                }
+            ]
+        },
+    )
+
+
+@pytest.mark.parametrize("source", ["doc-security-approval-v1", "doc-invented-v1"])
+def test_structured_final_tool_keeps_citation_validation(monkeypatch, source):
+    configuration(monkeypatch, "chat_completions")
+    calls = []
+
+    def handler(request):
+        body = json.loads(request.content)
+        calls.append(body)
+        final = next(
+            t["function"]
+            for t in body["tools"]
+            if t["function"]["name"] == "finish_investigation"
+        )
+        assert final["parameters"]["additionalProperties"] is False
+        if len(calls) == 1:
+            return chat_tool("get_decision_evidence", {"value": "approval-export"})
+        return chat_tool(
+            "finish_investigation",
+            {
+                "conclusion": "Review the retrieved evidence",
+                "supporting_paths": [],
+                "source_ids": [source],
+                "conflicts": [],
+                "next_step": "Inspect sources",
+            },
+        )
+
+    if source == "doc-invented-v1":
+        with pytest.raises(AgentUnavailable, match="not returned"):
+            run_agent(FakeService(), "Atlas?", httpx.MockTransport(handler))
+    else:
+        result = run_agent(FakeService(), "Atlas?", httpx.MockTransport(handler))
+        assert result["answer"]["source_ids"] == [source]
+        assert [item["tool"] for item in result["trace"]] == ["get_decision_evidence"]
+
+
+def test_structured_final_tool_cannot_skip_retrieval(monkeypatch):
+    configuration(monkeypatch, "chat_completions")
+    with pytest.raises(AgentUnavailable, match="without evidence"):
+        run_agent(
+            FakeService(),
+            "Atlas?",
+            httpx.MockTransport(
+                lambda request: chat_tool(
+                    "finish_investigation",
+                    {
+                        "conclusion": "Unsupported claim",
+                        "supporting_paths": [],
+                        "source_ids": [],
+                        "conflicts": [],
+                        "next_step": "Review",
+                    },
+                )
+            ),
+        )
