@@ -5,7 +5,7 @@ import re
 from time import perf_counter
 from dotenv import load_dotenv
 from falkordb import FalkorDB
-from redis.exceptions import RedisError
+from redis.exceptions import RedisError, AuthenticationError
 from backend.validity import utc_now, parse_date, validity_issues, source_issues
 
 load_dotenv()
@@ -69,9 +69,17 @@ class Store:
         start = perf_counter()
         try:
             if self.graph is None:
+                tls = os.getenv("FALKORDB_TLS", "false").lower()
+                if tls not in ("true", "false"):
+                    raise ValueError("FALKORDB_TLS must be true or false")
                 self.db = FalkorDB(
                     host=os.getenv("FALKORDB_HOST", "127.0.0.1"),
                     port=self.port,
+                    username=os.getenv("FALKORDB_USERNAME") or None,
+                    password=os.getenv("FALKORDB_PASSWORD") or None,
+                    ssl=tls == "true",
+                    ssl_cert_reqs="required",
+                    ssl_check_hostname=True,
                     socket_timeout=6,
                     socket_connect_timeout=2,
                 )
@@ -81,6 +89,11 @@ class Store:
             keys = [col[1] for col in result.header]
             return [dict(zip(keys, row)) for row in result.result_set]
         except RedisError as exc:
+            if isinstance(exc, AuthenticationError):
+                self.graph = None
+                raise GraphUnavailable(
+                    "FalkorDB authentication failed; check the server-side connection configuration."
+                ) from exc
             # Do not mask query/programming errors as a successful empty result.
             if "Connection" in type(exc).__name__ or "Timeout" in type(exc).__name__:
                 self.graph = None

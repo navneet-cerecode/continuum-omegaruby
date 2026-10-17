@@ -14,6 +14,7 @@ from backend.agent import run_agent, AgentUnavailable, agent_configured
 from backend.restoration import ReplacementEvidence, Revalidation
 from backend.changes import Withdrawal
 from backend.onboarding import SourceBatch
+from backend.hosting import configuration
 from backend.access import (
     access,
     ScopedStore,
@@ -24,6 +25,7 @@ from backend.access import (
     principal,
 )
 
+hosting = configuration()
 app = FastAPI(
     title="CONTINUUM · OmegaRuby", version="0.2.0", dependencies=[Depends(access)]
 )
@@ -33,7 +35,7 @@ model_slots = BoundedSemaphore(1)
 app.add_middleware(RequestGuards)
 app.add_middleware(
     TrustedHostMiddleware,
-    allowed_hosts=["127.0.0.1", "localhost", "[::1]"],
+    allowed_hosts=hosting.hosts,
     www_redirect=False,
 )
 
@@ -62,16 +64,8 @@ def input_error(request, exc):
 async def local_writes_only(request: Request, call_next):
     # Origin restrictions also defend login against cross-origin session replacement.
     origin = request.headers.get("origin")
-    if (
-        request.method not in ("GET", "HEAD", "OPTIONS")
-        and origin
-        and origin
-        not in (
-            "http://127.0.0.1:8000",
-            "http://localhost:8000",
-            "http://127.0.0.1:5173",
-            "http://localhost:5173",
-        )
+    if request.method not in ("GET", "HEAD", "OPTIONS") and (
+        (hosting.cloud and not origin) or (origin and origin not in hosting.origins)
     ):
         return JSONResponse(
             status_code=403, content={"error": "Cross-origin mutation refused"}
@@ -150,6 +144,16 @@ def health():
         "synthetic": True,
         "team": "OmegaRuby",
     }
+
+
+@app.get("/api/healthz")
+def readiness_probe():
+    if required():
+        from backend.access import accounts
+
+        accounts()
+    store.revision()
+    return {"status": "ready"}
 
 
 @app.get("/api/overview")

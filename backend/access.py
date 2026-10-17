@@ -58,7 +58,8 @@ def password_valid(password, encoded):
 def accounts():
     path = Path(os.getenv("CONTINUUM_ACCOUNTS_FILE", ".runtime/accounts.json"))
     try:
-        data = json.loads(path.read_text(encoding="utf-8"))
+        raw = os.getenv("CONTINUUM_ACCOUNTS_JSON")
+        data = json.loads(raw if raw else path.read_text(encoding="utf-8"))
         companies = data["companies"]
         users = data["users"]
         if not companies or len(companies) > 100 or not users or len(users) > 500:
@@ -203,7 +204,7 @@ async def access(request: Request):
     if (
         not required()
         or not request.url.path.startswith("/api")
-        or request.url.path in ("/api/auth/session", "/api/auth/login")
+        or request.url.path in ("/api/auth/session", "/api/auth/login", "/api/healthz")
     ):
         yield
         return

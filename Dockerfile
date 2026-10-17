@@ -14,4 +14,4 @@ COPY data ./data
 COPY --from=frontend /build/dist ./frontend/dist
 USER 10001:10001
 EXPOSE 8000
-CMD ["sh", "-c", "python -m backend.seed && exec uvicorn backend.main:app --host 0.0.0.0 --port 8000 --workers 1"]
+CMD ["sh", "-c", "python -m backend.seed && exec uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000} --workers 1"]
