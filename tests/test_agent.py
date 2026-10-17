@@ -171,6 +171,9 @@ def test_chat_completions_protocol(monkeypatch):
         body = json.loads(r.content)
         calls.append(body)
         assert body["tools"][0]["function"]["strict"]
+        if body.get("response_format") and body.get("tools"):
+            return httpx.Response(400, json={"error": "JSON mode cannot be combined with tool calling"})
+        assert all("reasoning" not in message for message in body["messages"])
         if len(calls) == 1:
             return httpx.Response(
                 200,
@@ -179,6 +182,7 @@ def test_chat_completions_protocol(monkeypatch):
                         {
                             "message": {
                                 "role": "assistant",
+                                "reasoning": "Provider-private reasoning must not be echoed or published",
                                 "tool_calls": [
                                     {
                                         "id": "c1",

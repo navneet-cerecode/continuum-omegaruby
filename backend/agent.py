@@ -309,8 +309,10 @@ def run_agent(service, question, transport=None, observer=None):
                         "tool_choice": "required" if turn == 0 else "auto",
                         "parallel_tool_calls": False,
                         "max_completion_tokens": 1800,
-                        "response_format": {"type": "json_object"},
                     }
+                    # Compatible providers such as Groq reject JSON mode with
+                    # tool calling. The system requests JSON; Answer validates
+                    # the final object before it can reach the application.
                     response = client.post(
                         base + "/chat/completions",
                         headers={"Authorization": "Bearer " + key},
@@ -388,6 +390,11 @@ def run_agent(service, question, transport=None, observer=None):
                     content = message.get("content") or ""
                 else:
                     message = payload["choices"][0]["message"]
+                    message = {
+                        k: v
+                        for k, v in message.items()
+                        if k in ("role", "content", "tool_calls")
+                    }
                     messages.append(message)
                     calls = [
                         {"id": x["id"], **x["function"]}
