@@ -4,6 +4,8 @@
 
 Team **OmegaRuby** · Graph Hacks by WeMakeDevs and FalkorDB · **Track 3 — Company Brain**
 
+**Live demo:** [CONTINUUM on Railway](https://continuum-omegaruby-production.up.railway.app/). Account access is required; the team provides judge credentials separately. The deployment uses private persistent FalkorDB and Groq Free model inference. [Cloud setup and verification](docs/CLOUD.md) records the trial limits and executed checks. Complete local setup remains available below.
+
 CONTINUUM connects launch decisions to their evidence, dependencies, customer commitments and current owners. When a security approval changes, it traces the recorded dependencies and proposes a human-reviewed response. A changed assumption flags a decision for review; it does not declare it wrong or cancel the launch.
 
 ![Company context](artifacts/design/context-1440.png)
@@ -115,6 +117,6 @@ Tests use real, isolated FalkorDB graphs and clean up only their own graph. Agen
 
 ## Boundaries
 
-Default **local synthetic demo**, with optional account mode for authenticated company graph access. [Cloud deployment configuration](docs/CLOUD.md) requires accounts, Secure cookies and an exact HTTPS origin; a verified public deployment URL is not yet supplied. No infrastructure-level tenant isolation, external connectors, automatic document extraction, notification sending, enterprise-scale claims or production readiness. Reviewed source batches, account authorization and record pagination are implemented; general prose entailment, distributed identity/quotas and public operational hardening remain unverified. See [release boundaries](docs/RELEASE.md).
+Default **local synthetic demo**, with optional account mode for authenticated company graph access. The [verified cloud demo](docs/CLOUD.md) requires accounts, Secure cookies and an exact HTTPS origin. No infrastructure-level tenant isolation, external connectors, automatic document extraction, notification sending, enterprise-scale claims or production readiness. Reviewed source batches, account authorization and record pagination are implemented; general prose entailment, distributed identity/quotas and an independent public security assessment remain unverified. See [release boundaries](docs/RELEASE.md).
 
 The distinctive contribution is the path from **changed evidence → dependent decisions and promises → current accountable owners → approved, persisted response**, with the original rationale retained. A relational database can implement dependencies too; a graph makes this connected traversal and its provenance explicit. Future expansion could cover procurement or policy decisions after their authority, dependency and validity rules are defined. This submission implements launch readiness only.

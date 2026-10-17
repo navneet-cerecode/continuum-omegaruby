@@ -52,4 +52,6 @@ artifacts/*.json
 !artifacts/container-verification.json
 !artifacts/publication.json
 !artifacts/ci-verification.json
+!artifacts/cloud-verification.json
+!artifacts/cloud-agent.json
 artifacts/*.xml

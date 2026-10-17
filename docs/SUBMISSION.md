@@ -12,9 +12,10 @@ FalkorDB is essential: dependency traversal, source retrieval, ownership, histor
 
 **Distinctive contribution:** evidence aging becomes an accountable response workflow, with the prior rationale retained. The system flags decisions for review rather than declaring them wrong. Structured fixture relationships are disclosed; this is not a claim of arbitrary-document extraction or enterprise-scale deployment.
 
-**Status gates before submission:** consult VERIFICATION.md; participant contribution/understanding must be recorded; working video must be created; repository must be published with authorization. No repository URL, video URL or deployment URL has been fabricated.
+**Status gates before submission:** the public repository, recorded video and live cloud demo are available. The submission form requires a YouTube video URL, so upload the existing recording as public or unlisted before submitting. Participant contribution/understanding remains participant-owned and must be recorded honestly; see CONTRIBUTIONS.md and VERIFICATION.md.
 
 **Repository:** [navneet-cerecode/continuum-omegaruby](https://github.com/navneet-cerecode/continuum-omegaruby), explicitly authorized for public release.  
 **Video:** [working demo recording](https://github.com/navneet-cerecode/continuum-omegaruby/releases/download/v0.2.0/CONTINUUM-OmegaRuby-demo.mp4), 2 minutes 34 seconds, silent. It is an automated walkthrough, not participant narration or proof of understanding.  
-**Deployment:** local instructions supplied; no public deployment claim.  
+**Deployment:** [account-protected live demo](https://continuum-omegaruby-production.up.railway.app/), with private persistent FalkorDB and a verified Groq Free agent. Supply judge login credentials separately. Railway trial limits and complete cloud/local setup are disclosed in CLOUD.md and the README.
+
 **AI assistance:** OpenAI Codex used for research, implementation, fixtures, testing and documentation. See CONTRIBUTIONS.md for actual participant log, which remains participant-owned.
