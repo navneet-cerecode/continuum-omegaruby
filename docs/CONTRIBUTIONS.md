@@ -10,7 +10,7 @@ No generated fictional company record represents a real customer, person, deploy
 
 Reused dependencies: React, TypeScript, Vite, Lucide, FastAPI, Uvicorn, official FalkorDB Python client, Redis protocol libraries, HTTPX, pytest, Docker, Ollama and the selected model. Preserve their licenses. Fonts use Google Fonts DM Sans and Manrope with system fallbacks; no copied product layout, branding or external proprietary assets. CONTINUUM-specific application code and synthetic fixture were created during this event work session.
 
-## Human contribution record — participant must complete
+## Human contribution record
 
 Do not check these on someone else's behalf. Record real names, dates, changes and evidence.
 
@@ -27,14 +27,16 @@ Do not check these on someone else's behalf. Record real names, dates, changes a
 - [ ] Review licenses, secrets, local paths and public-repository contents before publication.
 - [ ] Publish repository and submit only after explicit authorization.
 
-Participant contribution log:
+### Participant statement — October 18, 2026
 
-Verified participant input in this chat: supplied the detailed product thesis, launch workflow, team/track constraints and verification requirements; requested a free inference alternative. This establishes those inputs only. It does not establish implementation contribution, personal verification, technical understanding or event participation.
+I defined CONTINUUM’s requirements and launch-review workflow around graph-based dependency analysis, versioned evidence, current ownership, and human-approved follow-ups. I guided iterations on hardening, persistent history, free model inference, and cloud deployment, and supplied the YouTube demo link.
 
-On October 18, 2026, the participant supplied the [unlisted YouTube demo](https://youtu.be/ZBFiwe2X2jM) and reported that the submission form was filled. The YouTube page and playback were checked by Codex; the portal's final submitted status was not independently verified.
+OpenAI Codex assisted with the FalkorDB data model and Cypher queries, FastAPI backend, React frontend, bounded read-only agent tools, automated testing, debugging, deployment, and documentation.
+
+The statement above was supplied by the participant. The [unlisted YouTube demo](https://youtu.be/ZBFiwe2X2jM) page and playback were checked by Codex on October 18, 2026. The checklist records separate participant verification and explanation tasks; the statement does not mark those tasks complete.
 
 | Participant | Date | Actual work | Evidence / explanation |
 |---|---|---|---|
-| To be completed by participant | | | |
+| navneet-cerecode | 2026-10-18 | Requirements and launch-review workflow; guided hardening, persistence, free inference and cloud deployment iterations; supplied demo link | Participant-supplied statement above and linked YouTube demo. AI assistance is described separately. |
 
 The official rules require meaningful participant contribution and understanding; generated code plus this unchecked checklist does not establish either.
