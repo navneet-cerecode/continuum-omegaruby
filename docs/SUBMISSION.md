@@ -12,10 +12,14 @@ FalkorDB is essential: dependency traversal, source retrieval, ownership, histor
 
 **Distinctive contribution:** evidence aging becomes an accountable response workflow, with the prior rationale retained. The system flags decisions for review rather than declaring them wrong. Structured fixture relationships are disclosed; this is not a claim of arbitrary-document extraction or enterprise-scale deployment.
 
-**Status gates before submission:** the public repository, recorded video and live cloud demo are available. The submission form requires a YouTube video URL, so upload the existing recording as public or unlisted before submitting. Participant contribution/understanding remains participant-owned and must be recorded honestly; see CONTRIBUTIONS.md and VERIFICATION.md.
+**Submission assets:** the public repository, unlisted YouTube demo, published blog and live cloud demo are available. The README includes the graph diagram, node/relationship model, agent-tool mapping and an actual Cypher query. On October 18, the participant reported that the submission form was filled; the final submitted status and entered fields have not been independently verified. Participant contribution/understanding remains participant-owned and must be recorded honestly; see CONTRIBUTIONS.md and VERIFICATION.md. Supply judge credentials through a private submission channel; never add passwords to the public repository.
 
-**Repository:** [navneet-cerecode/continuum-omegaruby](https://github.com/navneet-cerecode/continuum-omegaruby), explicitly authorized for public release.  
-**Video:** [working demo recording](https://github.com/navneet-cerecode/continuum-omegaruby/releases/download/v0.2.0/CONTINUUM-OmegaRuby-demo.mp4), 2 minutes 34 seconds, silent. It is an automated walkthrough, not participant narration or proof of understanding.  
+**Repository:** [navneet-cerecode/continuum-omegaruby](https://github.com/navneet-cerecode/continuum-omegaruby), explicitly authorized for public release.
+
+**Blog:** [CONTINUUM: Building a Company Brain That Knows When Decisions Need Review](https://dev.to/navneetcerecode/continuum-building-a-company-brain-that-knows-when-decisions-need-review-3pj8), published on DEV Community under navneet-cerecode.
+
+**Video:** [CONTINUUM on YouTube](https://youtu.be/ZBFiwe2X2jM), 2 minutes 48 seconds, unlisted; page and playback checked on October 18. The earlier [silent release recording](https://github.com/navneet-cerecode/continuum-omegaruby/releases/download/v0.2.0/CONTINUUM-OmegaRuby-demo.mp4) remains available as a separate artifact.
+
 **Deployment:** [account-protected live demo](https://continuum-omegaruby-production.up.railway.app/), with private persistent FalkorDB and a verified Groq Free agent. Supply judge login credentials separately. Railway trial limits and complete cloud/local setup are disclosed in CLOUD.md and the README.
 
 **AI assistance:** OpenAI Codex used for research, implementation, fixtures, testing and documentation. See CONTRIBUTIONS.md for actual participant log, which remains participant-owned.

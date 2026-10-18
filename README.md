@@ -4,6 +4,8 @@
 
 Team **OmegaRuby** · Graph Hacks by WeMakeDevs and FalkorDB · **Track 3 — Company Brain**
 
+**Demo video:** [Watch CONTINUUM on YouTube](https://youtu.be/ZBFiwe2X2jM) · **Blog:** [Building a Company Brain That Knows When Decisions Need Review](https://dev.to/navneetcerecode/continuum-building-a-company-brain-that-knows-when-decisions-need-review-3pj8)
+
 **Live demo:** [CONTINUUM on Railway](https://continuum-omegaruby-production.up.railway.app/). Account access is required; the team provides judge credentials separately. The deployment uses private persistent FalkorDB and Groq Free model inference. [Cloud setup and verification](docs/CLOUD.md) records the trial limits and executed checks. Complete local setup remains available below.
 
 CONTINUUM connects launch decisions to their evidence, dependencies, customer commitments and current owners. When a security approval changes, it traces the recorded dependencies and proposes a human-reviewed response. A changed assumption flags a decision for review; it does not declare it wrong or cancel the launch.
@@ -11,6 +13,69 @@ CONTINUUM connects launch decisions to their evidence, dependencies, customer co
 ![Company context](artifacts/design/context-1440.png)
 
 The frontend redesign includes responsive context, dependency investigation and follow-up review, keyboard workspace search (Ctrl/Cmd+K), and an evidence explorer. Read the [design audit](docs/DESIGN_AUDIT.md) and [design verification](docs/DESIGN_VERIFICATION.md) for scope, screenshots, and test evidence.
+
+## Graph data model
+
+The graph represents fictional Northstar Systems. This representative Atlas chain shows the stored direction: **dependent → prerequisite**. Only `DEPENDS_ON` propagates impact; source, ownership and membership links do not. Impact investigation follows incoming dependency paths from the changed prerequisite.
+
+```mermaid
+flowchart TD
+    C["Commitment: Acme promise"] -->|DEPENDS_ON| M["Milestone: Atlas availability"]
+    P["Project: Atlas"] -->|DEPENDS_ON| M
+    M -->|DEPENDS_ON| D["Decision: Atlas launch"]
+    D -->|DEPENDS_ON| G["Milestone: Export gate"]
+    G -->|DEPENDS_ON| E["Decision: Export rollout"]
+    E -->|DEPENDS_ON| A["Assumption: Export approval"]
+    D -->|OWNED_BY| O["Person: current accountable owner"]
+    D -->|SUPPORTED_BY| V["DocumentVersion: immutable decision evidence"]
+    V -->|PART_OF| S["Document: stable source identity"]
+```
+
+| Nodes | Role and relationships |
+|---|---|
+| Project, Milestone, Decision, Assumption, Commitment | Operational prerequisites connected by `DEPENDS_ON`. A withdrawn assumption flags dependent readiness for review while preserving the original decision. |
+| Document, DocumentVersion | Versioned evidence via `SUPPORTED_BY` and `PART_OF`; `SUPERSEDES` retains older versions and assumptions. |
+| Person, Team | Sourced `OWNED_BY` records and `MEMBER_OF` membership. Authority and effective dates resolve current ownership; conflicts remain visible. |
+| ChangeEvent | Retains the change and its bounded impact snapshot; `AFFECTS` records affected membership. |
+| ResponsePlan, ProposedAction, ActionItem | A plan `HAS_PROPOSAL`; an explicitly approved task is `CREATED_FROM` a proposal, `ASSIGNED_TO` a person, `FOR_DECISION` a decision/commitment, and `TRIGGERED_BY` the event. |
+| RestorationReview | `PROPOSES` a replacement assumption, `REVALIDATES` reviewed items, `RESOLVES` the event, and records the person through `REVIEWED_BY`. Completing tasks alone does not restore approval. |
+| Workspace | Stores the graph revision used to reject stale mutations and approvals. |
+
+The complete [graph model](docs/GRAPH_MODEL.md) specifies validity, authority, historical snapshots, repeated cycles and every relationship. Relationships are curated metadata from synthetic sources, not automatic extraction from arbitrary prose.
+
+### How the agent queries FalkorDB
+
+A question enters the bounded model loop in [backend/agent.py](backend/agent.py). The model selects one of **eight typed, read-only tools**; the backend validates its arguments and executes parameterized FalkorDB queries. It returns graph paths, source versions, ownership conflicts and persisted records. The final answer must cite retrieved source IDs and complete returned paths. The model cannot issue arbitrary Cypher, approve tasks or send messages.
+
+| Agent tool | Graph work |
+|---|---|
+| `search_company_context` | Find stable entity IDs by name or ID. |
+| `assess_launch_readiness` | Traverse project dependencies; check required assumptions, evidence validity/authority and ownership. |
+| `trace_change_impact` | Find incoming `DEPENDS_ON` paths to a changed prerequisite. |
+| `get_decision_evidence` | Retrieve the exact `DocumentVersion` excerpts linked to a record. |
+| `resolve_current_owner` | Retrieve sourced `OWNED_BY` records and resolve authority/date conflicts. |
+| `get_change_event` | Read a selected incident, retained impact snapshot, evidence and readiness. |
+| `get_open_followups` | Read graph-backed events and action items for a project or workspace. |
+| `propose_followup_plan` | Preview work from retrieved impact and owners; does not persist or approve it. |
+
+For example, the current-impact query finds dependents of `$id` and returns the evidence attached to each dependency edge:
+
+```cypher
+MATCH p=(n)-[:DEPENDS_ON*1..8]->(a {id:$id})
+WHERE (n:Decision OR n:Milestone OR n:Commitment OR n:Project)
+  AND all(r IN relationships(p) WHERE coalesce(r.current,true)=true)
+RETURN n.id AS id, n.name AS name, labels(n) AS labels,
+       [v IN nodes(p) | v.id] AS path,
+       [e IN relationships(p) | properties(e)] AS edges,
+       length(p) AS depth
+ORDER BY depth, id LIMIT 201;
+```
+
+Traversal is bounded to eight hops and 200 retained paths. The 201st path and a separate beyond-depth query detect incomplete impact; incomplete investigation blocks plans. See [essential Cypher queries](docs/QUERIES.cypher) and the actual implementations in [backend/graph.py](backend/graph.py) and [backend/service.py](backend/service.py).
+
+**Actual agent evidence:** the [recorded cloud investigation](artifacts/cloud-agent.json) called `assess_launch_readiness` for Beacon and returned `project-beacon → milestone-beacon → decision-beacon → approval-beacon`, with four supporting source versions. These paths and citations come from FalkorDB. Schema, source-ID and path validation do not prove every natural-language sentence; prose entailment remains unverified.
+
+FalkorDB is central to this behavior: it stores organizational context, history, plans and tasks, and executes dependency/evidence/ownership queries. There is no fallback organizational database or application-side topology traversal. Database unavailability produces an unavailable state. The model investigates; explicit application approval controls mutations.
 
 ## Run locally
 
@@ -61,7 +126,7 @@ npm.cmd --prefix frontend run build
 
 For native inference use `LLM_BASE_URL=http://127.0.0.1:11434`. For frontend development run `npm.cmd --prefix frontend run dev` in a second terminal; Vite proxies `/api` to port 8000.
 
-Docker Desktop failed on the implementation machine because of its inference socket. The actual database verification used the **official FalkorDB 4.14.11 module on Redis 8.0.5 in existing Ubuntu WSL**, with persistent files in ignored `.runtime/database`. The [fallback instructions](docs/LOCAL_RUNTIME.md) reproduce this without system package installation. Docker Compose is prepared; its complete image build must be verified on a working Docker engine.
+Docker Desktop on the original implementation machine failed because of its inference socket, so native verification used the **official FalkorDB 4.14.11 module on Redis 8.0.5 in existing Ubuntu WSL**, with persistent files in ignored `.runtime/database`. The [fallback instructions](docs/LOCAL_RUNTIME.md) reproduce that setup. The application image build and container lifecycle were subsequently verified on Linux CI; the Railway deployment also runs the application container. See [cloud verification](docs/CLOUD.md) for those later checks.
 
 ## Signature workflow
 
@@ -96,7 +161,9 @@ Read the [graph model](docs/GRAPH_MODEL.md), [essential queries](docs/QUERIES.cy
 
 ## Verification
 
-Latest [local release verification](docs/RELEASE.md): **114 tests pass**, real Chrome covers account/import/paging/company boundaries, five live local-model scenarios pass citation-coverage checks, and a 1,206-node synthetic graph returns the expected impact under concurrency one and four. Fresh archive setup passed on this machine. An actual [demo recording](artifacts/CONTINUUM-OmegaRuby-demo.mp4) is supplied. Original demo records remain unchanged. See `artifacts/release-verification.json`; earlier checkpoints retain their own scope.
+Latest [cloud verification — October 17, 2026](docs/CLOUD.md): **129 tests passed on Linux CI**, with actual Docker lifecycle checks. Separate live Railway checks covered HTTPS login, origin/CSRF/role restrictions, a complete synthetic withdrawal/approval/restoration workflow, a real Groq model/tool response with graph citations, and unchanged recap records after a FalkorDB restart. See [executed cloud results](artifacts/cloud-verification.json) and the [CI run](https://github.com/navneet-cerecode/continuum-omegaruby/actions/runs/39030348326). The cloud app uses one worker/replica, Railway trial resources and Groq Free inference; these checks are not a production-readiness or prose-entailment claim.
+
+Earlier [local release verification](docs/RELEASE.md): **114 tests passed**, real Chrome covers account/import/paging/company boundaries, five live local-model scenarios pass citation-coverage checks, and a 1,206-node synthetic graph returns the expected impact under concurrency one and four. Fresh archive setup passed on this machine. The [YouTube demo](https://youtu.be/ZBFiwe2X2jM) is the submission video; the earlier [silent release recording](artifacts/CONTINUUM-OmegaRuby-demo.mp4) remains available. Original demo records remain unchanged. See `artifacts/release-verification.json`; earlier checkpoints retain their own scope.
 
 Latest [cycle verification](docs/CYCLES.md): **103 tests pass**, Chrome completed two cycles with historical selection on desktop/mobile, and two real local-agent calls distinguished an old resolution from a current withdrawal. Original demo records were preserved. Free-text citation quality still needs stronger evaluation. See `artifacts/cycles-verification.json`.
 

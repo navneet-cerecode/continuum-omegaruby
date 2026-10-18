@@ -31,6 +31,8 @@ Participant contribution log:
 
 Verified participant input in this chat: supplied the detailed product thesis, launch workflow, team/track constraints and verification requirements; requested a free inference alternative. This establishes those inputs only. It does not establish implementation contribution, personal verification, technical understanding or event participation.
 
+On October 18, 2026, the participant supplied the [unlisted YouTube demo](https://youtu.be/ZBFiwe2X2jM) and reported that the submission form was filled. The YouTube page and playback were checked by Codex; the portal's final submitted status was not independently verified.
+
 | Participant | Date | Actual work | Evidence / explanation |
 |---|---|---|---|
 | To be completed by participant | | | |
